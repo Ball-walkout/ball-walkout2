@@ -74,10 +74,10 @@ public class TouchMove : MonoBehaviour
 
     public void TurnRight()
     {
-        if(index!=0)
-                index-=1;
+        if(index!=3)
+                index+=1;
             else
-                index=3;
+                index=0;
             velocity = direction[index];
     }
     

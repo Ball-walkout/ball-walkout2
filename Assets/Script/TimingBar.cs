@@ -38,20 +38,25 @@ public class TimingBar : MonoBehaviour
             if(scrollbartiming.value < 0.03f){
                 ball.TurnLeft();
             }
-            else if(scrollbartiming.value < 0.23f){
-                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
+            else if(0.03f <= scrollbartiming.value && scrollbartiming.value < 0.23f){
+                ball.TurnLeft();
+                //ball.rig.velocity += ball.direction[ball.index] * (ball.speed/2);
             }
-            else if(scrollbartiming.value < 0.17f){
-                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
+            else if(0.23f <= scrollbartiming.value && scrollbartiming.value < 0.17f){
+                ball.TurnLeft();
+                //ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
             }
-            else if(scrollbartiming.value < 0.61f){
-                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
+            else if(0.17f <= scrollbartiming.value && scrollbartiming.value < 0.61f){
+                //ball.TurnLeft();
+                //ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
             }
-            else if(scrollbartiming.value < 0.8f){
-                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
+            else if(0.61f <= scrollbartiming.value && scrollbartiming.value < 0.8f){
+                ball.TurnRight();
+                //ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
             }
-            else if(scrollbartiming.value < 0.96f){
-                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
+            else if(0.8f <= scrollbartiming.value && scrollbartiming.value < 0.96f){
+                ball.TurnRight();
+                //ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
             }
             else{
                ball.TurnRight();
