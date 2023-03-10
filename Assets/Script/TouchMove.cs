@@ -6,6 +6,71 @@ using UnityEngine;
 // https://www.engedi.kr/unity/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=3955143&t=board
 public class TouchMove : MonoBehaviour
 {
+    public float speed = 10f;
+    private Rigidbody rig;
+    private Vector3[] direction = new Vector3[4] { new Vector3(1f,0f,0f), new Vector3(0f,0f,-1f), new Vector3(-1f,0f,0f), new Vector3(0f,0f,1f)} ;
+    private int index = 0, tempindex = 0;
+    private void Start() {
+        rig = GetComponent<Rigidbody>();
+        velocity = direction[index];
+    }
+    private Vector3 velocity, initialMouse;
+    void Update()
+    {
+        // 직진
+        rig.velocity = velocity * speed;
+
+        // 클릭 좌표로 현재 방향 기준 좌우 움직이기
+        if(Input.GetMouseButtonDown(0))
+        {
+            initialMouse = Input.mousePosition;
+        }
+        if(Input.GetMouseButton(0))
+        {
+            tempindex = index;
+            if(Input.mousePosition.x > initialMouse.x)
+            {
+                if(tempindex!=3) tempindex+=1; else tempindex=0;
+                rig.velocity += direction[tempindex] * (speed/2);
+            }
+                
+            if(Input.mousePosition.x < initialMouse.x)
+            {
+                if(tempindex!=0) tempindex-=1; else tempindex=3;
+                rig.velocity += direction[tempindex] * (speed/2);
+            }
+            
+            if(initialMouse.y - Input.mousePosition.y > 50f)
+            {
+                //rig.velocity += new Vector3(0f,1f,0f) * 10f;
+                //print("Vector3.up: "+Vector3.up);
+                print("JUMP");
+                rig.AddForce(Vector3.up * 20f, ForceMode.Impulse);
+            }
+        }
+    }
+
+    // Curved Rail 공 직진 방향 전환
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag == "Left")
+        {
+            if(index!=0)
+                index-=1;
+            else
+                index=3;
+            velocity = direction[index];
+        }
+        else if(other.tag == "Right")
+        {
+            if(index!=3)
+                index+=1;
+            else
+                index=0;
+            velocity = direction[index];
+        }
+    }
+
+    /*
     void OnMouseDrag()
     {
         float distance = Camera.main.WorldToScreenPoint(transform.position).z;
@@ -17,6 +82,7 @@ public class TouchMove : MonoBehaviour
         objPos.y = -1.85f;
         transform.position = objPos;
     }
+    */
     /*GameObject objectHitPostion;
     RaycastHit hitRay, hitLayerMask;
 
