@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Left
   - Right
+  - speed
   layers:
   - Default
   - TransparentFX

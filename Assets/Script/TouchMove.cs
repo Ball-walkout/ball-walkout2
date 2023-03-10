@@ -9,7 +9,7 @@ public class TouchMove : MonoBehaviour
     public float speed = 10f;
     private Rigidbody rig;
     private Vector3[] direction = new Vector3[4] { new Vector3(1f,0f,0f), new Vector3(0f,0f,-1f), new Vector3(-1f,0f,0f), new Vector3(0f,0f,1f)} ;
-    private int index = 0, tempindex = 0;
+    public int index = 0, tempindex = 0;
     private void Start() {
         rig = GetComponent<Rigidbody>();
         velocity = direction[index];
@@ -40,13 +40,13 @@ public class TouchMove : MonoBehaviour
                 rig.velocity += direction[tempindex] * (speed/2);
             }
             
-            if(initialMouse.y - Input.mousePosition.y > 50f)
+            /*if(initialMouse.y - Input.mousePosition.y > 50f)
             {
                 //rig.velocity += new Vector3(0f,1f,0f) * 10f;
                 //print("Vector3.up: "+Vector3.up);
                 print("JUMP");
                 rig.AddForce(Vector3.up * 20f, ForceMode.Impulse);
-            }
+            }*/
         }
     }
 
