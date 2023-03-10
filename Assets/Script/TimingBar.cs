@@ -28,29 +28,30 @@ public class TimingBar : MonoBehaviour
     
     private TouchMove ball;
     public void buttonClick(){
+        Debug.Log(scrollbartiming.value);
         Stopbutton.SetActive(false);
         fMove = 0.0f;
         if(timingBar.activeSelf == true){
             timingBar.SetActive(false);
             timingBararr.SetActive(false);
             ball = GameObject.Find("ball").GetComponent<TouchMove>();
-            if(scrollbartiming.value < 0.15f){
+            if(scrollbartiming.value < 0.03f){
                 ball.TurnLeft();
             }
             else if(scrollbartiming.value < 0.23f){
-                //GameObject.Find("ball").GetComponent<TouchMove>().speed = 5.0f;
+                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
             }
-            else if(scrollbartiming.value < 0.35f){
-                //GameObject.Find("ball").GetComponent<TouchMove>().speed = 15.0f;
+            else if(scrollbartiming.value < 0.17f){
+                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
             }
-            else if(scrollbartiming.value < 0.5f){
-               // GameObject.Find("ball").GetComponent<TouchMove>().speed = 20.0f;
+            else if(scrollbartiming.value < 0.61f){
+                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
             }
-            else if(scrollbartiming.value < 0.65f){
-              //  GameObject.Find("ball").GetComponent<TouchMove>().speed = 15.0f;
+            else if(scrollbartiming.value < 0.8f){
+                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
             }
-            else if(scrollbartiming.value < 0.85f){
-              //  GameObject.Find("ball").GetComponent<TouchMove>().speed = 5.0f;
+            else if(scrollbartiming.value < 0.96f){
+                ball.rig.velocity += new Vector3(0f, -6f, 1f) * (ball.speed/2);
             }
             else{
                ball.TurnRight();
@@ -60,25 +61,25 @@ public class TimingBar : MonoBehaviour
             speedBar.SetActive(false);
             speedBararr.SetActive(false);
             if(scrollbarspeed.value < 0.2f){
-                GameObject.Find("ball").GetComponent<TouchMove>().speed = 1.0f;
+                ball.speed = 1.0f;
             }
             else if(scrollbarspeed.value < 0.17f){
-                GameObject.Find("ball").GetComponent<TouchMove>().speed = 5.0f;
+                ball.speed = 5.0f;
             }
             else if(scrollbarspeed.value < 0.34f){
-                GameObject.Find("ball").GetComponent<TouchMove>().speed = 15.0f;
+                ball.speed = 15.0f;
             }
             else if(scrollbarspeed.value < 0.55f){
-                GameObject.Find("ball").GetComponent<TouchMove>().speed = 20.0f;
+                ball.speed = 20.0f;
             }
             else if(scrollbarspeed.value < 0.72f){
-                GameObject.Find("ball").GetComponent<TouchMove>().speed = 15.0f;
+                ball.speed = 15.0f;
             }
             else if(scrollbarspeed.value < 0.89f){
-                GameObject.Find("ball").GetComponent<TouchMove>().speed = 5.0f;
+                ball.speed = 5.0f;
             }
             else{
-                GameObject.Find("ball").GetComponent<TouchMove>().speed = 1.0f;
+                ball.speed = 1.0f;
             }
         }
     }

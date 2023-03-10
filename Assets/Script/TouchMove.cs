@@ -7,15 +7,16 @@ using UnityEngine;
 public class TouchMove : MonoBehaviour
 {
     public float speed = 10f;
-    private Rigidbody rig;
-    private Vector3[] direction;
-    private int index = 0, tempindex = 0;
+    public Rigidbody rig;
+    public Vector3[] direction;
+    public int index = 0, tempindex = 0;
     private void Start() {
         rig = GetComponent<Rigidbody>();
-        direction = new Vector3[4] { new Vector3(1f,rig.velocity.y,0f), new Vector3(0f,rig.velocity.y,-1f), new Vector3(-1f,rig.velocity.y,0f), new Vector3(0f,rig.velocity.y,1f)};
+        direction = new Vector3[4] { new Vector3(1f,-6f,0f), new Vector3(0f,-6f,-1f), 
+        new Vector3(-1f,-6f,0f), new Vector3(0f,-6f,1f)};
         velocity = direction[index];
     }
-    private Vector3 velocity, initialMouse;
+    public Vector3 velocity, initialMouse;
     void Update()
     {
         // 직진
@@ -79,6 +80,7 @@ public class TouchMove : MonoBehaviour
                 index=3;
             velocity = direction[index];
     }
+    
 
 }
     
