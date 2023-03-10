@@ -80,8 +80,6 @@ public class TouchMove : MonoBehaviour
                 index=0;
             velocity = direction[index];
     }
-    
-
 }
     
 

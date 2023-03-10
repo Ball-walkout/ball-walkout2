@@ -833,7 +833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &222823002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -908,7 +908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &265617042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1518,6 +1518,7 @@ GameObject:
   - component: {fileID: 675635604}
   - component: {fileID: 675635603}
   - component: {fileID: 675635602}
+  - component: {fileID: 675635607}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -1538,7 +1539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1302885055}
-  dampSpeed: 4
+  dampSpeed: 10
 --- !u!65 &675635603
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1609,13 +1610,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675635601}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0468206, y: -1.85, z: 2.35}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -6.6, y: -3.28, z: 5.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!54 &675635607
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675635601}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &688090447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1758,7 +1775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &696764926
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1987,10 +2004,8 @@ MonoBehaviour:
   speedBar: {fileID: 1899960405}
   speedBararr: {fileID: 457263912}
   Stopbutton: {fileID: 0}
-  pos: []
   scrollbarspeed: {fileID: 0}
   scrollbartiming: {fileID: 0}
-  speed: 0
 --- !u!1 &783728942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,17 +2206,8 @@ MonoBehaviour:
   speedBar: {fileID: 1899960405}
   speedBararr: {fileID: 457263912}
   Stopbutton: {fileID: 696764925}
-  pos:
-  - {fileID: 1473988517}
-  - {fileID: 690860538}
-  - {fileID: 1993399320}
-  - {fileID: 1042332378}
-  - {fileID: 1709227628}
-  - {fileID: 790753227}
-  - {fileID: 283083515}
   scrollbarspeed: {fileID: 1757899090}
   scrollbartiming: {fileID: 878093669}
-  speed: 0
 --- !u!65 &877334043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2555,7 +2561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0424f0a79672774ba8643bc3b4e65be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.48
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0424f0a79672774ba8643bc3b4e65be, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4474,7 +4480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 1302885050}
-  offsetX: -10
+  offsetX: -20
   offsetY: 5
   offsetZ: 0
   CameraSpeed: 10

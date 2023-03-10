@@ -10,14 +10,17 @@ public class TimingBar : MonoBehaviour
     public GameObject speedBar;
     public GameObject speedBararr;
     public GameObject Stopbutton;
-    public GameObject[] pos;
+   // public GameObject[] pos;
     public Scrollbar scrollbarspeed;
     public Scrollbar scrollbartiming;
     bool reach = false;
-    bool touchspace = false;
+    public bool touchspace = false;
+    public bool buttonclick = false;
     float fMove = 0.3f;
-    public float speed;
-
+    private TouchMove ball;
+    private void Start() {
+        ball = GameObject.Find("ball").GetComponent<TouchMove>();
+    }
     void OnTriggerEnter(Collider other) {
         gameObject.GetComponent<Renderer>().enabled = false;
         timingBar.SetActive(true);
@@ -25,16 +28,14 @@ public class TimingBar : MonoBehaviour
         Stopbutton.SetActive(true);
         StartCoroutine(Stopt());
     }
-    
-    private TouchMove ball;
     public void buttonClick(){
-        Debug.Log(scrollbartiming.value);
+        buttonclick = true;
         Stopbutton.SetActive(false);
         fMove = 0.0f;
         if(timingBar.activeSelf == true){
+            StartCoroutine(Stopb());
             timingBar.SetActive(false);
             timingBararr.SetActive(false);
-            ball = GameObject.Find("ball").GetComponent<TouchMove>();
             if(scrollbartiming.value < 0.03f){
                 ball.TurnLeft();
             }
@@ -63,39 +64,48 @@ public class TimingBar : MonoBehaviour
             }
         }
         if(speedBar.activeSelf == true){
+            touchspace = false;
             speedBar.SetActive(false);
             speedBararr.SetActive(false);
             if(scrollbarspeed.value < 0.2f){
-                ball.speed = 1.0f;
+                ball.speed = 5.0f;
             }
             else if(scrollbarspeed.value < 0.17f){
-                ball.speed = 5.0f;
+                ball.speed = 10.0f;
             }
             else if(scrollbarspeed.value < 0.34f){
-                ball.speed = 15.0f;
+                ball.speed = 18.0f;
             }
             else if(scrollbarspeed.value < 0.55f){
-                ball.speed = 20.0f;
+                ball.speed = 25.0f;
             }
             else if(scrollbarspeed.value < 0.72f){
-                ball.speed = 15.0f;
+                ball.speed = 18.0f;
             }
             else if(scrollbarspeed.value < 0.89f){
-                ball.speed = 5.0f;
+                ball.speed = 10.0f;
             }
             else{
-                ball.speed = 1.0f;
+                ball.speed = 5.0f;
             }
+            StartCoroutine(speedorigin());
         }
+    }
+
+    IEnumerator speedorigin(){
+        yield return new WaitForSeconds(5.0f);
+        ball.speed = 10.0f;
     }
 
     void Update()
     {
-        if(touchspace == false){
-            StartCoroutine(timingbar());
-        }
-        else{
-            StartCoroutine(speedbar());
+        if(Stopbutton.activeSelf == true){
+            if(touchspace == false){
+                StartCoroutine(timingbar());
+            }
+            else{
+                StartCoroutine(speedbar());
+            }
         }
     }
 
@@ -117,9 +127,21 @@ public class TimingBar : MonoBehaviour
             }
         }
     }
-
     IEnumerator Stopt(){
         yield return new WaitForSeconds(3.0f);
+        touchspace = true;
+        if(buttonclick == false){
+            timingBar.SetActive(false);
+            timingBararr.SetActive(false);
+            speedBar.SetActive(true);
+            speedBararr.SetActive(true);
+            StopCoroutine(timingbar());
+            fMove = 0.3f;
+        }
+    }
+    IEnumerator Stopb(){
+        yield return null;
+        Stopbutton.SetActive(true);
         touchspace = true;
         timingBar.SetActive(false);
         timingBararr.SetActive(false);
