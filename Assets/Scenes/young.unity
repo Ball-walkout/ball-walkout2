@@ -2452,10 +2452,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1302885055}
-  - component: {fileID: 1302885054}
   - component: {fileID: 1302885053}
   - component: {fileID: 1302885052}
   - component: {fileID: 1302885051}
+  - component: {fileID: 1302885054}
   m_Layer: 0
   m_Name: "\uCD95\uAD6C\uACF5_1"
   m_TagString: Untagged

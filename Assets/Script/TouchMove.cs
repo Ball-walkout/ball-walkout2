@@ -40,12 +40,12 @@ public class TouchMove : MonoBehaviour
                 rig.velocity += direction[tempindex] * (speed/2);
             }
             
-            if(initialMouse.y - Input.mousePosition.y > 50f)
+            if(Input.mousePosition.y - initialMouse.y > 100f)
             {
                 //rig.velocity += new Vector3(0f,1f,0f) * 10f;
                 //print("Vector3.up: "+Vector3.up);
                 print("JUMP");
-                rig.AddForce(Vector3.up * 20f, ForceMode.Impulse);
+                rig.AddForce(Vector3.up * 7f, ForceMode.Impulse);
             }
         }
     }
