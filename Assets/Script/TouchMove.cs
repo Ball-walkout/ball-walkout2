@@ -41,7 +41,7 @@ public class TouchMove : MonoBehaviour
                 rig.velocity += direction[tempindex] * (speed/2);
             }
             
-            /*if(initialMouse.y - Input.mousePosition.y > 50f)
+            if(Input.mousePosition.y - initialMouse.y > 100f)
             {
                 print("JUMP");
                 //rig.AddForce(Vector3.up * 7f, ForceMode.Impulse);
@@ -54,21 +54,34 @@ public class TouchMove : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "Left")
         {
-            if(index!=0)
+            TurnLeft();
+        }
+        else if(other.tag == "Right")
+        {
+            TurnRight();
+        }
+    }
+
+    public void TurnLeft()
+    {
+        if(index!=0)
                 index-=1;
             else
                 index=3;
             velocity = direction[index];
-        }
-        else if(other.tag == "Right")
-        {
-            if(index!=3)
-                index+=1;
-            else
-                index=0;
-            velocity = direction[index];
-        }
     }
+
+    public void TurnRight()
+    {
+        if(index!=0)
+                index-=1;
+            else
+                index=3;
+            velocity = direction[index];
+    }
+
+}
+    
 
     /*
     void OnMouseDrag()
@@ -152,7 +165,7 @@ public class TouchMove : MonoBehaviour
         objectPos.z = 0.1f;
         transform.position = objectPos;
     }*/
-}
+
     /*
     Transform tr;
     private Vector3 initTouchPos;

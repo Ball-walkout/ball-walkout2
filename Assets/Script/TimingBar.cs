@@ -26,14 +26,16 @@ public class TimingBar : MonoBehaviour
         StartCoroutine(Stopt());
     }
     
+    private TouchMove ball;
     public void buttonClick(){
         Stopbutton.SetActive(false);
         fMove = 0.0f;
         if(timingBar.activeSelf == true){
             timingBar.SetActive(false);
             timingBararr.SetActive(false);
+            ball = GameObject.Find("ball").GetComponent<TouchMove>();
             if(scrollbartiming.value < 0.15f){
-                //GameObject.Find("ball").transform.Rotate(Vector3.back);
+                ball.TurnLeft();
             }
             else if(scrollbartiming.value < 0.23f){
                 //GameObject.Find("ball").GetComponent<TouchMove>().speed = 5.0f;
@@ -51,7 +53,7 @@ public class TimingBar : MonoBehaviour
               //  GameObject.Find("ball").GetComponent<TouchMove>().speed = 5.0f;
             }
             else{
-               // GameObject.Find("ball").GetComponent<TouchMove>().speed = 1.0f;
+               ball.TurnRight();
             }
         }
         if(speedBar.activeSelf == true){
