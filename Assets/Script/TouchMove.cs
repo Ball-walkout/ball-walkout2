@@ -12,43 +12,85 @@ public class TouchMove : MonoBehaviour
     public int index = 0, tempindex = 0;
     private void Start() {
         rig = GetComponent<Rigidbody>();
-        direction = new Vector3[4] { new Vector3(1f,-6f,0f), new Vector3(0f,-6f,-1f), 
-        new Vector3(-1f,-6f,0f), new Vector3(0f,-6f,1f)};
+        direction = new Vector3[4] { new Vector3(1f,rig.velocity.y,0f), new Vector3(0f,rig.velocity.y,-1f), 
+        new Vector3(-1f,rig.velocity.y,0f), new Vector3(0f,rig.velocity.y,1f)};
         velocity = direction[index];
     }
     public Vector3 velocity, initialMouse;
     void Update()
     {
         // 직진
-        rig.velocity = velocity * speed;
+        transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+
+        // 점프
+        //TouchCheck();
 
         // 클릭 좌표로 현재 방향 기준 좌우 움직이기
         if(Input.GetMouseButtonDown(0))
         {
-            initialMouse = Input.mousePosition;
+            initialMouse = Input.GetTouch(0).position;
         }
         if(Input.GetMouseButton(0))
         {
-            tempindex = index;
-            if(Input.mousePosition.x > initialMouse.x)
+            if(Input.GetTouch(0).position.x < initialMouse.x)
             {
-                if(tempindex!=3) tempindex+=1; else tempindex=0;
-                rig.velocity += direction[tempindex] * (speed/2);
+                transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
             }
-                
-            if(Input.mousePosition.x < initialMouse.x)
+            if(Input.GetTouch(0).position.x > initialMouse.x)
             {
-                if(tempindex!=0) tempindex-=1; else tempindex=3;
-                rig.velocity += direction[tempindex] * (speed/2);
-            }
-            
-            if(Input.mousePosition.y - initialMouse.y > 100f)
-            {
-                print("JUMP");
-                //rig.AddForce(Vector3.up * 7f, ForceMode.Impulse);
-                rig.velocity += Vector3.up * 7f;
+                transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
             }
         }
+    }
+    
+    // 점프
+    private Vector2 startTouchPos, endTouchPos;
+    private bool canJump=false, isLeft=false, isRight=false;
+    private void FixedUpdate() {
+        //JumpAllowed();
+    }
+    void TouchCheck()
+    {
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            startTouchPos = Input.GetTouch(0).position;
+            
+            // if(Input.GetTouch(0).position.x < startTouchPos.x)
+            // {
+            //     isLeft = true;
+            // }
+            // if(Input.GetTouch(0).position.x > startTouchPos.x)
+            // {
+            //     isRight = true;
+            // }
+        }
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            endTouchPos = Input.GetTouch(0).position;
+
+            if(endTouchPos.y - startTouchPos.y > 30f && rig.velocity.y<=0)
+            {
+                canJump = true;
+            }
+        }
+    }
+    void JumpAllowed()
+    {
+        if(canJump)
+        {
+            rig.AddForce(Vector3.up * 100f);
+            canJump=false;
+        }
+        // if(isLeft)
+        // {
+        //     rig.AddForce(Vector3.left * 100f);
+        //     isLeft=false;
+        // }
+        // if(isRight)
+        // {
+        //     rig.AddForce(Vector3.right * 100f);
+        //     isRight=false;
+        // }
     }
 
     // Curved Rail 공 직진 방향 전환
@@ -65,22 +107,24 @@ public class TouchMove : MonoBehaviour
 
     public void TurnLeft()
     {
-        if(index!=0)
-                index-=1;
-            else
-                index=3;
-            velocity = direction[index];
+        index = index!=0 ? index-1 : 3;
+        velocity = direction[index];
     }
 
     public void TurnRight()
     {
-        if(index!=3)
-                index+=1;
-            else
-                index=0;
-            velocity = direction[index];
+        index = index!=3 ? index+1 : 0;
+        velocity = direction[index];
     }
+
+    public void Jump()
+    {
+        rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
+        
+    }
+
 }
+    
     
 
     /*
