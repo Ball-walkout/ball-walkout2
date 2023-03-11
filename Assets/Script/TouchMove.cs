@@ -29,6 +29,7 @@ public class TouchMove : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             initialMouse = Input.GetTouch(0).position;
+            print("initialMouse.position = "+initialMouse);
         }
         if(Input.GetMouseButton(0))
         {
