@@ -15,6 +15,7 @@ public class TouchMove : MonoBehaviour
         forward = new Vector3(1f, 0f, 0f);
         left = new Vector3(0f, 0f, 1f);
         right = new Vector3(0f, 0f, -1f);
+        Invoke("Accelerate", 1f);
     }
     public Vector3 velocity, initialMouse;
     private bool canForward=true;
@@ -127,11 +128,16 @@ public class TouchMove : MonoBehaviour
         right = -temp;
     }
 
-    public void Jump()
+    private void Accelerate()
     {
-        rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
-        
+        print("Accelerated");
+        canForward = true;
+        Invoke("Rallentare", 0.5f);
+        Invoke("Accelerate", 5f);
     }
-
+    private void Rallentare()
+    {
+        canForward = false;
+    }
 }
     
