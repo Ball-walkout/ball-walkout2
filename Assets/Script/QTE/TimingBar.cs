@@ -10,9 +10,6 @@ public class TimingBar : MonoBehaviour
     public GameObject speedBar;
     public GameObject speedBararr;
     public GameObject Stopbutton;
-   // public GameObject[] pos;
-    public Scrollbar scrollbarspeed;
-    public Scrollbar scrollbartiming;
     bool reach = false;
     public bool touchspace = false;
     public bool buttonclick = false;
@@ -26,9 +23,9 @@ public class TimingBar : MonoBehaviour
         timingBar.SetActive(true);
         timingBararr.SetActive(true);
         Stopbutton.SetActive(true);
-        StartCoroutine(Stopt());
+        //StartCoroutine(Stopt());
     }
-    public void buttonClick(){
+   /* public void buttonClick(){
         buttonclick = true;
         Stopbutton.SetActive(false);
         fMove = 0.0f;
@@ -168,5 +165,5 @@ public class TimingBar : MonoBehaviour
                 reach = false;
             }
         }
-    }
+    }*/
 }
