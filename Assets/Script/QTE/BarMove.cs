@@ -16,7 +16,7 @@ public class BarMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = target.position + distance;
+        gameObject.transform.position = target.position + distance; // * GameObject.Find("timingarr").GetComponent<arrMove>().speed;
         // x축만 이동 코드
         /*temp = gameObject.transform.position;
         temp.x = target.position.x + distance.x;

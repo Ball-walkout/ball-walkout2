@@ -18,17 +18,11 @@ public class TimingBar : MonoBehaviour
         ball = GameObject.Find("ball").GetComponent<TouchMove>();
     }
     void OnTriggerEnter(Collider other) {
-        gameObject.GetComponent<Renderer>().enabled = false;
         timingBar.SetActive(true);
-        timingBararr.SetActive(true);
+        //timingBararr.SetActive(true);
+        timingBararr.GetComponent<MeshRenderer>().enabled = true;
+        gameObject.SetActive(false);
     }
-
-    IEnumerator timingbar()
-    {
-        yield return new WaitForSeconds(3.0f);
-
-    }
-
    /* public void buttonClick(){
         buttonclick = true;
         Stopbutton.SetActive(false);

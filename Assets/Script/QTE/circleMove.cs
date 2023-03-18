@@ -26,24 +26,25 @@ public class circleMove : MonoBehaviour
         temp.x = target.position.x + distance.x;
         temp.z = target.position.z + distance.z;
         gameObject.transform.position = temp;
-       // gameObject.transform.Translate(direction * Time.deltaTime * speed);
+        gameObject.transform.Translate(direction * Time.deltaTime * speed);
         if(speedbararr.activeSelf == true){
-            gameObject.transform.Translate(direction * Time.deltaTime * speed);
+            //gameObject.transform.Translate(direction * Time.deltaTime * speed);
             StartCoroutine(speedbar());
         }
-    }
-    public void StopClick(){
-        speed = 0;
-        onclick = true;
+        if(Input.GetMouseButtonDown(0) && speedbararr.activeSelf == true){
+            speed = 0;
+            onclick = true;
+            speed_bar.SetActive(false);
+            speedbararr.SetActive(false);
+        }
     }
     IEnumerator speedbar()
     {
         yield return new WaitForSeconds(3.0f);
         if(onclick == false){
-            onclick = true;
             speed = 0;
+            speed_bar.SetActive(false);
+            speedbararr.SetActive(false);
         }
-        speed_bar.SetActive(false);
-        speedbararr.SetActive(false);
     }
 }

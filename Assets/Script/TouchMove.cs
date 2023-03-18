@@ -7,8 +7,9 @@ using UnityEngine;
 public class TouchMove : MonoBehaviour
 {
     public float speed = 4f;
-    private Rigidbody rig;
+    public Rigidbody rig;
     public Vector3 forward, left, right;
+    public bool QTE;
     private void Start() {
         // 초기 물리 방향 설정
         rig = GetComponent<Rigidbody>();
@@ -16,6 +17,7 @@ public class TouchMove : MonoBehaviour
         left = new Vector3(0f, 0f, 1f);
         right = new Vector3(0f, 0f, -1f);
         Invoke("Accelerate", 1f);
+        QTE = true;
     }
     public Vector3 velocity, initialMouse;
     private bool canForward=true;
@@ -23,13 +25,14 @@ public class TouchMove : MonoBehaviour
     {
         // 직진
         if(canForward)
-        rig.AddForce(forward * speed);
+            rig.AddForce(forward * speed);
+       // if(QTE){
+            // 점프
+            //TouchCheck();
 
-        // 점프
-        TouchCheck();
-
-        // 좌우 움직이기
-        Touch();
+            // 좌우 움직이기
+          //  Touch();
+      //  }
     }
     
     void Touch()
