@@ -6,33 +6,34 @@ using UnityEngine;
 // https://www.engedi.kr/unity/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=3955143&t=board
 public class TouchMove : MonoBehaviour
 {
+    [SerializeField] private Transform roadFollower;
     public float speed = 4f;
     public Rigidbody rig;
-    public Vector3 forward, left, right;
     public bool QTE;
     private void Start() {
         // 초기 물리 방향 설정
         rig = GetComponent<Rigidbody>();
-        forward = new Vector3(1f, 0f, 0f);
-        left = new Vector3(0f, 0f, 1f);
-        right = new Vector3(0f, 0f, -1f);
-        Invoke("Accelerate", 1f);
         QTE = true;
     }
-    public Vector3 velocity, initialMouse;
-    private bool canForward=true;
+    public Vector3 direction;
+    public bool canForward=true;
     void Update()
     {
         // 직진
         if(canForward)
-            rig.AddForce(forward * speed);
-       // if(QTE){
-            // 점프
-            //TouchCheck();
+        {
+            // direction = roadFollower.position - transform.position;
+            // rig.AddForceAtPosition(direction, transform.position);
+            rig.AddForce(new Vector3(0,0,-1) * speed);
+        }
 
-            // 좌우 움직이기
-          //  Touch();
-      //  }
+        if(QTE){
+            //점프
+            TouchCheck();
+
+            //좌우 움직이기
+            Touch();
+        }
     }
     
     void Touch()
@@ -46,22 +47,37 @@ public class TouchMove : MonoBehaviour
                 // 오른쪽 터치 시 오른쪽으로 이동
                 if (Input.GetTouch(0).position.x > (Screen.width/2))
                 {
-                    print("오른쪽 클릭");
+                    print("오른쪽 "+(-transform.right));
                     canForward = false;
-                    rig.AddForce(right * 800f);
-                    //canForward= true;
+                    rig.AddForce(-transform.right * 800f);
+                    Invoke("Accelerate", 0.5f);
                 }
                 // 왼쪽 터치 시 왼쪽으로 이동
                 else
                 {
-                    print("왼쪽 클릭");
+                    print("왼쪽 "+(transform.right));
                     canForward = false;
-                    rig.AddForce(left * 800f);
-                    //canForward= true;
+                    rig.AddForce(transform.right * 800f);
+                    Invoke("Accelerate", 0.5f);
                 }
             }
         }
     }
+
+    // 터치 비활성화
+    public void StopTouch()
+    {
+        print("QTE: FALSE");
+        QTE = false;
+    }
+
+    // 터치 활성화
+    public void EnTouch()
+    {
+        print("QTE: TRUE");
+        QTE = true;
+    }
+
 
     // 점프
     private Vector2 startTouchPos, endTouchPos;
@@ -93,54 +109,37 @@ public class TouchMove : MonoBehaviour
             rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
             print("점프");
             canJump=false;
-            //canForward = true;
         }
     }
 
-    // Curved Rail 공 직진 방향 전환
-    private void OnTriggerEnter(Collider other) {
-        if(other.tag == "Left")
-        {
-            canForward = false;
-            TurnLeft();
-            canForward = true;
-        }
-        else if(other.tag == "Right")
-        {
-            canForward = false;
-            TurnRight();
-            canForward = true;
-        }
-    }
-
-    public void TurnLeft()
-    {
-        Vector3 temp;
-        temp = forward;
-        forward = left;
-        right = temp;
-        left = -temp;
-    }
-
-    public void TurnRight()
-    {
-        Vector3 temp;
-        temp = forward;
-        forward = right;
-        left = temp;
-        right = -temp;
-    }
-
-    private void Accelerate()
+    // 가속
+    public void Accelerate()
     {
         print("Accelerated");
         canForward = true;
-        Invoke("Rallentare", 0.5f);
-        Invoke("Accelerate", 5f);
     }
-    private void Rallentare()
+    // 가속 멈추기
+    public void Rallentare()
     {
+        //roadFollower.GetComponent<PathFollower>();
+        print("Rallentared");
         canForward = false;
     }
+
+    // 왼쪽으로 일정 움직이기
+    public void MoveLeft(float scale)
+    {
+        canForward = false;
+        rig.AddForce(transform.right * scale);
+        Invoke("Accelerate", 5f);
+        Invoke("EnTouch", 2f);
+    }
+    // 오른쪽으로 일정 움직이기
+    public void MoveRight(float scale)
+    {
+        canForward = false;
+        rig.AddForce(-transform.right * scale);
+        Invoke("Accelerate", 5f);
+        Invoke("EnTouch", 2f);
+    }
 }
-    

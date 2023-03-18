@@ -14,33 +14,41 @@ public class arrMove : MonoBehaviour
     public GameObject timingbararr;
     public GameObject speedbar;
     public GameObject speedbararr;
-    TouchMove TM;
+    private TouchMove ball;
     void Start()
     {
-        direction = new Vector3(1f, 0f, 0f);
+        direction = new Vector3(0f, 0f, 1f);
         speed = 200.0f;
         onclick = false;
-        TM = GameObject.Find("ball").GetComponent<TouchMove>();
+        ball = GameObject.Find("ball").GetComponent<TouchMove>();
     }
     void Update()
     {
         if(timing_bar.activeSelf == true){
+            // 타이밍 바 자동 끄기
             StartCoroutine(timingbar());
-            TM.QTE = false;
-            //TM.speed = 0.1f;
-            //gameObject.transform.RotateAround(target.position, direction, Time.deltaTime * speed);
+            // 터치 금지 & 가속 멈추기
+            if(ball.QTE == true)
+                ball.StopTouch();
+            if(ball.canForward == true)
+                ball.Rallentare();
         }
+
+        // 화살표 
         gameObject.transform.RotateAround(target.position, direction, Time.deltaTime * speed);
         gameObject.transform.position = target.position + distance;
 
+        // 타이밍 바 클릭 시 방향 전환
         if(Input.GetMouseButtonDown(0) && timing_bar.activeSelf == true){
-            TM.QTE = true;
-            speed = 0;
             onclick = true;
-            //GameObject.Find("ball").transform.Rotate(gameObject.transform.rotation.eulerAngles);
-            GameObject.Find("ball").GetComponent<Rigidbody>().MoveRotation(gameObject.transform.rotation);
-            Debug.Log(Vector3.Angle(gameObject.transform.rotation.eulerAngles, 
-            point.transform.rotation.eulerAngles));
+            if(gameObject.transform.rotation.z > 0)
+                ball.MoveLeft(800f);
+            else
+                ball.MoveRight(800f);
+            print(gameObject.transform.rotation.z);
+            
+            // 끄기
+            speed = 0;
             timing_bar.SetActive(false);
             timingbararr.SetActive(false);
             speedbar.SetActive(true);

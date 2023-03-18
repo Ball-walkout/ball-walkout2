@@ -1244,11 +1244,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ff41004a06572946a494bdfb06bcd3a, type: 3}
---- !u!4 &500558938 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4125965570099986, guid: 761d600d1e80341ac97f3228771ce637, type: 3}
-  m_PrefabInstance: {fileID: 1127710121}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &507705321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1391,7 +1386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &599210030
 Transform:
   m_ObjectHideFlags: 0
@@ -2540,9 +2535,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66d2abac7215be45b63de9260dde74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadFollower: {fileID: 500558938}
   speed: 10
   rig: {fileID: 0}
+  QTE: 0
+  direction: {x: 0, y: 0, z: 0}
 --- !u!114 &1302885052
 MonoBehaviour:
   m_ObjectHideFlags: 0
