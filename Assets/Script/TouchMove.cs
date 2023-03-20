@@ -108,6 +108,7 @@ public class TouchMove : MonoBehaviour
     {
         if(canJump)
         {
+            rig.velocity =Vector3.zero;
             canForward = false;
             rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
             print("점프");
