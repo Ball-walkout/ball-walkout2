@@ -7,6 +7,8 @@ using UnityEngine;
 public class TouchMove : MonoBehaviour
 {
     [SerializeField] private Transform roadFollower;
+    private Transform obj_pos;
+    [SerializeField] private Animator anim;
     public float speed = 4f;
     public Rigidbody rig;
     public bool QTE;
@@ -14,28 +16,12 @@ public class TouchMove : MonoBehaviour
         // 초기 물리 방향 설정
         rig = GetComponent<Rigidbody>();
         QTE = true;
+        obj_pos = roadFollower;
+        
+        rig.AddForce(new Vector3(0,0,-1) * speed);
     }
     public Vector3 direction;
     public bool canForward=true;
-    void Update()
-    {
-        // 직진
-        if(canForward)
-        {
-            // direction = roadFollower.position - transform.position;
-            // rig.AddForceAtPosition(direction, transform.position);
-            rig.AddForce(new Vector3(0,0,-1) * speed);
-        }
-
-        if(QTE){
-            //점프
-            TouchCheck();
-
-            //좌우 움직이기
-            Touch();
-        }
-    }
-    
     void Touch()
     {
         if (Input.touchCount > 0)
@@ -47,17 +33,19 @@ public class TouchMove : MonoBehaviour
                 // 오른쪽 터치 시 오른쪽으로 이동
                 if (Input.GetTouch(0).position.x > (Screen.width/2))
                 {
-                    print("오른쪽 "+(-transform.right));
-                    canForward = false;
-                    rig.AddForce(-transform.right * 800f);
+                    rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
+                    //canForward = false;
+                    print("오른쪽 ");
+                    rig.AddForce(-Vector3.right * 800f);
                     Invoke("Accelerate", 0.5f);
                 }
                 // 왼쪽 터치 시 왼쪽으로 이동
                 else
                 {
-                    print("왼쪽 "+(transform.right));
-                    canForward = false;
-                    rig.AddForce(transform.right * 800f);
+                    rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
+                    //canForward = false;
+                    print("왼쪽 ");
+                    rig.AddForce(-Vector3.left * 800f);
                     Invoke("Accelerate", 0.5f);
                 }
             }
@@ -83,6 +71,21 @@ public class TouchMove : MonoBehaviour
     private Vector2 startTouchPos, endTouchPos;
     private bool canJump=false;
     private void FixedUpdate() {
+        // 직진
+        if(canForward)
+        {
+            direction = roadFollower.position - transform.position;
+            rig.AddForceAtPosition(direction, transform.position);
+            //rig.AddForce(new Vector3(0,0,-1) * speed);
+        }
+
+        if(QTE){
+            //점프
+            TouchCheck();
+
+            //좌우 움직이기
+            Touch();
+        }
         JumpAllowed();
     }
     void TouchCheck()
@@ -121,7 +124,6 @@ public class TouchMove : MonoBehaviour
     // 가속 멈추기
     public void Rallentare()
     {
-        //roadFollower.GetComponent<PathFollower>();
         print("Rallentared");
         canForward = false;
     }
@@ -129,17 +131,19 @@ public class TouchMove : MonoBehaviour
     // 왼쪽으로 일정 움직이기
     public void MoveLeft(float scale)
     {
-        canForward = false;
-        rig.AddForce(transform.right * scale);
-        Invoke("Accelerate", 5f);
-        Invoke("EnTouch", 2f);
+        rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
+        //canForward = false;
+        rig.AddForce(-Vector3.left * scale);
+        Invoke("Accelerate", 1f);
+        Invoke("EnTouch", 1f);
     }
     // 오른쪽으로 일정 움직이기
     public void MoveRight(float scale)
     {
-        canForward = false;
-        rig.AddForce(-transform.right * scale);
-        Invoke("Accelerate", 5f);
-        Invoke("EnTouch", 2f);
+        rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
+        //canForward = false;
+        rig.AddForce(-Vector3.right * scale);
+        Invoke("Accelerate", 1f);
+        Invoke("EnTouch", 1f);
     }
 }
