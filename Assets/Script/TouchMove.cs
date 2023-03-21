@@ -93,12 +93,14 @@ public class TouchMove : MonoBehaviour
         if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             startTouchPos = Input.GetTouch(0).position;
+            print("startTouchPos: " + startTouchPos);
         }
         if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
             endTouchPos = Input.GetTouch(0).position;
+            print("endTouchPos: " + endTouchPos);
 
-            if(endTouchPos.y - startTouchPos.y > 30f && rig.velocity.y<=0)
+            if(endTouchPos.y - startTouchPos.y > 30f )//&& rig.velocity.y<=0)
             {
                 canJump = true;
             }
@@ -132,6 +134,7 @@ public class TouchMove : MonoBehaviour
     // 왼쪽으로 일정 움직이기
     public void MoveLeft(float scale)
     {
+        print("MoveLeft");
         rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
         //canForward = false;
         rig.AddForce(-Vector3.left * scale);
@@ -141,6 +144,7 @@ public class TouchMove : MonoBehaviour
     // 오른쪽으로 일정 움직이기
     public void MoveRight(float scale)
     {
+        print("MoveRight");
         rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
         //canForward = false;
         rig.AddForce(-Vector3.right * scale);
