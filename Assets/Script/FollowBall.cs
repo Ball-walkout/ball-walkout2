@@ -10,5 +10,6 @@ public class FollowBall : MonoBehaviour
     void Update()
     {
         transform.position = ball.transform.position + new Vector3(0f, 2f, 0f);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, 180f+ball.rotation.y, transform.rotation.z);
     }
 }
