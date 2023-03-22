@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallManager : MonoBehaviour
 {
@@ -30,6 +31,14 @@ public class BallManager : MonoBehaviour
             cam.offsetX = -10f;
             cam.offsetZ = 0f;
             StartCoroutine(Rotate(1));
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Goal")
+        {
+            SceneManager.LoadScene("Ending");
         }
     }
 

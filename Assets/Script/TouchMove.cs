@@ -34,7 +34,6 @@ public class TouchMove : MonoBehaviour
                 if (Input.GetTouch(0).position.x > (Screen.width/2))
                 {
                     rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
-                    //canForward = false;
                     print("오른쪽 ");
                     rig.AddForce(-Vector3.right * 800f);
                     Invoke("Accelerate", 0.5f);
@@ -43,7 +42,6 @@ public class TouchMove : MonoBehaviour
                 else
                 {
                     rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
-                    //canForward = false;
                     print("왼쪽 ");
                     rig.AddForce(-Vector3.left * 800f);
                     Invoke("Accelerate", 0.5f);
@@ -110,8 +108,7 @@ public class TouchMove : MonoBehaviour
     {
         if(canJump)
         {
-            rig.velocity =Vector3.zero;
-            canForward = false;
+            rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
             rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
             print("점프");
             canJump=false;
