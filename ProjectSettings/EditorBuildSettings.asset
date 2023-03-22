@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Road.unity
     guid: 902d8b356432e5a4a909be4329bc7ddb
   - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: e91390045871c9e4ca7a390d8bdd042d
+  - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 9486c2d6b398ef44b99291e7f95b5d58
   - enabled: 1
