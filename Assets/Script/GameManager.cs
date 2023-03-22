@@ -68,23 +68,35 @@ public class GameManager : MonoBehaviour
         ui.UpdateScore();
     }
 
-    [SerializeField] private Transform rails;
-    // Start is called before the first frame update
-    void Start()
+    // 타임어택
+    public bool timerOn = true;
+    public float time=0, min, sec;
+    private void Update()
     {
-        // rails.GetComponentsInChildren<>
-        // CreateCoins();
-    }
- 
-    // Update is called once per frame
-    void Update()
-    {
+        if(timerOn)
+        {
+            time += Time.deltaTime;
+            sec = (int)time % 60;
+            min = (int)time / 60 % 60;
 
+            // 2분 초과 시 게임오버
+            if(min>=2)
+            {
+                timerOn = false;
+                ui.GameOver();
+            }
+        }
     }
 
-    private IEnumerator CreateCoins()
+    // 골인 후 점수 계산
+    public int star=0;
+    public void StageClear()
     {
-        
-        return null;
+        if(min * 60 + sec <= 40)
+            star = 3;
+        else if(min * 60 + sec <= 50)
+            star = 2;
+        else
+            star = 1;
     }
 }

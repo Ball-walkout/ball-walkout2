@@ -16,15 +16,19 @@ public class UIManager : MonoBehaviour
         coinTxt.text = GameManager.Instance.GetCoin().ToString();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void GameOver()
     {
         
     }
 
+    [SerializeField] private TMP_Text min, sec;
     // Update is called once per frame
     void Update()
     {
-        
+        if(GameManager.Instance.timerOn)
+        {
+            min.text = GameManager.Instance.min.ToString();
+            sec.text = GameManager.Instance.sec.ToString();
+        }
     }
 }
