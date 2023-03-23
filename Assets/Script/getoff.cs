@@ -7,7 +7,8 @@ public class getoff : MonoBehaviour
 {
     void OnTriggerEnter(Collider other) {
         if(other.tag == "Player"){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.Instance.GameFail();
         }        
     }
 }
