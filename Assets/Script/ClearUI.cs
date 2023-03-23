@@ -25,6 +25,7 @@ public class ClearUI : MonoBehaviour
     {
         GameManager.Instance.time=0;
         SceneManager.LoadScene("Road");
+        GameManager.Instance.TurnOnTime();
     }
 
     public void ClickedNext()

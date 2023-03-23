@@ -87,6 +87,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void TurnOnTime()
+    {
+        Time.timeScale=1;
+    }
+
     public void GameFail()
     {
         timerOn = false;

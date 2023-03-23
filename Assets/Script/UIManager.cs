@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         overCanvas.SetActive(true);
-        Time.timeScale=0;
+        Invoke("StopScene", 0.5f);
     }
 
     [SerializeField] private GameObject optionsWindow;

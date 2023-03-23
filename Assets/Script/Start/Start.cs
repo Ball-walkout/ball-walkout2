@@ -9,6 +9,7 @@ public class Start : MonoBehaviour
 {
     public void Stage(){
         SceneManager.LoadScene("Road");
+        GameManager.Instance.TurnOnTime();
     }
     public void Level(){
         GameObject.Find("Canvas").transform.Find("LevelMenu").gameObject.SetActive(true);

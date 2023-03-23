@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class BallManager : MonoBehaviour
 {
-    [SerializeField] private PlayerCamera cam;
+    //[SerializeField] private PlayerCamera cam;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Coin")
         {
             GameManager.Instance.SetCoin(1);
-            Destroy(other.gameObject);
+            Destroy(other.gameObject, 1.5f);
         }
         else if(other.tag == "Obstacle")
         {
@@ -20,18 +20,18 @@ public class BallManager : MonoBehaviour
             GameManager.Instance.SetScore(10);
             //Destroy(other.gameObject, 30f);
         }
-        else if(other.tag == "Left")
-        {
-            cam.offsetX = 0f;
-            cam.offsetZ = -10f;
-            StartCoroutine(Rotate(0));
-        }
-        else if(other.tag == "Right")
-        {
-            cam.offsetX = -10f;
-            cam.offsetZ = 0f;
-            StartCoroutine(Rotate(1));
-        }
+        // else if(other.tag == "Left")
+        // {
+        //     cam.offsetX = 0f;
+        //     cam.offsetZ = -10f;
+        //     StartCoroutine(Rotate(0));
+        // }
+        // else if(other.tag == "Right")
+        // {
+        //     cam.offsetX = -10f;
+        //     cam.offsetZ = 0f;
+        //     StartCoroutine(Rotate(1));
+        // }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -49,15 +49,15 @@ public class BallManager : MonoBehaviour
         }
     }
 
-    IEnumerator Rotate(int LR)
-    {
-        while(LR==0 && cam.transform.rotation.eulerAngles.y >= 0){
-            cam.transform.RotateAround(cam.transform.position, new Vector3(0f, -1f, 0f), 1f);
-            yield return null;
-        }
-        while(LR==1 && cam.transform.rotation.eulerAngles.y <= 90){
-            cam.transform.RotateAround(cam.transform.position, new Vector3(0f, 1f, 0f), 1f);
-            yield return null;
-        }
-    }
+    // IEnumerator Rotate(int LR)
+    // {
+    //     while(LR==0 && cam.transform.rotation.eulerAngles.y >= 0){
+    //         cam.transform.RotateAround(cam.transform.position, new Vector3(0f, -1f, 0f), 1f);
+    //         yield return null;
+    //     }
+    //     while(LR==1 && cam.transform.rotation.eulerAngles.y <= 90){
+    //         cam.transform.RotateAround(cam.transform.position, new Vector3(0f, 1f, 0f), 1f);
+    //         yield return null;
+    //     }
+    // }
 }

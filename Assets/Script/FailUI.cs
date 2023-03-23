@@ -10,10 +10,11 @@ public class FailUI : MonoBehaviour
     {
         GameManager.Instance.time=0;
         SceneManager.LoadScene("Road");
+        GameManager.Instance.TurnOnTime();
     }
 
     public void ClickedNext()
     {
-        Time.timeScale=1;
+        GameManager.Instance.TurnOnTime();
     }
 }
