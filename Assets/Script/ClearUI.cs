@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 public class ClearUI : MonoBehaviour
 {
     [SerializeField] private Image[] stars;
+    [SerializeField] private Text score, coin;
     private void Start() {
         for(int i = 0; i<GameManager.Instance.star; i++)
         {
             stars[i].color = Color.yellow;
         }
+        score.text = ((GameManager.Instance.GetScore() + GameManager.Instance.star) * 1000).ToString();
+        coin.text = GameManager.Instance.GetCoin().ToString();
     }
     public void ClickedMenu()
     {
