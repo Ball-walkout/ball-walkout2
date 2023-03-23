@@ -104,7 +104,7 @@ public class TouchMove : MonoBehaviour
             }
         }
     }
-    void JumpAllowed()
+    public void JumpAllowed()
     {
         if(canJump)
         {

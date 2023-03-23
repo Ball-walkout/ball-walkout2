@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class speedtrigger : MonoBehaviour
 {
-    circleMove circle;
+    speedbar circle;
     TouchMove TM;
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true){
@@ -23,18 +23,15 @@ public class speedtrigger : MonoBehaviour
             if(gameObject.name == "Fast4"){
                 TM.speed = 15;
             }
+            TM.rig.velocity = Vector3.Lerp(Vector3.zero, TM.rig.velocity, 0.8f);
+            TM.rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
+            circle.onclick = false;
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        circle = GameObject.Find("speedarr").GetComponent<circleMove>();
+        circle = GameObject.Find("speedbarmove").transform.Find("speedbar").GetComponent<speedbar>();
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
