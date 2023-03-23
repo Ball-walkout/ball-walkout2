@@ -18,7 +18,7 @@ public class enemyMove : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * dampSpeed);
       }
       if(Vector3.Distance(target.position, this.transform.position) < 2){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.GameFail();
       }
     }
     IEnumerator speed()

@@ -42,6 +42,11 @@ public class BallManager : MonoBehaviour
             GameManager.Instance.timerOn = false;
             GameManager.Instance.StageClear();
         }
+
+        if(other.gameObject.tag == "Enemy")
+        {
+            GameManager.Instance.GameFail();
+        }
     }
 
     IEnumerator Rotate(int LR)

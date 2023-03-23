@@ -82,10 +82,15 @@ public class GameManager : MonoBehaviour
             // 2분 초과 시 게임오버
             if(min>=2)
             {
-                timerOn = false;
-                ui.GameOver();
+                GameFail();
             }
         }
+    }
+
+    public void GameFail()
+    {
+        timerOn = false;
+        ui.GameOver();
     }
 
     // 골인 후 점수 계산
