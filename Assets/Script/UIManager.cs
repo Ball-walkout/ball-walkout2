@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,9 +17,36 @@ public class UIManager : MonoBehaviour
         coinTxt.text = GameManager.Instance.GetCoin().ToString();
     }
 
+    [SerializeField] private GameObject overCanvas;
     public void GameOver()
     {
-        
+        overCanvas.SetActive(true);
+        Time.timeScale=0;
+    }
+
+    [SerializeField] private GameObject optionsWindow;
+    public void ClickedPause()
+    {
+        optionsWindow.SetActive(true);
+        Invoke("StopScene", 0.5f);
+    }
+
+    private void StopScene()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void ClickedRestart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Road");
+        GameManager.Instance.time=0;
+        GameManager.Instance.timerOn = true;
+    }
+
+    public void ClickedContinue()
+    {
+        Time.timeScale = 1f;
     }
 
     [SerializeField] private TMP_Text min, sec;
