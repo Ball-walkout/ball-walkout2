@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 7551472183273164076}
   - component: {fileID: 6873597377806238345}
   - component: {fileID: 8684940283728787011}
+  - component: {fileID: -1610178441103006848}
+  - component: {fileID: -9028876112321926566}
   m_Layer: 0
-  m_Name: Power_Up
+  m_Name: Booster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,3 +84,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-1610178441103006848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171955315771824022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5555269, y: 3.8537529, z: 0.6978504}
+  m_Center: {x: 0, y: 0.007861257, z: 0}
+--- !u!114 &-9028876112321926566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171955315771824022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ca611e205531f46a8c6762714f2808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timingBar: {fileID: 0}
+  timingBararr: {fileID: 0}
