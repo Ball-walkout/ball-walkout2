@@ -27,8 +27,8 @@ public class UIManager : MonoBehaviour
     {
         if(GameManager.Instance.timerOn)
         {
-            min.text = GameManager.Instance.min.ToString();
-            sec.text = GameManager.Instance.sec.ToString();
+//            min.text = GameManager.Instance.min.ToString();
+ //           sec.text = GameManager.Instance.sec.ToString();
         }
     }
 }
