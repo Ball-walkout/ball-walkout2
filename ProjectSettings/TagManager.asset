@@ -11,6 +11,7 @@ TagManager:
   - Right
   - speed
   - Goal
+  - Enemy
   layers:
   - Default
   - TransparentFX

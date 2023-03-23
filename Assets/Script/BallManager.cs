@@ -38,9 +38,14 @@ public class BallManager : MonoBehaviour
     {
         if(other.gameObject.tag == "Goal")
         {
-            SceneManager.LoadScene("Ending");
+            SceneManager.LoadScene("Clear");
             GameManager.Instance.timerOn = false;
             GameManager.Instance.StageClear();
+        }
+
+        if(other.gameObject.tag == "Enemy")
+        {
+            GameManager.Instance.GameFail();
         }
     }
 
