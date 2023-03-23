@@ -27,6 +27,6 @@ public class ClearUI : MonoBehaviour
     public void ClickedNext()
     {
         GameManager.Instance.time=0;
-        SceneManager.LoadScene("Stage");
+        SceneManager.LoadScene("Start");
     }
 }
