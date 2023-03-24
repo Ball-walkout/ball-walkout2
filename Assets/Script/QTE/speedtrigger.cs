@@ -9,16 +9,21 @@ public class speedtrigger : MonoBehaviour
     TouchMove TM;
     PathFollower PF;
     float tempSpeed;
+    public GameObject[] speedtext;
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true){
             if(gameObject.name == "Fast1"){
                 
                 tempSpeed = 5f;
+                speedtext[0].SetActive(true);
+                StartCoroutine(Text(0));
             }
 
             else if(gameObject.name == "Fast2"){
                 
                 tempSpeed = 3f;
+                speedtext[1].SetActive(true);
+                StartCoroutine(Text(1));
             }
 
             if(gameObject.name == "Fast3"){
@@ -28,6 +33,8 @@ public class speedtrigger : MonoBehaviour
                 PF.speed = 3;
                 // 카메라 원래대로 돌리기
                 TM.GetComponent<BallManager>().SwitchCamera();
+                speedtext[2].SetActive(true);
+                StartCoroutine(Text(2));
             }
 
             else if(gameObject.name == "Fast4"){
@@ -52,6 +59,11 @@ public class speedtrigger : MonoBehaviour
 
     public AudioSource boostBGM;
     float saveY;
+    IEnumerator Text(int i){
+        yield return new WaitForSeconds(0.5f);
+        speedtext[i].SetActive(false);
+
+    }
     IEnumerator Booster()
     {
         // 공이 위로 뜰 때는 기다리기
@@ -71,7 +83,6 @@ public class speedtrigger : MonoBehaviour
         TM.rig.velocity = TM.rig.velocity * tempSpeed;
         while(stop < 2)
         {
-            
             stop++;
             yield return new WaitForSeconds(1f);
         }
