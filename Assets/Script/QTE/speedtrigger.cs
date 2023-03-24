@@ -9,6 +9,7 @@ public class speedtrigger : MonoBehaviour
     TouchMove TM;
     PathFollower PF;
     float tempSpeed;
+    public Transform boosterP;
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true){
             if(gameObject.name == "Fast1"){
@@ -56,6 +57,7 @@ public class speedtrigger : MonoBehaviour
         int stop=0;
         TM.rig.useGravity = false;
         // **부스터 파티클 및 사운드**
+        boosterP.gameObject.SetActive(true);
         boostBGM.Play();
         TM.rig.AddForceAtPosition(TM.direction, TM.transform.position);
         saveY = TM.rig.velocity.y;
@@ -63,7 +65,6 @@ public class speedtrigger : MonoBehaviour
         TM.rig.velocity = TM.rig.velocity * tempSpeed;
         while(stop < 2)
         {
-            
             stop++;
             yield return new WaitForSeconds(1f);
         }
@@ -71,6 +72,7 @@ public class speedtrigger : MonoBehaviour
         TM.rig.useGravity = true;
         TM.rig.velocity = new Vector3 (TM.rig.velocity.x, saveY, TM.rig.velocity.z);
         PF.speed = 18;
+        boosterP.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
