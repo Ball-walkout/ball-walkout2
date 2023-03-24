@@ -19,24 +19,8 @@ public class enemyMove : MonoBehaviour
       distance = new Vector3(0, 0, 5.0f);
     }
     void Update () {
-      Debug.Log(transform.position.y);
       transform.LookAt(target);
       transform.position = Vector3.MoveTowards(transform.position, target.position, dampSpeed * Time.deltaTime);
-    //  if(Vector3.Distance(target.position, this.transform.position) > 5){
-        // temp.x = target.position.x + distance.x;
-        // temp.y = target.position.y + distance.y;
-        // temp.z = target.position.z + distance.z;
-        // transform.position = temp;
-    //  }
-     // else{
-     //   transform.position = Vector3.MoveTowards(transform.position, target.position, dampSpeed * Time.deltaTime);
-        //transform.position = target.position + distance;
-   //   }
-        //temp.x = target.position.x + distance.x;
-       // temp.z = target.position.z + distance.z;
-       // transform.position = temp;
-        //Vector3.Lerp(transform.position, target.position, Time.deltaTime * dampSpeed);
-     // }*/
       if(Vector3.Distance(target.position, this.transform.position) < 2){
         GameManager.Instance.GameFail();
       }

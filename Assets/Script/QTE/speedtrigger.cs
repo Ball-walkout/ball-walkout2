@@ -9,7 +9,6 @@ public class speedtrigger : MonoBehaviour
     TouchMove TM;
     PathFollower PF;
     float tempSpeed;
-    public Transform boosterP;
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true){
             if(gameObject.name == "Fast1"){
@@ -17,23 +16,31 @@ public class speedtrigger : MonoBehaviour
                 tempSpeed = 5f;
             }
 
-            if(gameObject.name == "Fast2"){
+            else if(gameObject.name == "Fast2"){
                 
                 tempSpeed = 3f;
             }
-            
+
             if(gameObject.name == "Fast3"){
                 
-                tempSpeed = 1f;
-            }
-
-            if(gameObject.name == "Fast4"){
                 // 점프 없이 즉각 속도 느려지기
                 TM.rig.velocity = Vector3.Lerp(Vector3.zero, TM.rig.velocity, 0.3f);
+                PF.speed = 3;
+                // 카메라 원래대로 돌리기
+                TM.GetComponent<BallManager>().SwitchCamera();
+            }
+
+            else if(gameObject.name == "Fast4"){
+                // 점프 없이 즉각 속도 멈추기
+                TM.rig.velocity = Vector3.zero;
+                
                 PF.speed = 18;
+        
+                // 카메라 원래대로 돌리기
+                TM.GetComponent<BallManager>().SwitchCamera();
             }
             
-            // 점프 후 부스터 효과
+            // 점프 후 부스터 효과 (FAST1, FAST2)
             else{
                 TM.rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
                 StartCoroutine(Booster());
@@ -57,7 +64,6 @@ public class speedtrigger : MonoBehaviour
         int stop=0;
         TM.rig.useGravity = false;
         // **부스터 파티클 및 사운드**
-        boosterP.gameObject.SetActive(true);
         boostBGM.Play();
         TM.rig.AddForceAtPosition(TM.direction, TM.transform.position);
         saveY = TM.rig.velocity.y;
@@ -65,6 +71,7 @@ public class speedtrigger : MonoBehaviour
         TM.rig.velocity = TM.rig.velocity * tempSpeed;
         while(stop < 2)
         {
+            
             stop++;
             yield return new WaitForSeconds(1f);
         }
@@ -72,7 +79,9 @@ public class speedtrigger : MonoBehaviour
         TM.rig.useGravity = true;
         TM.rig.velocity = new Vector3 (TM.rig.velocity.x, saveY, TM.rig.velocity.z);
         PF.speed = 18;
-        boosterP.gameObject.SetActive(false);
+        
+        // 카메라 원래대로 돌리기
+        TM.GetComponent<BallManager>().SwitchCamera();
     }
 
     // Start is called before the first frame update
