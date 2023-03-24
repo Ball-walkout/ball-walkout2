@@ -106,10 +106,12 @@ public class TouchMove : MonoBehaviour
     {
         if(canJump)
         {
+            StopTouch();
             rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
             rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
             jumpBGM.Play();
             canJump=false;
+            Invoke("EnTouch", 0.5f);
         }
     }
 
