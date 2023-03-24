@@ -21,9 +21,10 @@ public class enemyMove : MonoBehaviour
     void Update () {
       transform.LookAt(target);
       transform.position = Vector3.MoveTowards(transform.position, target.position, dampSpeed * Time.deltaTime);
-      if(Vector3.Distance(target.position, this.transform.position) < 2){
-        GameManager.Instance.GameFail();
-      }
+      // BallManager Collider 충돌 시 GameFail 부르는 거로 수정함
+      // if(Vector3.Distance(target.position, this.transform.position) < 2){
+      //   GameManager.Instance.GameFail();
+      // }
     }
     IEnumerator speed()
     {
