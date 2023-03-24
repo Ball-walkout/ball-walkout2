@@ -50,7 +50,7 @@ public class BallManager : MonoBehaviour
             transform.GetComponent<TouchMove>().rig.velocity = Vector3.zero;
             goalEffect.SetActive(true);
             goalBGM.Play();
-            Invoke("GoalIn", 1.5f);
+            Invoke("GoalIn", 2f);
         }
     }
 

@@ -9799,8 +9799,6 @@ MonoBehaviour:
   timingbararr: {fileID: 19703278}
   speedbar: {fileID: 1640866820}
   speedbararr: {fileID: 1749540089}
-  ball: {fileID: 0}
-  aM: {fileID: 0}
 --- !u!1 &829203989
 GameObject:
   m_ObjectHideFlags: 0
