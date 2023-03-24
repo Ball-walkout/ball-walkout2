@@ -85,6 +85,10 @@ public class GameManager : MonoBehaviour
                 GameFail();
             }
         }
+        if(ui == null)
+        {
+            ui = FindObjectOfType<UIManager>();
+        }
     }
 
     public void TurnOnTime()

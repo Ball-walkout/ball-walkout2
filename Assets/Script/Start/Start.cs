@@ -43,4 +43,9 @@ public class Start : MonoBehaviour
         GameObject.Find("Canvas").transform.Find("Shop").gameObject.SetActive(true);
         GameObject.Find("Canvas").transform.Find("Start").gameObject.SetActive(true);
     }
+    public void Coin()
+    {
+        if(GameObject.Find("GameManager"))
+            GameObject.Find("Canvas").transform.Find("Coin").transform.Find("Text").GetComponent<Text>().text = GameManager.Instance.GetCoin().ToString();
+    }
 }

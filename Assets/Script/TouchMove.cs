@@ -98,7 +98,7 @@ public class TouchMove : MonoBehaviour
             endTouchPos = Input.GetTouch(0).position;
             print("endTouchPos: " + endTouchPos);
 
-            if(endTouchPos.y - startTouchPos.y > 30f )//&& rig.velocity.y<=0)
+            if(endTouchPos.y - startTouchPos.y > 70f && rig.velocity.y<=0)
             {
                 canJump = true;
             }

@@ -38,15 +38,20 @@ public class UIManager : MonoBehaviour
 
     public void ClickedRestart()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Road");
+        GameManager.Instance.TurnOnTime();
         GameManager.Instance.time=0;
         GameManager.Instance.timerOn = true;
+        SceneManager.LoadScene("Road");
     }
 
     public void ClickedContinue()
     {
         Time.timeScale = 1f;
+    }
+
+    private void Start() {
+        
+        GameManager.Instance.timerOn = true;
     }
 
     [SerializeField] private Text min, sec;

@@ -12,7 +12,7 @@ public class BallManager : MonoBehaviour
         if(other.tag == "Coin")
         {
             GameManager.Instance.SetCoin(1);
-            Destroy(other.gameObject, 1.5f);
+            Destroy(other.gameObject, 0.1f);
         }
         else if(other.tag == "Obstacle")
         {
