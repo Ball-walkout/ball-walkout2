@@ -15,17 +15,18 @@ public class enemyMove : MonoBehaviour
     void Start() {
       dampSpeed = 2;
       PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
-      //StartCoroutine(speed());
+      StartCoroutine(speed());
       distance = new Vector3(0, 0, 5.0f);
     }
     void Update () {
       Debug.Log(transform.position.y);
       transform.LookAt(target);
-    //  transform.position = Vector3.MoveTowards(transform.position, target.position, dampSpeed * Time.deltaTime);
+      transform.position = Vector3.MoveTowards(transform.position, target.position, dampSpeed * Time.deltaTime);
     //  if(Vector3.Distance(target.position, this.transform.position) > 5){
-        temp.x = target.position.x + distance.x;
-        temp.z = target.position.z + distance.z;
-        transform.position = temp;
+        // temp.x = target.position.x + distance.x;
+        // temp.y = target.position.y + distance.y;
+        // temp.z = target.position.z + distance.z;
+        // transform.position = temp;
     //  }
      // else{
      //   transform.position = Vector3.MoveTowards(transform.position, target.position, dampSpeed * Time.deltaTime);
@@ -42,8 +43,10 @@ public class enemyMove : MonoBehaviour
     }
     IEnumerator speed()
     {
-      yield return new WaitForSeconds(10.0f);
-      dampSpeed += 3;
-      StartCoroutine(speed());
+      while(dampSpeed < 15)
+      {
+          yield return new WaitForSeconds(3.0f);
+          dampSpeed += 1;
+      }
     }
 }
