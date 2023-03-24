@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BallManager : MonoBehaviour
 {
     //[SerializeField] private PlayerCamera cam;
-    public AudioSource coinBGM, obsBGM;
+    public AudioSource coinBGM, obsBGM, boosterBGM;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +22,10 @@ public class BallManager : MonoBehaviour
             // 장애물 종류별 스코어 변경 필요 **
             GameManager.Instance.SetScore(10);
             //Destroy(other.gameObject, 30f);
+        }
+        else if(other.tag == "Booster")
+        {
+            boosterBGM.Play();
         }
         // else if(other.tag == "Left")
         // {
@@ -39,16 +43,21 @@ public class BallManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Goal")
+        if(other.gameObject.tag == "Obstacle")
+        {
+            obsBGM.Play();
+        }
+
+        else if(other.gameObject.tag == "Enemy")
+        {
+            GameManager.Instance.GameFail();
+        }
+
+        else if(other.gameObject.tag == "Goal")
         {
             SceneManager.LoadScene("Clear");
             GameManager.Instance.timerOn = false;
             GameManager.Instance.StageClear();
-        }
-
-        if(other.gameObject.tag == "Enemy")
-        {
-            GameManager.Instance.GameFail();
         }
     }
 

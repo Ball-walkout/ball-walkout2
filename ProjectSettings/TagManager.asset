@@ -12,6 +12,7 @@ TagManager:
   - speed
   - Goal
   - Enemy
+  - Booster
   layers:
   - Default
   - TransparentFX
