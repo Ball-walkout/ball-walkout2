@@ -243,7 +243,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19703278}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2507,6 +2507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d19e12fb1f5ff4a9ffe441a9e2b4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boosterP: {fileID: 0}
   boostBGM: {fileID: 0}
 --- !u!65 &539342510
 BoxCollider:
@@ -3622,6 +3623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d19e12fb1f5ff4a9ffe441a9e2b4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boosterP: {fileID: 0}
   boostBGM: {fileID: 0}
 --- !u!65 &658561287
 BoxCollider:
@@ -5888,6 +5890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d19e12fb1f5ff4a9ffe441a9e2b4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boosterP: {fileID: 0}
   boostBGM: {fileID: 0}
 --- !u!65 &1134416937
 BoxCollider:
@@ -7845,6 +7848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d19e12fb1f5ff4a9ffe441a9e2b4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boosterP: {fileID: 0}
   boostBGM: {fileID: 0}
 --- !u!65 &1544810168
 BoxCollider:
@@ -11057,7 +11061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 76f6f8c969a294e4fbea04ea00a9ea60, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76f6f8c969a294e4fbea04ea00a9ea60, type: 3}
