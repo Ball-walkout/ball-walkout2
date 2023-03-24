@@ -11,21 +11,27 @@ public class speedtrigger : MonoBehaviour
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true){
             if(gameObject.name == "Fast1"){
-                PF.speed = 30;
+                
+                TM.rig.velocity = Vector3.Lerp(Vector3.zero, TM.rig.velocity, 2f);
             }
 
             if(gameObject.name == "Fast2"){
-                PF.speed = 20;
+                
+                TM.rig.velocity = Vector3.Lerp(Vector3.zero, TM.rig.velocity, 1.5f);
             }
             
             if(gameObject.name == "Fast3"){
-                PF.speed = 10;
+                
+                TM.rig.velocity = Vector3.Lerp(Vector3.zero, TM.rig.velocity, 0.5f);
             }
 
             if(gameObject.name == "Fast4"){
-                PF.speed = 2;
+                
+                TM.rig.velocity = Vector3.Lerp(Vector3.zero, TM.rig.velocity, 0.3f);
             }
-            TM.rig.velocity = Vector3.Lerp(Vector3.zero, TM.rig.velocity, 0.8f);
+            
+            // 원래 속도로 되돌리고, 점프
+            PF.speed = 18;
             TM.rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
             circle.onclick = false;
         }

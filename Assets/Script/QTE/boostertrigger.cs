@@ -14,6 +14,7 @@ public class boostertrigger : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.name == "ball")
         {
+            StartCoroutine(GameManager.Instance.SlowMotion());
             timingBar.SetActive(true);
             timingBararr.GetComponent<MeshRenderer>().enabled = true;
             gameObject.SetActive(false);

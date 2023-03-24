@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation.Examples;
 
 // 싱글톤 구현 참고 링크
 // https://m.blog.naver.com/os2dr/221536778783
@@ -94,6 +95,22 @@ public class GameManager : MonoBehaviour
     public void TurnOnTime()
     {
         Time.timeScale=1;
+    }
+
+    // 부스터 닿을 시 씬 느려지게, path follower 잠시 멈추기
+    public PathFollower PF;
+    public IEnumerator SlowMotion()
+    {
+        PF.speed = 0;
+        Time.timeScale = 0.5f;
+        // 배경 흐리게
+        int num=0;
+        while (num < 3)
+        {
+            num++;
+            yield return new WaitForSeconds(1f);
+        }
+        Time.timeScale = 1f;
     }
 
     public void GameFail()
