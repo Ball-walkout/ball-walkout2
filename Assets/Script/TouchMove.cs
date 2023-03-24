@@ -98,19 +98,21 @@ public class TouchMove : MonoBehaviour
             endTouchPos = Input.GetTouch(0).position;
             print("endTouchPos: " + endTouchPos);
 
-            if(endTouchPos.y - startTouchPos.y > 70f && rig.velocity.y<=0)
+            if(endTouchPos.y - startTouchPos.y > 70f && rig.velocity.y<=5)
             {
                 canJump = true;
             }
         }
     }
+
+    public AudioSource jumpBGM;
     public void JumpAllowed()
     {
         if(canJump)
         {
             rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
             rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
-            print("점프");
+            jumpBGM.Play();
             canJump=false;
         }
     }

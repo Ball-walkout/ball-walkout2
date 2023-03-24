@@ -18,8 +18,10 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject overCanvas;
+    public AudioSource gameOverBGM;
     public void GameOver()
     {
+        gameOverBGM.Play();
         overCanvas.SetActive(true);
         Invoke("StopScene", 0.5f);
     }

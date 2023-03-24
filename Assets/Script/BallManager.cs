@@ -6,16 +6,19 @@ using UnityEngine.SceneManagement;
 public class BallManager : MonoBehaviour
 {
     //[SerializeField] private PlayerCamera cam;
+    public AudioSource coinBGM, obsBGM;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Coin")
         {
+            coinBGM.Play();
             GameManager.Instance.SetCoin(1);
             Destroy(other.gameObject, 0.1f);
         }
         else if(other.tag == "Obstacle")
         {
+            obsBGM.Play();
             // 장애물 종류별 스코어 변경 필요 **
             GameManager.Instance.SetScore(10);
             //Destroy(other.gameObject, 30f);
