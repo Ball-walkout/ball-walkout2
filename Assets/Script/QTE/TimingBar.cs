@@ -15,7 +15,7 @@ public class timingbar : MonoBehaviour
     {
         ball = GameObject.Find("ball").GetComponent<TouchMove>();
         aM = GameObject.Find("timingarr").GetComponent<arrMove>();
-       // StartCoroutine(timingbarC());
+        StartCoroutine(timingbarC());
         if(ball.QTE == true)
             ball.StopTouch();
         if(ball.canForward == true)
@@ -30,17 +30,8 @@ public class timingbar : MonoBehaviour
             aM.speed = 0;
             timing_bar.SetActive(false);
             timingbararr.GetComponent<MeshRenderer>().enabled = false;
-            Debug.Log(timingbararr.transform.parent.transform.rotation.z);
-            if(timingbararr.transform.parent.transform.rotation.z >= 0.7){
-                ball.MoveRight(10000f);
-            }
-            else if(timingbararr.transform.parent.transform.rotation.z <= -0.7){
-                ball.MoveLeft(10000f);
-            }
-            else{
-                speedbar.SetActive(true);
-                speedbararr.GetComponent<MeshRenderer>().enabled = true;
-            }
+            speedbar.SetActive(true);
+            speedbararr.GetComponent<MeshRenderer>().enabled = true;
         }
     }
     IEnumerator timingbarC()
@@ -50,25 +41,15 @@ public class timingbar : MonoBehaviour
         //Debug.Log(timingbararr.transform.parent.transform.rotation.z);
         timing_bar.SetActive(false);
         timingbararr.GetComponent<MeshRenderer>().enabled = false;
-        if(timingbararr.transform.parent.transform.rotation.z >= 0.8){
-            ball.MoveRight(10000f);
-        }
-        else if(timingbararr.transform.parent.transform.rotation.z <= -0.8){
-            ball.MoveLeft(10000f);
-        }
-        else{
-            speedbar.SetActive(true);
-            speedbararr.GetComponent<MeshRenderer>().enabled = true;
-        }
+        speedbar.SetActive(true);
+        speedbararr.GetComponent<MeshRenderer>().enabled = true;
     }
 
     public void delayturn(){
-        if(timingbararr.transform.parent.transform.rotation.z > 0 && timingbararr.transform.parent.transform.rotation.z < 100){
+        if(timingbararr.transform.parent.transform.rotation.z > 0)
             ball.MoveRight(800f);
-        }
-        else if(timingbararr.transform.parent.transform.rotation.z < 0 && timingbararr.transform.parent.transform.rotation.z > -100){
+        else
             ball.MoveLeft(800f);
-        }
         aM.speed = 300.0f;
     }
 }

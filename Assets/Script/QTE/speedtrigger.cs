@@ -9,16 +9,21 @@ public class speedtrigger : MonoBehaviour
     TouchMove TM;
     PathFollower PF;
     float tempSpeed;
+    public Transform boosterP1, boosterP2;
+    private Transform tempParticle;
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true){
+            print(gameObject.name);
             if(gameObject.name == "Fast1"){
                 
                 tempSpeed = 5f;
+                tempParticle = boosterP1;
             }
 
             else if(gameObject.name == "Fast2"){
                 
                 tempSpeed = 3f;
+                tempParticle = boosterP2;
             }
 
             if(gameObject.name == "Fast3"){
@@ -31,11 +36,11 @@ public class speedtrigger : MonoBehaviour
             }
 
             else if(gameObject.name == "Fast4"){
-                // 점프 없이 즉각 속도 멈추기
+                // 점프 없이 즉각 속도 멈추기. 다시 가속 할 일 없다.
+                PF.speed = 0;
                 TM.rig.velocity = Vector3.zero;
+                TM.Rallentare();
                 
-                PF.speed = 18;
-        
                 // 카메라 원래대로 돌리기
                 TM.GetComponent<BallManager>().SwitchCamera();
             }
@@ -43,16 +48,17 @@ public class speedtrigger : MonoBehaviour
             // 점프 후 부스터 효과 (FAST1, FAST2)
             else{
                 TM.rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
-                StartCoroutine(Booster());
+                StartCoroutine(Booster(tempParticle));
             }
             
             circle.onclick = false;
+            GameManager.Instance.TurnOnTime();
         }
     }
 
     public AudioSource boostBGM;
-    float saveY;
-    IEnumerator Booster()
+    Vector3 saveVelocity;
+    IEnumerator Booster(Transform effect)
     {
         // 공이 위로 뜰 때는 기다리기
         while(TM.rig.velocity.y > 0)
@@ -64,22 +70,24 @@ public class speedtrigger : MonoBehaviour
         int stop=0;
         TM.rig.useGravity = false;
         // **부스터 파티클 및 사운드**
+        effect.gameObject.SetActive(true);
         boostBGM.Play();
-        TM.rig.AddForceAtPosition(TM.direction, TM.transform.position);
-        saveY = TM.rig.velocity.y;
+        saveVelocity = TM.rig.velocity;
+        //TM.rig.AddForceAtPosition(TM.direction, TM.transform.position);
+        TM.rig.AddForce(new Vector3(0,0,-1));
         TM.rig.velocity = new Vector3 (TM.rig.velocity.x, 0f, TM.rig.velocity.z);
         TM.rig.velocity = TM.rig.velocity * tempSpeed;
         while(stop < 2)
         {
-            
             stop++;
             yield return new WaitForSeconds(1f);
         }
         // 중력과 공 원래 속도로 되돌리기
         TM.rig.useGravity = true;
-        TM.rig.velocity = new Vector3 (TM.rig.velocity.x, saveY, TM.rig.velocity.z);
+        TM.rig.velocity = saveVelocity;
         PF.speed = 18;
-        
+        effect.gameObject.SetActive(false);
+
         // 카메라 원래대로 돌리기
         TM.GetComponent<BallManager>().SwitchCamera();
     }
@@ -90,5 +98,6 @@ public class speedtrigger : MonoBehaviour
         PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
         circle = GameObject.Find("speedbarmove").transform.Find("speedbar").GetComponent<speedbar>();
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
+        //boosterP = GameObject.Find("부스터").transform;
     }
 }

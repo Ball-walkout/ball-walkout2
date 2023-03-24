@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class BallManager : MonoBehaviour
 {
-    public GameObject virCam, freeCam;
-    public AudioSource coinBGM, obsBGM, boosterBGM;
+    public GameObject virCam, freeCam, goalEffect;
+    public AudioSource coinBGM, obsBGM, boosterBGM, goalBGM;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -47,10 +47,18 @@ public class BallManager : MonoBehaviour
 
         else if(other.gameObject.tag == "Goal")
         {
-            SceneManager.LoadScene("Clear");
-            GameManager.Instance.timerOn = false;
-            GameManager.Instance.StageClear();
+            transform.GetComponent<TouchMove>().rig.velocity = Vector3.zero;
+            goalEffect.SetActive(true);
+            goalBGM.Play();
+            Invoke("GoalIn", 1.5f);
         }
+    }
+
+    private void GoalIn()
+    {
+        GameManager.Instance.timerOn = false;
+        GameManager.Instance.StageClear();
+        SceneManager.LoadScene("Clear");
     }
 
     public void SwitchCamera()
