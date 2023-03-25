@@ -15,7 +15,7 @@ public class TimingBar : MonoBehaviour
     {
         ball = GameObject.Find("ball").GetComponent<TouchMove>();
         aM = GameObject.Find("timingarr").GetComponent<arrMove>();
-       // StartCoroutine(timingbarC());
+        StartCoroutine(timingbarC());
         if(ball.QTE == true)
             ball.StopTouch();
         if(ball.canForward == true)
