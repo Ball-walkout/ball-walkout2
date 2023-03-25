@@ -12,12 +12,14 @@ public class speedtrigger : MonoBehaviour
     public Transform boosterP1, boosterP2;
     private Transform tempParticle;
     public GameObject[] speedtext;
+    timingbar Tb;
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true){
             if(gameObject.name == "Fast1"){
                 
                 tempSpeed = 5f;
                 tempParticle = boosterP1;
+                Tb.delayturn();
                 speedtext[0].SetActive(true);
                 StartCoroutine(Text(0));
             }
@@ -26,6 +28,7 @@ public class speedtrigger : MonoBehaviour
                 
                 tempSpeed = 3f;
                 tempParticle = boosterP2;
+                Tb.delayturn();
                 speedtext[1].SetActive(true);
                 StartCoroutine(Text(1));
             }
@@ -42,10 +45,13 @@ public class speedtrigger : MonoBehaviour
             }
 
             else if(gameObject.name == "Fast4"){
+                GameObject.Find("Enemy").transform.position = GameObject.Find("ball").transform.position + new Vector3(0, 0, 8f);
                 // 점프 없이 즉각 속도 멈추기. 다시 가속 할 일 없다.
                 PF.speed = 0;
-                TM.rig.velocity = Vector3.zero;
+                TM.rig.velocity = Vector3.zero * PF.speed;
                 TM.Rallentare();
+                speedtext[3].SetActive(true);
+                StartCoroutine(Text(3));
         
                 // 카메라 원래대로 돌리기
                 TM.GetComponent<BallManager>().SwitchCamera();
@@ -110,5 +116,6 @@ public class speedtrigger : MonoBehaviour
         PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
         circle = GameObject.Find("speedbarmove").transform.Find("speedbar").GetComponent<speedbar>();
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
+        Tb = GameObject.Find("timingbarmove").transform.Find("timingbar").GetComponent<timingbar>();
     }
 }
