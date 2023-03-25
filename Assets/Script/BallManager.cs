@@ -27,6 +27,7 @@ public class BallManager : MonoBehaviour
         else if(other.tag == "Booster")
         {
             boosterBGM.Play();
+            // QTE 코루틴 넣기
             freeCam.SetActive(true);
             virCam.SetActive(false);
         }
