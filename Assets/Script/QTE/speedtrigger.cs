@@ -12,7 +12,7 @@ public class speedtrigger : MonoBehaviour
     public Transform boosterP1, boosterP2;
     private Transform tempParticle;
     public GameObject[] speedtext;
-    timingbar Tb;
+    TimingBar Tb;
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true){
             if(gameObject.name == "Fast1"){
@@ -116,6 +116,6 @@ public class speedtrigger : MonoBehaviour
         PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
         circle = GameObject.Find("speedbarmove").transform.Find("speedbar").GetComponent<speedbar>();
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
-        Tb = GameObject.Find("timingbarmove").transform.Find("timingbar").GetComponent<timingbar>();
+        Tb = GameObject.Find("timingbarmove").transform.Find("timingbar").GetComponent<TimingBar>();
     }
 }

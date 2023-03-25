@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class timingbar : MonoBehaviour
+public class TimingBar : MonoBehaviour
 {
     public GameObject timing_bar;
     public GameObject timingbararr;
