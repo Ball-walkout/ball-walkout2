@@ -28,8 +28,6 @@ public class BallManager : MonoBehaviour
         {
             boosterBGM.Play();
             // QTE 코루틴 넣기
-            freeCam.SetActive(true);
-            virCam.SetActive(false);
         }
         
     }
@@ -63,9 +61,4 @@ public class BallManager : MonoBehaviour
         SceneManager.LoadScene("Clear");
     }
 
-    public void SwitchCamera()
-    {
-        virCam.SetActive(true);
-        freeCam.SetActive(false);
-    }
 }

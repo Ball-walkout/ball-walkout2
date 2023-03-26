@@ -38,8 +38,6 @@ public class speedtrigger : MonoBehaviour
                 // 점프 없이 즉각 속도 느려지기
                 TM.rig.velocity = Vector3.Lerp(Vector3.zero, TM.rig.velocity, 0.3f);
                 PF.speed = 3;
-                // 카메라 원래대로 돌리기
-                TM.GetComponent<BallManager>().SwitchCamera();
                 speedtext[2].SetActive(true);
                 StartCoroutine(Text(2));
             }
@@ -53,8 +51,6 @@ public class speedtrigger : MonoBehaviour
                 speedtext[3].SetActive(true);
                 StartCoroutine(Text(3));
         
-                // 카메라 원래대로 돌리기
-                TM.GetComponent<BallManager>().SwitchCamera();
             }
             
             // 점프 후 부스터 효과 (FAST1, FAST2)
@@ -106,8 +102,6 @@ public class speedtrigger : MonoBehaviour
         PF.speed = 18;
         effect.gameObject.SetActive(false);
 
-        // 카메라 원래대로 돌리기
-        TM.GetComponent<BallManager>().SwitchCamera();
     }
 
     // Start is called before the first frame update
