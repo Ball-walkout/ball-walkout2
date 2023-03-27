@@ -9,7 +9,7 @@ public class FollowBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = ball.transform.position + new Vector3(1.44f, 14f, 18.3f);
+        transform.position = ball.transform.position + new Vector3(1.44f, 14f, 27.57f);
         //transform.rotation = Quaternion.Euler(transform.rotation.x, 180f+ball.rotation.y, transform.rotation.z);
     }
 }
