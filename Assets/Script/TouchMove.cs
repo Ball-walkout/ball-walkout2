@@ -20,34 +20,71 @@ public class TouchMove : MonoBehaviour
         
         rig.AddForce(new Vector3(0,0,-1) * speed);
     }
+
+    private Vector2 startTouchPos, endTouchPos;
+    private bool canJump = false;
+    private void FixedUpdate()
+    {
+        // 직진
+        if (canForward)
+        {
+            direction = roadFollower.position - transform.position;
+            rig.AddForceAtPosition(direction, transform.position);
+            //rig.AddForce(new Vector3(0,0,-1) * speed);
+        }
+
+        if (QTE)
+        {
+            //좌우 움직이기
+            Touch();
+        }
+    }
+    
     public Vector3 direction;
     public bool canForward=true;
     void Touch()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            // 터치 끝났을 때
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            startTouchPos = Input.GetTouch(0).position;
+        }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            endTouchPos = Input.GetTouch(0).position;
+
+            if (endTouchPos.x - startTouchPos.x > 0f)
             {
-                
-                // 오른쪽 터치 시 오른쪽으로 이동
-                if (Input.GetTouch(0).position.x > (Screen.width/2))
-                {
-                    rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
-                    UpdateLeft();
-                    rig.AddForce(left * 20f);
-                    Invoke("Accelerate", 0.5f);
-                }
-                // 왼쪽 터치 시 왼쪽으로 이동
-                else
-                {
-                    rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
-                    UpdateRight();
-                    rig.AddForce(right* 20f);
-                    Invoke("Accelerate", 0.5f);
-                }
+                MoveLeft((endTouchPos.x - startTouchPos.x) * 0.1f);
+            }
+            else if (endTouchPos.x - startTouchPos.x < 0f)
+            {
+                MoveRight((startTouchPos.x - startTouchPos.x) * 0.1f);
             }
         }
+        // if (Input.touchCount > 0)
+        // {
+        //     // 터치 끝났을 때
+        //     if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        //     {
+                
+        //         // 오른쪽 터치 시 오른쪽으로 이동
+        //         if (Input.GetTouch(0).position.x > (Screen.width/2))
+        //         {
+        //             rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
+        //             UpdateLeft();
+        //             rig.AddForce(left * 20f);
+        //             Invoke("Accelerate", 0.5f);
+        //         }
+        //         // 왼쪽 터치 시 왼쪽으로 이동
+        //         else
+        //         {
+        //             rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
+        //             UpdateRight();
+        //             rig.AddForce(right* 20f);
+        //             Invoke("Accelerate", 0.5f);
+        //         }
+        //     }
+        // }
     }
 
     // 터치 비활성화
@@ -62,59 +99,6 @@ public class TouchMove : MonoBehaviour
     {
         print("QTE: TRUE");
         QTE = true;
-    }
-
-
-    // 점프
-    private Vector2 startTouchPos, endTouchPos;
-    private bool canJump=false;
-    private void FixedUpdate() {
-        // 직진
-        if(canForward)
-        {
-            direction = roadFollower.position - transform.position;
-            rig.AddForceAtPosition(direction, transform.position);
-            //rig.AddForce(new Vector3(0,0,-1) * speed);
-        }
-
-        if(QTE){
-            //점프
-            TouchCheck();
-
-            //좌우 움직이기
-            Touch();
-        }
-        JumpAllowed();
-    }
-    void TouchCheck()
-    {
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            startTouchPos = Input.GetTouch(0).position;
-        }
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-        {
-            endTouchPos = Input.GetTouch(0).position;
-
-            if(endTouchPos.y - startTouchPos.y > 70f && rig.velocity.y<=5)
-            {
-                canJump = true;
-            }
-        }
-    }
-
-    public AudioSource jumpBGM;
-    public void JumpAllowed()
-    {
-        if(canJump)
-        {
-            StopTouch();
-            rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
-            rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
-            jumpBGM.Play();
-            canJump=false;
-            Invoke("EnTouch", 0.5f);
-        }
     }
 
     // 가속
@@ -152,6 +136,7 @@ public class TouchMove : MonoBehaviour
         Invoke("EnTouch", 1f);
     }
 
+    // 직진 방향 기준 좌우 좌표 업데이트
     [HideInInspector]
     public Vector3 left, right;
     public Vector3 UpdateLeft()
