@@ -12,7 +12,7 @@ public class circleMove : MonoBehaviour
     void Start()
     {
         direction = new Vector3(0, 0, 1f);
-        speed = 10.0f;
+        speed = 30.0f;
     }
 
     // Update is called once per frame
@@ -22,12 +22,11 @@ public class circleMove : MonoBehaviour
             speed = 0;
         }
         else{
-            speed = 10.0f;
+            speed = 30.0f;
         }
-      //  gameObject.transform.position = target.position + distance;
         Vector3 temp = gameObject.transform.position;
         temp.x = target.position.x + distance.x;
-        temp.z = target.position.z + distance.z;
+        temp.y = target.position.y + distance.y;
         gameObject.transform.position = temp;
         gameObject.transform.Translate(direction * Time.deltaTime * speed);
     }

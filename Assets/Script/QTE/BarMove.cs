@@ -7,14 +7,6 @@ public class BarMove : MonoBehaviour
    
    public Transform target;
    public Vector3 distance;
-   Vector3 temp;
-   // Start is called before the first frame update
-   void Start()
-   {
-      // gameObject.transform.position = target.position + distance;
-   }
-
-   // Update is called once per frame
    void Update()
    {
       gameObject.transform.position = target.position + distance; // * GameObject.Find("timingarr").GetComponent<arrMove>().speed;

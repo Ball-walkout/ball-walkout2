@@ -7,18 +7,16 @@ public class speedbar : MonoBehaviour
     public bool onclick;
     public GameObject speed_bar;
     public GameObject speedbararr;
-  //  timingbar Tb;
     private TouchMove ball;
     void OnEnable()
     {
         ball = GameObject.Find("ball").GetComponent<TouchMove>();
-       // Tb = GameObject.Find("timingbarmove").transform.Find("timingbar").GetComponent<timingbar>();
         StartCoroutine(speedbarC());
         onclick = false;
-        if(ball.QTE == true)
+        /*if(ball.QTE == true)
             ball.StopTouch();
         if(ball.canForward == true)
-            ball.Rallentare();
+            ball.Rallentare();*/
     }
 
     // Update is called once per frame
