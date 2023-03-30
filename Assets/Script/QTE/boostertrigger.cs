@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class boostertrigger : MonoBehaviour
 {
-    public GameObject timingBar;
-    public GameObject timingBararr;
+    public GameObject speedbar;
+    public GameObject speedbararr;
     private TouchMove ball;
     private void Start() {
         ball = GameObject.Find("ball").GetComponent<TouchMove>();
@@ -15,8 +15,8 @@ public class boostertrigger : MonoBehaviour
         if(other.gameObject.name == "ball")
         {
             StartCoroutine(GameManager.Instance.SlowMotion());
-            timingBar.SetActive(true);
-            timingBararr.GetComponent<MeshRenderer>().enabled = true;
+            speedbar.SetActive(true);
+            speedbararr.GetComponent<MeshRenderer>().enabled = true;
             gameObject.SetActive(false);
         }
     }

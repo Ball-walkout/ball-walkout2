@@ -46,7 +46,7 @@ public class speedtrigger : MonoBehaviour
                 // 점프 없이 즉각 속도 멈추기. 다시 가속 할 일 없다.
                 PF.speed = 0;
                 TM.rig.velocity = Vector3.zero * PF.speed;
-                TM.Rallentare();
+               // TM.Rallentare();
                 speedtext[3].SetActive(true);
                 StartCoroutine(Text(3));
         
@@ -89,7 +89,6 @@ public class speedtrigger : MonoBehaviour
         TM.rig.AddForce(TM.direction * tempSpeed * 100);
         PF.speed = 18;
         // 회전
-        Tb.delayturn();
         while(stop < 2)
         {
             stop++;
@@ -108,6 +107,6 @@ public class speedtrigger : MonoBehaviour
         PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
         circle = GameObject.Find("speedbarmove").transform.Find("speedbar").GetComponent<speedbar>();
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
-        Tb = GameObject.Find("timingbarmove").transform.Find("timingbar").GetComponent<TimingBar>();
+//        Tb = GameObject.Find("timingbarmove").transform.Find("timingbar").GetComponent<TimingBar>();
     }
 }
