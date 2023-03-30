@@ -144,4 +144,22 @@ public class GameManager : MonoBehaviour
         else
             star = 1;
     }
+
+    // 공과 적 실시간 위치 계산
+    public Transform startPos, endPos, ballPos, enemyPos;
+    public float ballPosZ, enemyPosZ;
+    private void RealTimePos()
+    {
+        if (startPos == null || endPos == null || ballPos == null || enemyPos == null)
+        {
+            startPos = GameObject.Find("Start Position").transform;
+            endPos = GameObject.Find("End Position").transform;
+            ballPos = GameObject.FindGameObjectWithTag("Player").transform;
+            enemyPos = GameObject.FindGameObjectWithTag("Enemy").transform;
+        }
+        
+        float full = startPos.z - endPos.z;
+        ballPosZ = (ballPos.z - startPos.z) / full * 100f;
+        enemyPos = (enemyPos.z - startPos.z) / full * 100f;
+    }
 }

@@ -58,7 +58,7 @@ public class TouchMove : MonoBehaviour
             }
             else if (endTouchPos.x - startTouchPos.x < 0f)
             {
-                MoveRight((startTouchPos.x - startTouchPos.x) * 0.1f);
+                MoveRight((startTouchPos.x - endTouchPos.x) * 0.1f);
             }
         }
         // if (Input.touchCount > 0)
