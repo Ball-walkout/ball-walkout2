@@ -33,15 +33,17 @@ public class TouchMove : MonoBehaviour
                 // 오른쪽 터치 시 오른쪽으로 이동
                 if (Input.GetTouch(0).position.x > (Screen.width/2))
                 {
-                    rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
-                    rig.AddForce(-Vector3.right * 800f);
+                    rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
+                    UpdateLeft();
+                    rig.AddForce(left * 20f);
                     Invoke("Accelerate", 0.5f);
                 }
                 // 왼쪽 터치 시 왼쪽으로 이동
                 else
                 {
-                    rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
-                    rig.AddForce(-Vector3.left * 800f);
+                    rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
+                    UpdateRight();
+                    rig.AddForce(right* 20f);
                     Invoke("Accelerate", 0.5f);
                 }
             }
@@ -124,6 +126,7 @@ public class TouchMove : MonoBehaviour
     // 가속 멈추기
     public void Rallentare()
     {
+        rig.velocity = Vector3.zero;
         print("Rallentared");
         canForward = false;
     }
@@ -132,9 +135,9 @@ public class TouchMove : MonoBehaviour
     public void MoveLeft(float scale)
     {
         print("MoveLeft");
+        UpdateLeft();
         rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
-        //canForward = false;
-        rig.AddForce(-Vector3.left * scale);
+        rig.AddForce(left * scale);
         Invoke("Accelerate", 1f);
         Invoke("EnTouch", 1f);
     }
@@ -142,10 +145,29 @@ public class TouchMove : MonoBehaviour
     public void MoveRight(float scale)
     {
         print("MoveRight");
+        UpdateRight();
         rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
-        //canForward = false;
-        rig.AddForce(-Vector3.right * scale);
+        rig.AddForce(right * scale);
         Invoke("Accelerate", 1f);
         Invoke("EnTouch", 1f);
+    }
+
+    [HideInInspector]
+    public Vector3 left, right;
+    public Vector3 UpdateLeft()
+    {
+        var quaternion = Quaternion.Euler(0, 90, 0);
+        Vector3 newDirection = quaternion * direction;
+        newDirection.y = 0f;
+        left = newDirection;
+        return newDirection;
+    }
+    public Vector3 UpdateRight()
+    {
+        var quaternion = Quaternion.Euler(0, -90, 0);
+        Vector3 newDirection = quaternion * direction;
+        newDirection.y = 0f;
+        right = newDirection;
+        return newDirection;
     }
 }

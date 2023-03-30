@@ -19,7 +19,6 @@ public class speedtrigger : MonoBehaviour
                 
                 tempSpeed = 5f;
                 tempParticle = boosterP1;
-                Tb.delayturn();
                 speedtext[0].SetActive(true);
                 StartCoroutine(Text(0));
             }
@@ -28,7 +27,6 @@ public class speedtrigger : MonoBehaviour
                 
                 tempSpeed = 3f;
                 tempParticle = boosterP2;
-                Tb.delayturn();
                 speedtext[1].SetActive(true);
                 StartCoroutine(Text(1));
             }
@@ -38,6 +36,7 @@ public class speedtrigger : MonoBehaviour
                 // 점프 없이 즉각 속도 느려지기
                 TM.rig.velocity = Vector3.Lerp(Vector3.zero, TM.rig.velocity, 0.3f);
                 PF.speed = 3;
+                TM.QTE = true;
                 speedtext[2].SetActive(true);
                 StartCoroutine(Text(2));
             }
@@ -65,7 +64,6 @@ public class speedtrigger : MonoBehaviour
     }
 
     public AudioSource boostBGM;
-    Vector3 saveVelocity;
     float saveY;
     IEnumerator Text(int i){
         yield return new WaitForSeconds(0.5f);
@@ -86,11 +84,12 @@ public class speedtrigger : MonoBehaviour
         // **부스터 파티클 및 사운드**
         effect.gameObject.SetActive(true);
         boostBGM.Play();
-        saveVelocity = TM.rig.velocity;
-        //TM.rig.AddForceAtPosition(TM.direction, TM.transform.position);
-        TM.rig.AddForce(new Vector3(0,0,-1));
-        TM.rig.velocity = new Vector3 (TM.rig.velocity.x, 0f, TM.rig.velocity.z);
-        TM.rig.velocity = TM.rig.velocity * tempSpeed;
+        
+        // 직진 가속
+        TM.rig.AddForce(TM.direction * tempSpeed * 100);
+        PF.speed = 18;
+        // 회전
+        Tb.delayturn();
         while(stop < 2)
         {
             stop++;
@@ -98,8 +97,7 @@ public class speedtrigger : MonoBehaviour
         }
         // 중력과 공 원래 속도로 되돌리기
         TM.rig.useGravity = true;
-        TM.rig.velocity = saveVelocity;
-        PF.speed = 18;
+        TM.rig.velocity = GameManager.Instance.preVelocity;
         effect.gameObject.SetActive(false);
 
     }

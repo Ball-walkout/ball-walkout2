@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private TouchMove ball;
+    private PathFollower pf;
+    private void Start() {
+        ball = GameObject.FindGameObjectWithTag("Player").GetComponent<TouchMove>();
+        pf = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
+    }
 
     [SerializeField] private UIManager ui;
     // 피버 코인
@@ -97,13 +103,21 @@ public class GameManager : MonoBehaviour
         Time.timeScale=1;
     }
 
-    // 부스터 닿을 시 씬 느려지게, path follower 잠시 멈추기
-    public PathFollower PF;
+    // 부스터 닿을 시 씬 느려지게
+    public Vector3 preVelocity;
     public IEnumerator SlowMotion()
     {
-        PF.speed = 0;
+        if(ball == null)
+            ball = GameObject.FindGameObjectWithTag("Player").GetComponent<TouchMove>();
+        preVelocity = ball.rig.velocity;
         Time.timeScale = 0.5f;
-        // 배경 흐리게
+        // 배경 흐리게, 공 가속 멈추기, 적 속도 멈추기
+        ball.rig.velocity = Vector3.zero*100;
+        ball.Rallentare();
+        ball.rig.velocity = Vector3.zero;
+        pf.speed = 0;
+
+        // 3초 후 원상복귀
         int num=0;
         while (num < 3)
         {
