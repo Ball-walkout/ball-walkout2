@@ -48,62 +48,6 @@ public class TouchMove : MonoBehaviour
     private Vector3 movePosDiff;
     void Touch()
     {
-        // if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        // {
-        //     startTouchPos = Input.GetTouch(0).position;
-        // }
-        // if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-        // {
-        //     endTouchPos = Input.GetTouch(0).position;
-
-        //     if (endTouchPos.x - startTouchPos.x > 0f)
-        //     {
-        //         MoveLeft((endTouchPos.x - startTouchPos.x) * 0.1f);
-        //     }
-        //     else if (endTouchPos.x - startTouchPos.x < 0f)
-        //     {
-        //         MoveRight((startTouchPos.x - endTouchPos.x) * 0.1f);
-        //     }
-        // }
-        // --------------------------------------------------------------
-        // if (Input.touchCount > 0)
-        // {
-        //     // 터치 시작 시
-        //     if(Input.GetTouch(0).phase == TouchPhase.Began)
-        //         touchTime = 0f;
-        //     // 터치 중일 때
-        //     else if(Input.GetTouch(0).phase == TouchPhase.Moved)
-        //     {
-        //         touchTime += Time.deltaTime;
-        //     }
-        //     // 터치 끝났을 때
-        //     else if (Input.GetTouch(0).phase == TouchPhase.Ended)
-        //     {
-        //         print("touchTime: "+touchTime);
-                
-        //         // 오른쪽 터치 시 오른쪽으로 이동
-        //         if (Input.GetTouch(0).position.x > (Screen.width/2))
-        //         {
-        //             // rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
-        //             // UpdateLeft();
-        //             // rig.AddForce(left * 20f);
-        //             // Invoke("Accelerate", 0.5f);
-        //             MoveRight(touchTime*50);
-        //         }
-        //         // 왼쪽 터치 시 왼쪽으로 이동
-        //         else
-        //         {
-        //             // rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.5f);
-        //             // UpdateRight();
-        //             // rig.AddForce(right* 20f);
-        //             // Invoke("Accelerate", 0.5f);
-        //             MoveLeft(touchTime*50);
-        //             // touchTime 최댓값을 정하면 될 듯?
-        //         }
-        //     }
-        // }
-
-
         movePosDiff = Vector3.zero;
         if (Input.touchCount > 0)
         {
@@ -117,14 +61,14 @@ public class TouchMove : MonoBehaviour
             {
                 nowPos = touch.position - touch.deltaPosition;
                 movePosDiff = (prePos - nowPos) * Time.deltaTime;
+                // 우측 이동
                 if (movePosDiff.x < 0)
                 {
-                    print(movePosDiff.x);
                     MoveRight(-movePosDiff.x * 10f);
                 }
+                // 좌측 이동
                 else
                 {
-                    print(movePosDiff.x);
                     MoveLeft(movePosDiff.x * 10f);
                 }
                 prePos = touch.position - touch.deltaPosition;
@@ -165,9 +109,6 @@ public class TouchMove : MonoBehaviour
     {
         print("MoveLeft");
         UpdateLeft();
-        //rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
-        rig.AddForce(left * scale);
-        print(scale);
         Invoke("Accelerate", 1f);
         Invoke("EnTouch", 1f);
     }
@@ -176,9 +117,7 @@ public class TouchMove : MonoBehaviour
     {
         print("MoveRight");
         UpdateRight();
-        //rig.velocity = Vector3.Lerp(Vector3.zero, rig.velocity, 0.8f);
         rig.AddForce(right * scale);
-        print(scale);
         Invoke("Accelerate", 1f);
         Invoke("EnTouch", 1f);
     }

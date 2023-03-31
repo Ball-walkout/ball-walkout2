@@ -66,8 +66,6 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.timerOn = true;
         preposB = GameObject.Find("ball").transform.position.z;
         preposE = GameObject.Find("Enemy").transform.position.z;
-      //  ballUI = GetComponent<RectTransform>();
-     //   enemyUI = GetComponent<RectTransform>();
     }
 
     [SerializeField] private Text min, sec;
