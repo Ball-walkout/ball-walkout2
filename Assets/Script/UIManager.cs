@@ -57,11 +57,17 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-
-
+    [SerializeField] private RectTransform ballUI, enemyUI;
+    Vector3 tempB, tempE;
+    float preposB;
+    float preposE;
     private void Start() {
         BGM.Play();
         GameManager.Instance.timerOn = true;
+        preposB = GameObject.Find("ball").transform.position.z;
+        preposE = GameObject.Find("Enemy").transform.position.z;
+      //  ballUI = GetComponent<RectTransform>();
+     //   enemyUI = GetComponent<RectTransform>();
     }
 
     [SerializeField] private Text min, sec;
