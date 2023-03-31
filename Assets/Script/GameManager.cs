@@ -158,8 +158,8 @@ public class GameManager : MonoBehaviour
             enemyPos = GameObject.FindGameObjectWithTag("Enemy").transform;
         }
         
-        float full = startPos.z - endPos.z;
-        ballPosZ = (ballPos.z - startPos.z) / full * 100f;
-        enemyPos = (enemyPos.z - startPos.z) / full * 100f;
+       // float full = startPos.z - endPos.z;
+        //ballPosZ = (ballPos.z - startPos.z) / full * 100f;
+        //enemyPos = (enemyPos.z - startPos.z) / full * 100f;
     }
 }
