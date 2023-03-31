@@ -72,14 +72,6 @@ public class UIManager : MonoBehaviour
         {
             min.text = GameManager.Instance.min.ToString();
             sec.text = GameManager.Instance.sec.ToString();
-            UpdatePosition();
         }
-    }
-
-    [SerializeField] private RectTransform ballUI, enemyUI;
-    private void UpdatePosition()
-    {
-        ballUI.position = new Vector3(ballUI.position.x, -400f + GameManager.Instance.ballPosZ * 9, ballUI.position.z);
-        enemyUI.position = new Vector3(enemyUI.position.x, -400f + GameManager.Instance.enemyPosZ * 9, enemyUI.position.z);
     }
 }
