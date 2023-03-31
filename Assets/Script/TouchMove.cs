@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 유니티 모바일 터치 이동 구현 참고 링크
-// https://www.engedi.kr/unity/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=3955143&t=board
+// https://sunpil.tistory.com/376
 public class TouchMove : MonoBehaviour
 {
     [SerializeField] private Transform roadFollower;
@@ -42,7 +42,6 @@ public class TouchMove : MonoBehaviour
     
     public Vector3 direction;
     public bool canForward=true;
-    private float touchTime=0f;
 
     private Vector3 nowPos, prePos;
     private Vector3 movePosDiff;
