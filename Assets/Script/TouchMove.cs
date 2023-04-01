@@ -108,6 +108,7 @@ public class TouchMove : MonoBehaviour
     {
         print("MoveLeft");
         UpdateLeft();
+        rig.AddForce(left * scale);
         Invoke("Accelerate", 1f);
         Invoke("EnTouch", 1f);
     }
