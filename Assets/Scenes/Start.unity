@@ -698,6 +698,7 @@ GameObject:
   - component: {fileID: 721644363}
   - component: {fileID: 721644362}
   - component: {fileID: 721644361}
+  - component: {fileID: 721644365}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -794,6 +795,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &721644365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721644360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc59e201287b8748b0e062085bd7050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loading: {fileID: 1081401835}
+  percentTxt: {fileID: 564598519}
+  slider: {fileID: 701922211}
 --- !u!1 &763663312
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,10 +936,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
@@ -931,7 +951,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1514268669}
     - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 721644365}
+    - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
@@ -939,8 +967,16 @@ PrefabInstance:
       value: Stage
       objectReference: {fileID: 0}
     - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: LoadStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: Start, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: StartUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
@@ -948,6 +984,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418530, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 11469282, guid: 74b8f23298f1a5843826f805e75d7499, type: 3}
@@ -2296,9 +2336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906738136f2c8f04eaa3a3b3c6b7a58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loading: {fileID: 1081401835}
-  percentTxt: {fileID: 564598519}
-  slider: {fileID: 701922211}
 --- !u!1001 &1533945100
 PrefabInstance:
   m_ObjectHideFlags: 0

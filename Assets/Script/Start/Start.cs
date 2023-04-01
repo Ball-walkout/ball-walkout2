@@ -7,22 +7,10 @@ using UnityEngine.EventSystems;
 
 public class Start : MonoBehaviour
 {
-    [SerializeField] GameObject loading;
-    [SerializeField] Text percentTxt;
-    [SerializeField] Slider slider;
-    private bool isLoad=false;
-    private float time_loading = 6;
-    private float time_current, time_start;
-    
     public void Stage(){
-        loading.SetActive(true);
-        time_current = time_loading;
-        time_start = Time.time;
-        Set_FillAmount(0);
-        isLoad = true;
-        Invoke("LoadScene", 1f);
-        GameManager.Instance.TurnOnTime();
+        Invoke("LoadScene", 1.9f);
     }
+
     public void Level(){
         GameObject.Find("Canvas").transform.Find("LevelMenu").gameObject.SetActive(true);
         GameObject.Find("Setting").SetActive(false);
@@ -61,34 +49,8 @@ public class Start : MonoBehaviour
             GameObject.Find("Canvas").transform.Find("Coin").transform.Find("Text").GetComponent<Text>().text = GameManager.Instance.GetCoin().ToString();
     }
 
-    string txt;
-    private void Set_FillAmount(float _value)
-    {
-        slider.value = _value;
-        txt = (_value.Equals(1) ? "Finished!" : "Loding ... ") + (_value).ToString("P");
-        percentTxt.text = txt;
-    }
-    
-    private void Update()
-    {
-        if(isLoad)
-        {
-            time_current = Time.time - time_start;
-            if (time_current < time_loading)
-            {
-                print(time_current);
-                Set_FillAmount(time_current / time_loading);
-            }
-            else
-            {
-                Set_FillAmount(1);
-            }
-        }
-    }
-
     private void LoadScene()
     {
-
         SceneManager.LoadScene("Road");
     }
 }
