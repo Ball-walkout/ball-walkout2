@@ -18,7 +18,7 @@ public class circleMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("speedbarmove").transform.Find("speedbar").GetComponent<speedbar>().onclick == true){
+        if(GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>().onclick == true){
             speed = 0;
         }
         else{

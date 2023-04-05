@@ -13,15 +13,15 @@ public class speedtrigger : MonoBehaviour
     private Transform tempParticle;
     public GameObject[] speedtext;
     void OnTriggerStay(Collider other) {
-        if(circle.onclick == true){
+        if(circle.onclick == true && other.name == "speedbararr"){
             if(gameObject.name == "Fast1"){
-                tempSpeed = 5f;
+                tempSpeed = 3f;
                 tempParticle = boosterP1;
                 speedtext[0].SetActive(true);
                 StartCoroutine(Text(0));
             }
-            else if(gameObject.name == "Fast2"){              
-                tempSpeed = 3f;
+            else if(gameObject.name == "Fast2"){        
+                tempSpeed = 1f;
                 tempParticle = boosterP2;
                 speedtext[1].SetActive(true);
                 StartCoroutine(Text(1));
@@ -45,9 +45,9 @@ public class speedtrigger : MonoBehaviour
             }           
             // 점프 후 부스터 효과 (FAST1, FAST2)
             else{
-                TM.rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
+              //  TM.rig.AddForce(Vector3.up * 70f, ForceMode.Impulse);
                 StartCoroutine(Booster(tempParticle));
-            }           
+            }
             circle.onclick = false;
             GameManager.Instance.TurnOnTime();
         }
@@ -72,7 +72,7 @@ public class speedtrigger : MonoBehaviour
         TM.rig.useGravity = false;
         // **부스터 파티클 및 사운드**
         effect.gameObject.SetActive(true);
-        boostBGM.Play();
+    //    boostBGM.Play();
         
         // 직진 가속
         TM.rig.AddForce(TM.direction * tempSpeed * 100);
@@ -86,6 +86,7 @@ public class speedtrigger : MonoBehaviour
         // 중력과 공 원래 속도로 되돌리기
         TM.rig.useGravity = true;
         TM.rig.velocity = GameManager.Instance.preVelocity;
+        //circle.onclick = false;
         effect.gameObject.SetActive(false);
 
     }
@@ -94,7 +95,7 @@ public class speedtrigger : MonoBehaviour
     void Start()
     {
         PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
-        circle = GameObject.Find("speedbarmove").transform.Find("speedbar").GetComponent<speedbar>();
+        circle = GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>();
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
     }
 }
