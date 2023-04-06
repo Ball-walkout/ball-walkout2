@@ -22,6 +22,19 @@ public class TouchMove : MonoBehaviour
         rig.AddForce(new Vector3(0,0,-1) * speed);
     }
 
+    private void OnCollisionEnter(Collision other) {
+        if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == true || 
+        GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == true){
+            if(other.collider.gameObject.CompareTag("slap")){
+                other.collider.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            }
+            else if(other.collider.gameObject.CompareTag("Obstacle") || other.collider.gameObject.CompareTag("purple")){
+                Debug.Log(other.collider.gameObject.name);
+                other.collider.gameObject.GetComponent<MeshCollider>().isTrigger = true;
+            }
+        }
+    }
+
     private Vector2 startTouchPos, endTouchPos;
     private bool canJump = false;
     private void FixedUpdate()

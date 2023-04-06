@@ -5,34 +5,30 @@ using UnityEngine;
 public class ObstacleTrigger : MonoBehaviour
 {
     public GameObject QTEP;
-
+    public bool triggerB;
     private void Start() {
-        //gameObject.GetComponent<MeshCollider>().isTrigger = true; // .istrigger = true;
     }
 
 
     private void Update() {
-        if(GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>().onclick == true){
+       /* if(GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>().onclick == true){
             if(gameObject.CompareTag("slap")){
                 gameObject.GetComponent<BoxCollider>().isTrigger = true;
             }
             else{
                 gameObject.GetComponent<MeshCollider>().isTrigger = true;
             }
-        }
-        else{
-            if(gameObject.CompareTag("slap")){
-                gameObject.GetComponent<BoxCollider>().isTrigger = false;
-            }
-            else{
-                gameObject.GetComponent<MeshCollider>().isTrigger = false;
-            }
-        }
+        }*/
     }
 
-    private void OnTriggerStay(Collider other) {
+    /*private void OnCollisionEnter(Collision other) {
+        if(other.collider.gameObject.name == "ball"){
+            Instantiate(QTEP, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+            gameObject.SetActive(false);
+        }
+    }*/
+    private void OnTriggerEnter(Collider other) {
         if(other.name == "ball"){
-            QTEP.SetActive(true);
             Instantiate(QTEP, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
             gameObject.SetActive(false);
         }
