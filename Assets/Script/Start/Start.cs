@@ -52,5 +52,6 @@ public class Start : MonoBehaviour
     private void LoadScene()
     {
         SceneManager.LoadScene("Road");
+        DataManager.Instance.stageNum = 0;
     }
 }

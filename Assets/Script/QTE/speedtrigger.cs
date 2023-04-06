@@ -61,6 +61,7 @@ public class speedtrigger : MonoBehaviour
     }
     IEnumerator Booster(Transform effect)
     {
+        GameManager.Instance.isQTE = true;
         // 공이 위로 뜰 때는 기다리기
        /* while(TM.rig.velocity.y > 0)
         {
@@ -88,6 +89,7 @@ public class speedtrigger : MonoBehaviour
         TM.rig.velocity = GameManager.Instance.preVelocity;
         //circle.onclick = false;
         effect.gameObject.SetActive(false);
+        GameManager.Instance.isQTE = false;
 
     }
 

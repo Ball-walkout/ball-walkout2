@@ -56,8 +56,8 @@ public class DataManager : MonoBehaviour
         
         string json = JsonUtility.ToJson(userData);
 
-        string fileName = "PlayerData";
-        string path = Application.dataPath + "/" + fileName +".Json";
+        fileName = "PlayerData";
+        path = Application.dataPath + "/" + fileName +".Json";
 
         FileStream fileStream = new FileStream(path, FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(json);
@@ -65,12 +65,14 @@ public class DataManager : MonoBehaviour
         fileStream.Close();
     }
 
+    string fileName;
+    string path;
     // 저장된 UserData 로드
     public UserData myUser=null;
     void Load()
     {
-        string fileName = "PlayerData";
-        string path = Application.dataPath + "/" + fileName + ".Json";
+        fileName = "PlayerData";
+        path = Application.dataPath + "/" + fileName + ".Json";
 
         FileStream fileStream = new FileStream(path, FileMode.Open);
         byte[] data = new byte[fileStream.Length];
@@ -81,9 +83,19 @@ public class DataManager : MonoBehaviour
         myUser = JsonUtility.FromJson<UserData>(json);
     }
 
-    public void Resave(UserData newdata)
+    public void Resave(int stageNum, int star, int coin)
     {
+        myUser.levelCleared[stageNum] = star;
+        myUser.coins += coin;
+        GameManager.Instance.InitialCoin();
 
+        System.IO.File.Delete(path);
+        string json = JsonUtility.ToJson(myUser);
+        FileStream fileStream = new FileStream(path, FileMode.Create);
+        byte[] data = Encoding.UTF8.GetBytes(json);
+        fileStream.Write(data, 0, data.Length);
+        fileStream.Close();
     }
     
+    public int stageNum = -1;
 }

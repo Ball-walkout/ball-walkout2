@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class ClearUI : MonoBehaviour
 {
     [SerializeField] private Image[] stars;
-    [SerializeField] private Text score, coin;
+    [SerializeField] private Text score, coin, stageNum;
     public AudioSource fillOneStarBGM, AllStarBGM;
     private void Start() {
+        stageNum.text = (DataManager.Instance.stageNum+1).ToString();
+
         // 별 한 개씩 채우기 효과
         for(int i = 0; i<GameManager.Instance.star; i++)
         {
@@ -20,6 +22,7 @@ public class ClearUI : MonoBehaviour
         // 점수 및 코인 합산
         score.text = ((GameManager.Instance.GetScore() + GameManager.Instance.star) * 1000).ToString();
         coin.text = GameManager.Instance.GetCoin().ToString();
+        DataManager.Instance.Resave(DataManager.Instance.stageNum, GameManager.Instance.star, GameManager.Instance.GetCoin());
 
         // 별 3개일 때 효과음
         if(GameManager.Instance.star==3)

@@ -61,6 +61,11 @@ public class GameManager : MonoBehaviour
         ui.UpdateCoin();
     }
 
+    public void InitialCoin()
+    {
+        coin =0;
+    }
+
     // 점수
     private int score = 0;
 
@@ -144,5 +149,5 @@ public class GameManager : MonoBehaviour
         else
             star = 1;
     }
-
+    public bool isQTE=false;
 }
