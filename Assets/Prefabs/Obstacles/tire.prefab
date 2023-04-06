@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QTEP: {fileID: 0}
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &4656966369586474335
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QTEP: {fileID: 0}
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &4657441348797056125
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QTEP: {fileID: 0}
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &4657566357111169861
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QTEP: {fileID: 0}
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &4658258387685647033
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +597,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4663383354750731381}
-  - component: {fileID: -8742470699827856516}
   m_Layer: 0
   m_Name: tire
   m_TagString: Untagged
@@ -623,16 +622,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8742470699827856516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4658258387685647033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QTEP: {fileID: 0}
