@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4634187061370513195}
   - component: {fileID: 4640015090949770575}
   - component: {fileID: 4790961150694680125}
-  - component: {fileID: 5260225163633695117}
   m_Layer: 0
   m_Name: Tire (2)
   m_TagString: slap
@@ -113,7 +112,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!205 &4790961150694680125
 LODGroup:
@@ -134,19 +133,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4680312572191257115}
   m_Enabled: 1
---- !u!114 &5260225163633695117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656879737469262759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &4656966369586474335
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +147,6 @@ GameObject:
   - component: {fileID: 4633980157990383761}
   - component: {fileID: 4640754593909360755}
   - component: {fileID: 4791364955173238959}
-  - component: {fileID: 837468311352769262}
   m_Layer: 0
   m_Name: Tire (3)
   m_TagString: slap
@@ -260,7 +245,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!205 &4791364955173238959
 LODGroup:
@@ -281,19 +266,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4680591998385238869}
   m_Enabled: 1
---- !u!114 &837468311352769262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656966369586474335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &4657441348797056125
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +379,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!205 &4791251167456687167
 LODGroup:
@@ -455,7 +427,6 @@ GameObject:
   - component: {fileID: 4633743322945937395}
   - component: {fileID: 4640433649855797537}
   - component: {fileID: 4791306476566580215}
-  - component: {fileID: 775665672080882940}
   m_Layer: 0
   m_Name: Tire (1)
   m_TagString: slap
@@ -554,7 +525,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!205 &4791306476566580215
 LODGroup:
@@ -575,19 +546,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4680499905799972179}
   m_Enabled: 1
---- !u!114 &775665672080882940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4657566357111169861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &4658258387685647033
 GameObject:
   m_ObjectHideFlags: 0
