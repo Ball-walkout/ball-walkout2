@@ -149,5 +149,5 @@ public class GameManager : MonoBehaviour
         else
             star = 1;
     }
-
+    
 }

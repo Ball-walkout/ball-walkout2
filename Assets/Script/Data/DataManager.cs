@@ -97,4 +97,5 @@ public class DataManager : MonoBehaviour
         fileStream.Close();
     }
     
+    public int stageNum = -1;
 }

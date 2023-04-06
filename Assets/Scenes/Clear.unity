@@ -2889,6 +2889,7 @@ MonoBehaviour:
   - {fileID: 325247608}
   score: {fileID: 333006839}
   coin: {fileID: 393058227}
+  stageNum: {fileID: 1096655473}
   fillOneStarBGM: {fileID: 655537144}
   AllStarBGM: {fileID: 575406263}
 --- !u!1 &2034113874
