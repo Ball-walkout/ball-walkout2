@@ -4,6 +4,8 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 
+// json 파일 읽고 쓰기 참고 링크
+// https://learnandcreate.tistory.com/751
 public class DataManager : MonoBehaviour
 {
     private static DataManager _instance;

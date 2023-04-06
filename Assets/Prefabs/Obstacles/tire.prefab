@@ -123,12 +123,12 @@ LODGroup:
   m_GameObject: {fileID: 4656879737469262759}
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0, y: 0, z: -0.005063534}
-  m_Size: 0.49491072
+  m_Size: 1
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.013589383
+  - screenRelativeHeight: 0.027458252
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4680312572191257115}
@@ -256,12 +256,12 @@ LODGroup:
   m_GameObject: {fileID: 4656966369586474335}
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0, y: 0, z: -0.005063534}
-  m_Size: 0.49491072
+  m_Size: 1
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.014978096
+  - screenRelativeHeight: 0.027458252
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4680591998385238869}
@@ -536,12 +536,12 @@ LODGroup:
   m_GameObject: {fileID: 4657566357111169861}
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0, y: 0, z: -0.005063534}
-  m_Size: 0.49491072
+  m_Size: 1
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.013589383
+  - screenRelativeHeight: 0.027458252
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4680499905799972179}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 4663383354750731381}
   m_Layer: 0
   m_Name: tire
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
