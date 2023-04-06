@@ -77,7 +77,7 @@ public class speedtrigger : MonoBehaviour
         
         // 직진 가속
         TM.rig.AddForce(TM.direction * tempSpeed * 100);
-        PF.speed = 18;
+        PF.speed = 30;
         // 회전
         while(stop < 2)
         {
@@ -87,10 +87,12 @@ public class speedtrigger : MonoBehaviour
         // 중력과 공 원래 속도로 되돌리기
         TM.rig.useGravity = true;
         TM.rig.velocity = GameManager.Instance.preVelocity;
+        TM.Accelerate();
         //circle.onclick = false;
         effect.gameObject.SetActive(false);
         GameManager.Instance.isQTE = false;
-
+        
+        PF.speed = 18;
     }
 
     // Start is called before the first frame update

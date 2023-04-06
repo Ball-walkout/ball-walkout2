@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObstacleTrigger : MonoBehaviour
 {
     public GameObject QTEP;
-    public bool triggerB;
     private void Start() {
     }
 
@@ -21,7 +20,7 @@ public class ObstacleTrigger : MonoBehaviour
         }*/
     }
 
-    /*private void OnCollisionEnter(Collision other) {
+   /* private void OnCollisionEnter(Collision other) {
         if(other.collider.gameObject.name == "ball"){
             Instantiate(QTEP, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
             gameObject.SetActive(false);

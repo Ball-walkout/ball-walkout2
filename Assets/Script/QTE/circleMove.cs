@@ -18,16 +18,16 @@ public class circleMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>().onclick == true){
-            speed = 0;
+        if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == false && 
+        GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == false){
+            Vector3 temp = gameObject.transform.position;
+            temp.x = target.position.x + distance.x;
+            temp.y = target.position.y + distance.y;
+            gameObject.transform.position = temp;
+            gameObject.transform.Translate(direction * Time.deltaTime * speed);
         }
         else{
-            speed = 30.0f;
+            gameObject.transform.position = target.position + distance;
         }
-        Vector3 temp = gameObject.transform.position;
-        temp.x = target.position.x + distance.x;
-        temp.y = target.position.y + distance.y;
-        gameObject.transform.position = temp;
-        gameObject.transform.Translate(direction * Time.deltaTime * speed);
     }
 }
