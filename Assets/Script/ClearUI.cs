@@ -20,6 +20,7 @@ public class ClearUI : MonoBehaviour
         // 점수 및 코인 합산
         score.text = ((GameManager.Instance.GetScore() + GameManager.Instance.star) * 1000).ToString();
         coin.text = GameManager.Instance.GetCoin().ToString();
+        DataManager.Instance.Resave(0, GameManager.Instance.star, GameManager.Instance.GetCoin());
 
         // 별 3개일 때 효과음
         if(GameManager.Instance.star==3)

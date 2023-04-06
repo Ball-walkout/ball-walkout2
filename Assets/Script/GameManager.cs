@@ -61,6 +61,11 @@ public class GameManager : MonoBehaviour
         ui.UpdateCoin();
     }
 
+    public void InitialCoin()
+    {
+        coin =0;
+    }
+
     // 점수
     private int score = 0;
 
