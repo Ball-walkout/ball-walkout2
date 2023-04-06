@@ -7,8 +7,8 @@ using UnityEngine.EventSystems;
 
 public class Start : MonoBehaviour
 {
-    public void Stage(){
-        Invoke("LoadScene", 1.9f);
+    public void Stage(string stageNum){
+        Invoke("LoadScene" + stageNum, 1.9f);
     }
 
     public void Level(){
@@ -49,9 +49,19 @@ public class Start : MonoBehaviour
             GameObject.Find("Canvas").transform.Find("Coin").transform.Find("Text").GetComponent<Text>().text = GameManager.Instance.GetCoin().ToString();
     }
 
-    private void LoadScene()
+    private void LoadScene0()
     {
-        SceneManager.LoadScene("Road");
+        SceneManager.LoadScene("1-1");
         DataManager.Instance.stageNum = 0;
+    }
+    private void LoadScene1()
+    {
+        SceneManager.LoadScene("1-2");
+        DataManager.Instance.stageNum = 1;
+    }
+    private void LoadScene2()
+    {
+        SceneManager.LoadScene("1-3");
+        DataManager.Instance.stageNum = 2;
     }
 }
