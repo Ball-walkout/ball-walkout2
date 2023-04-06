@@ -17,7 +17,7 @@ public class DeathParticle : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if(other.collider.gameObject.CompareTag("purple")){
+        if(other.collider.gameObject.CompareTag("purple") && GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>().onclick == false){
             other.collider.gameObject.GetComponent<MeshRenderer>().enabled = false;
             GameObject.Find("Particle").gameObject.transform.Find("DeathP").gameObject.SetActive(true);
             GameObject.Find("DeathP").gameObject.transform.position = other.collider.gameObject.transform.position;

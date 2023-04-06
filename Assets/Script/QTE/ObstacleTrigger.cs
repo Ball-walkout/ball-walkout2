@@ -13,13 +13,25 @@ public class ObstacleTrigger : MonoBehaviour
 
     private void Update() {
         if(GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>().onclick == true){
-            gameObject.GetComponent<MeshCollider>().isTrigger = true;
+            if(gameObject.CompareTag("slap")){
+                gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            }
+            else{
+                gameObject.GetComponent<MeshCollider>().isTrigger = true;
+            }
+        }
+        else{
+            if(gameObject.CompareTag("slap")){
+                gameObject.GetComponent<BoxCollider>().isTrigger = false;
+            }
+            else{
+                gameObject.GetComponent<MeshCollider>().isTrigger = false;
+            }
         }
     }
 
     private void OnTriggerStay(Collider other) {
         if(other.name == "ball"){
-            Debug.Log("?");
             QTEP.SetActive(true);
             Instantiate(QTEP, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
             gameObject.SetActive(false);
