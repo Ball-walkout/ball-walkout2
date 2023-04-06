@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5000153384584461550}
   - component: {fileID: 7097930620790065188}
   - component: {fileID: 2764241060841850797}
+  - component: {fileID: 8506430590648900584}
   m_Layer: 0
   m_Name: rbarrier
   m_TagString: Untagged
@@ -94,6 +95,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 651928363505991179, guid: 4237319dc504b8d42abc47b25e25f29a, type: 3}
+--- !u!114 &8506430590648900584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8755022119242361329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 0}
