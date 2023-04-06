@@ -48,4 +48,14 @@ public class StartUI : MonoBehaviour
         percentTxt.text = txt;
     }
 
+    [SerializeField] Text cointxt;
+    private void LoadCoin()
+    {
+        cointxt.text = DataManager.Instance.myUser.coins.ToString();
+    }
+    
+    private void Start()
+    {
+        LoadCoin();
+    }
 }

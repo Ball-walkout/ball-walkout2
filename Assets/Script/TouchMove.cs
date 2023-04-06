@@ -17,7 +17,8 @@ public class TouchMove : MonoBehaviour
         rig = GetComponent<Rigidbody>();
         QTE = true;
         obj_pos = roadFollower;
-        
+
+
         rig.AddForce(new Vector3(0,0,-1) * speed);
     }
 
@@ -63,12 +64,12 @@ public class TouchMove : MonoBehaviour
                 // 우측 이동
                 if (movePosDiff.x < 0)
                 {
-                    MoveRight(-movePosDiff.x * 10f);
+                    MoveRight(-movePosDiff.x * 5f);
                 }
                 // 좌측 이동
                 else
                 {
-                    MoveLeft(movePosDiff.x * 10f);
+                    MoveLeft(movePosDiff.x * 5f);
                 }
                 prePos = touch.position - touch.deltaPosition;
             }

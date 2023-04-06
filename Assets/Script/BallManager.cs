@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using PathCreation.Examples;
 
 public class BallManager : MonoBehaviour
 {
@@ -32,10 +33,25 @@ public class BallManager : MonoBehaviour
         
     }
 
+    TouchMove tm;
+    PathFollower PF;
+    bool isStopped = false;
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Obstacle")
         {
+            // 공 가속 멈추고, 기준 축도 멈추기
+            tm = transform.GetComponent<TouchMove>();
+            tm.Rallentare();
+            PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
+            if(!isStopped)
+            {
+                PF.speed = 0;
+                isStopped = true;
+            }
+            else
+                Invoke("RestartPF", 1f);
+
             obsBGM.Play();
         }
 
@@ -61,4 +77,12 @@ public class BallManager : MonoBehaviour
         SceneManager.LoadScene("Clear");
     }
 
+    private void RestartPF()
+    {
+        PF.speed = 20f;
+        isStopped =false;
+
+    }
+
+    
 }
