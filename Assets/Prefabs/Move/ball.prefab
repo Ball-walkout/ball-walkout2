@@ -60,9 +60,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bea2bf2cbbb67940bd8b54532f9cb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  virCam: {fileID: 0}
+  freeCam: {fileID: 0}
+  goalEffect: {fileID: 0}
   coinBGM: {fileID: 0}
   obsBGM: {fileID: 0}
   boosterBGM: {fileID: 0}
+  goalBGM: {fileID: 0}
 --- !u!54 &7860398833556732362
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,7 +102,8 @@ MonoBehaviour:
   QTE: 0
   direction: {x: 0, y: 0, z: 0}
   canForward: 1
-  jumpBGM: {fileID: 0}
+  left: {x: 0, y: 0, z: 0}
+  right: {x: 0, y: 0, z: 0}
 --- !u!1 &7860398834025030460
 GameObject:
   m_ObjectHideFlags: 0
