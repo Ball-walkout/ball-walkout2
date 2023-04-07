@@ -10,14 +10,19 @@ public class boostertrigger : MonoBehaviour
     private TouchMove ball;
     private void Start() {
         ball = GameObject.Find("ball").GetComponent<TouchMove>();
+        speedbar = GameObject.Find("speedbarmove").transform.Find("tbeasy").gameObject;
+        speedbararr = GameObject.Find("speedarr").transform.Find("speedbararr").gameObject;
     }
     void OnTriggerEnter(Collider other) {
-        if(other.gameObject.name == "ball")
-        {
-            StartCoroutine(GameManager.Instance.SlowMotion());
-            speedbar.SetActive(true);
-            speedbararr.GetComponent<MeshRenderer>().enabled = true;
-            gameObject.SetActive(false);
+        if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == false && 
+        GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == false){
+            if(other.gameObject.name == "ball")
+            {
+                StartCoroutine(GameManager.Instance.SlowMotion());
+                speedbar.SetActive(true);
+                speedbararr.GetComponent<MeshRenderer>().enabled = true;
+                gameObject.SetActive(false);
+            }
         }
     }
 }

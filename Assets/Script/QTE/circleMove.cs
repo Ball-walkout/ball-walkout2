@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class circleMove : MonoBehaviour
 {
-    public Transform target;
+    Transform target;
     public Vector3 distance;
     public Vector3 direction;
     float speed;
@@ -13,6 +13,7 @@ public class circleMove : MonoBehaviour
     {
         direction = new Vector3(0, 0, 1f);
         speed = 30.0f;
+        target = GameObject.Find("ball").transform;
     }
 
     // Update is called once per frame

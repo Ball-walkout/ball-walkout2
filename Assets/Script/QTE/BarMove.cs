@@ -5,8 +5,11 @@ using UnityEngine;
 public class BarMove : MonoBehaviour
 {
    
-   public Transform target;
+   Transform target;
    public Vector3 distance;
+   private void Start() {
+      target = GameObject.Find("ball").transform;
+   }
    void Update()
    {
       gameObject.transform.position = target.position + distance; // * GameObject.Find("timingarr").GetComponent<arrMove>().speed;
