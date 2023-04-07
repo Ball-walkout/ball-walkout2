@@ -64,4 +64,14 @@ public class Start : MonoBehaviour
         SceneManager.LoadScene("1-3");
         DataManager.Instance.stageNum = 2;
     }
+    private void LoadScene3()
+    {
+        SceneManager.LoadScene("1-4");
+        DataManager.Instance.stageNum = 3;
+    }
+    private void LoadScene4()
+    {
+        SceneManager.LoadScene("1-5");
+        DataManager.Instance.stageNum = 4;
+    }
 }

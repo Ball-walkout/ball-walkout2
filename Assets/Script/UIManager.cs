@@ -50,7 +50,8 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.TurnOnTime();
         GameManager.Instance.time=0;
         GameManager.Instance.timerOn = true;
-        SceneManager.LoadScene("Road");
+        string scene = (DataManager.Instance.stageNum+1).ToString();
+        SceneManager.LoadScene("1-"+scene);
     }
 
     public void ClickedContinue()
