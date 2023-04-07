@@ -20,7 +20,6 @@ public class Combo : MonoBehaviour
         if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == false && 
         GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == false){
             gameObject.SetActive(false);
-            Combo_v = 0;
         }
     }
 }
