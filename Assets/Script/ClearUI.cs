@@ -42,13 +42,15 @@ public class ClearUI : MonoBehaviour
     public void ClickedReplay()
     {
         GameManager.Instance.time=0;
-        SceneManager.LoadScene("Road");
+        string scene = (DataManager.Instance.stageNum + 1).ToString();
+        SceneManager.LoadScene("1-" + scene);
         GameManager.Instance.TurnOnTime();
     }
 
     public void ClickedNext()
     {
         GameManager.Instance.time=0;
-        SceneManager.LoadScene("Start");
+        string scene = (DataManager.Instance.stageNum).ToString();
+        SceneManager.LoadScene("1-" + scene);
     }
 }
