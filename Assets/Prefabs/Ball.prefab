@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6465637716468624182}
   - component: {fileID: 6465637716468624181}
   - component: {fileID: 6159770827459647941}
+  - component: {fileID: 9127617334590752152}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -76,9 +77,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66d2abac7215be45b63de9260dde74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roadFollower: {fileID: 0}
+  anim: {fileID: 0}
   speed: 5
-  jumpForce: 5
-  isRale: 1
+  rig: {fileID: 0}
+  QTE: 0
+  direction: {x: 0, y: 0, z: 0}
+  canForward: 1
+  left: {x: 0, y: 0, z: 0}
+  right: {x: 0, y: 0, z: 0}
 --- !u!114 &6159770827459647941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +98,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bea2bf2cbbb67940bd8b54532f9cb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  virCam: {fileID: 0}
+  freeCam: {fileID: 0}
+  goalEffect: {fileID: 0}
+  coinBGM: {fileID: 0}
+  obsBGM: {fileID: 0}
+  boosterBGM: {fileID: 0}
+  goalBGM: {fileID: 0}
+--- !u!114 &9127617334590752152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6159770827459647962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148796e15bd5322449b67434b05b93fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathP: {fileID: 1230342483847755317, guid: 944677d5e39c60f4e9ebe91529481ea0, type: 3}
 --- !u!1 &7007822953634341353
 GameObject:
   m_ObjectHideFlags: 0

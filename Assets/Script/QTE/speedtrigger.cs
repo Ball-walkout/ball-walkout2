@@ -12,6 +12,18 @@ public class speedtrigger : MonoBehaviour
     public Transform boosterP1, boosterP2;
     private Transform tempParticle;
     public GameObject[] speedtext;
+    void Start()
+    {
+        PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
+        circle = GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>();
+        TM = GameObject.Find("ball").GetComponent<TouchMove>();
+        boosterP1 = GameObject.Find("Move").transform.Find("부스터").transform;
+        boosterP2 = GameObject.Find("Move").transform.Find("부스터2").transform;
+        speedtext[0] = GameObject.Find("Canvas").transform.Find("Perfect").gameObject;
+        speedtext[1] = GameObject.Find("Canvas").transform.Find("Cool").gameObject;
+        speedtext[2] = GameObject.Find("Canvas").transform.Find("Bad").gameObject;
+        speedtext[3] = GameObject.Find("Canvas").transform.Find("Miss").gameObject;
+    }
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true && other.name == "speedbararr"){
             if(gameObject.name == "Fast1"){
@@ -96,10 +108,5 @@ public class speedtrigger : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
-        circle = GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>();
-        TM = GameObject.Find("ball").GetComponent<TouchMove>();
-    }
+
 }

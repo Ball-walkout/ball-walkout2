@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathParticle : MonoBehaviour
 {
+    public GameObject DeathP;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +20,7 @@ public class DeathParticle : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.collider.gameObject.CompareTag("purple") && GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>().onclick == false){
             other.collider.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            GameObject.Find("Particle").gameObject.transform.Find("DeathP").gameObject.SetActive(true);
-            GameObject.Find("DeathP").gameObject.transform.position = other.collider.gameObject.transform.position;
+            Instantiate(DeathP, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
             Invoke("Fail", 1f);
         }
     }
