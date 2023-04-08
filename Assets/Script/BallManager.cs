@@ -38,7 +38,7 @@ public class BallManager : MonoBehaviour
     bool isStopped = false;
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Obstacle")
+        if(other.gameObject.tag == "Obstacle" || other.gameObject.tag == "slap")
         {
             // 공 가속 멈추고, 기준 축도 멈추기
             if(!GameManager.Instance.isQTE)

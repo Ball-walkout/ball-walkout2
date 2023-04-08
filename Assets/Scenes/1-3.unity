@@ -14061,7 +14061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893c18ab147f7124ba4581739d5cd7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1039084389}
   distance: {x: -2.8, y: 4.4, z: -31.1}
 --- !u!4 &1225473365
 Transform:
@@ -15729,7 +15728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09421052c77a1a24cb2f6b596064d6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1039084389}
   distance: {x: -2.6, y: 5, z: -21.4}
   direction: {x: 0, y: 0, z: 0}
 --- !u!4 &1418693599
@@ -16992,7 +16990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893c18ab147f7124ba4581739d5cd7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1039084389}
   distance: {x: 0, y: 0, z: -3}
 --- !u!114 &1602165060
 MonoBehaviour:
