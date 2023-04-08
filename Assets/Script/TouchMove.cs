@@ -77,12 +77,12 @@ public class TouchMove : MonoBehaviour
                 // 우측 이동
                 if (movePosDiff.x < 0)
                 {
-                    MoveRight(-movePosDiff.x * 5f);
+                    MoveRight(-movePosDiff.x * 10f);
                 }
                 // 좌측 이동
                 else
                 {
-                    MoveLeft(movePosDiff.x * 5f);
+                    MoveLeft(movePosDiff.x * 10f);
                 }
                 prePos = touch.position - touch.deltaPosition;
             }
