@@ -50,9 +50,10 @@ public class BallManager : MonoBehaviour
                 {
                     PF.speed = 0;
                     isStopped = true;
+                    Invoke("RestartPF", 0.1f);
                 }
                 else
-                    Invoke("RestartPF", 1f);
+                    Invoke("RestartPF", 0.1f);
             }
             
             obsBGM.Play();
@@ -84,7 +85,8 @@ public class BallManager : MonoBehaviour
     {
         PF.speed = 20f;
         isStopped =false;
-
+        tm.Accelerate();
+        tm.EnTouch();
     }
 
     

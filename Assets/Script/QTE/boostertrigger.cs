@@ -18,7 +18,7 @@ public class boostertrigger : MonoBehaviour
         GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == false){
             if(other.gameObject.name == "ball")
             {
-                StartCoroutine(GameManager.Instance.SlowMotion());
+                GameManager.Instance.SlowMotion();
                 speedbar.SetActive(true);
                 speedbararr.GetComponent<MeshRenderer>().enabled = true;
                 gameObject.SetActive(false);

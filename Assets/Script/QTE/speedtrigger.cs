@@ -26,6 +26,7 @@ public class speedtrigger : MonoBehaviour
     }
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true && other.name == "speedbararr"){
+            GameManager.Instance.ReleaseSlow();
             if(gameObject.name == "Fast1"){
                 tempSpeed = 3f;
                 tempParticle = boosterP1;
@@ -98,8 +99,9 @@ public class speedtrigger : MonoBehaviour
         }
         // 중력과 공 원래 속도로 되돌리기
         TM.rig.useGravity = true;
-        TM.rig.velocity = GameManager.Instance.preVelocity;
+        //TM.rig.velocity = GameManager.Instance.preVelocity;
         TM.Accelerate();
+        TM.EnTouch();
         //circle.onclick = false;
         effect.gameObject.SetActive(false);
         GameManager.Instance.isQTE = false;

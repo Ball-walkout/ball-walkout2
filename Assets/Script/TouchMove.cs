@@ -77,12 +77,12 @@ public class TouchMove : MonoBehaviour
                 // 우측 이동
                 if (movePosDiff.x < 0)
                 {
-                    MoveRight(-movePosDiff.x * 10f);
+                    MoveRight(-movePosDiff.x * 15f);
                 }
                 // 좌측 이동
                 else
                 {
-                    MoveLeft(movePosDiff.x * 10f);
+                    MoveLeft(movePosDiff.x * 15f);
                 }
                 prePos = touch.position - touch.deltaPosition;
             }
@@ -114,26 +114,19 @@ public class TouchMove : MonoBehaviour
     {
         rig.velocity = Vector3.zero;
         print("Rallentared");
-        canForward = false;
     }
 
     // 왼쪽으로 일정 움직이기
     public void MoveLeft(float scale)
     {
-        print("MoveLeft");
         UpdateLeft();
-        rig.AddForce(left * scale);
-        Invoke("Accelerate", 1f);
-        Invoke("EnTouch", 1f);
+        rig.AddForce(left * Mathf.Clamp(scale, -50f, 50f));
     }
     // 오른쪽으로 일정 움직이기
     public void MoveRight(float scale)
     {
-        print("MoveRight");
         UpdateRight();
-        rig.AddForce(right * scale);
-        Invoke("Accelerate", 1f);
-        Invoke("EnTouch", 1f);
+        rig.AddForce(right * Mathf.Clamp(scale, -50f, 50f));
     }
 
     // 직진 방향 기준 좌우 좌표 업데이트
