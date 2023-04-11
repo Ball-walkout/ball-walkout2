@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     // 부스터 닿을 시 씬 느려지게
     public Vector3 preVelocity;
-    public IEnumerator SlowMotion()
+    public void SlowMotion()
     {
         if(ball == null)
             ball = GameObject.FindGameObjectWithTag("Player").GetComponent<TouchMove>();
@@ -122,14 +122,12 @@ public class GameManager : MonoBehaviour
         ball.rig.velocity = Vector3.zero;
         pf.speed = 0;
 
-        // 3초 후 원상복귀
-        int num=0;
-        while (num < 3)
-        {
-            num++;
-            yield return new WaitForSeconds(1f);
-        }
+    }
+    // 부스터 클릭 후 끝나고 원상복귀
+    public void ReleaseSlow()
+    {
         Time.timeScale = 1f;
+        print("TimeScale Reset");
     }
 
     public void GameFail()

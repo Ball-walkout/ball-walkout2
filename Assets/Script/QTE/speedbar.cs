@@ -35,5 +35,6 @@ public class speedbar : MonoBehaviour
         onclick = true;
         speed_bar.SetActive(false);
         speedbararr.GetComponent<MeshRenderer>().enabled = false;
+        GameManager.Instance.ReleaseSlow();
     }
 }
