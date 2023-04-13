@@ -83,7 +83,7 @@ public class speedtrigger : MonoBehaviour
 
         // 중력 끄고 3초동안 부스터 효과 (속도는 눈금에 따라)
         int stop=0;
-        TM.rig.useGravity = false;
+        //TM.rig.useGravity = false;
         // **부스터 파티클 및 사운드**
         effect.gameObject.SetActive(true);
     //    boostBGM.Play();
@@ -98,7 +98,7 @@ public class speedtrigger : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         // 중력과 공 원래 속도로 되돌리기
-        TM.rig.useGravity = true;
+        //TM.rig.useGravity = true;
         //TM.rig.velocity = GameManager.Instance.preVelocity;
         TM.Accelerate();
         TM.EnTouch();

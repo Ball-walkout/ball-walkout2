@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using PathCreation.Examples;
 
 // 유니티 모바일 터치 이동 구현 참고 링크
 // https://sunpil.tistory.com/376
@@ -37,8 +39,12 @@ public class TouchMove : MonoBehaviour
 
     private Vector2 startTouchPos, endTouchPos;
     private bool canJump = false;
+    public Text speedText, pfSpeed;
+    public PathFollower pf;
     private void FixedUpdate()
     {
+        //speedText.text = rig.velocity.ToString();
+        //pfSpeed.text = pf.speed.ToString();
         // 직진
         if (canForward)
         {
