@@ -8,6 +8,10 @@ using UnityEngine.EventSystems;
 public class Start : MonoBehaviour
 {
     public void Stage(string stageNum){
+        print("LoadScene" + stageNum);
+
+        DataManager.Instance.stageNum = int.Parse(stageNum);
+        print("StageNum: "+DataManager.Instance.stageNum.ToString());
         Invoke("LoadScene" + stageNum, 1.9f);
     }
 
@@ -52,46 +56,37 @@ public class Start : MonoBehaviour
     private void LoadScene0()
     {
         SceneManager.LoadScene("1-1");
-        DataManager.Instance.stageNum = 0;
     }
     private void LoadScene1()
     {
         SceneManager.LoadScene("1-2");
-        DataManager.Instance.stageNum = 1;
     }
     private void LoadScene2()
     {
         SceneManager.LoadScene("1-3");
-        DataManager.Instance.stageNum = 2;
     }
     private void LoadScene3()
     {
         SceneManager.LoadScene("1-4");
-        DataManager.Instance.stageNum = 3;
     }
     private void LoadScene4()
     {
         SceneManager.LoadScene("1-5");
-        DataManager.Instance.stageNum = 4;
     }
     private void LoadScene5()
     {
         SceneManager.LoadScene("1-6");
-        DataManager.Instance.stageNum = 5;
     }
     private void LoadScene6()
     {
         SceneManager.LoadScene("1-7");
-        DataManager.Instance.stageNum = 6;
     }
     private void LoadScene7()
     {
         SceneManager.LoadScene("1-8");
-        DataManager.Instance.stageNum = 7;
     }
     private void LoadScene8()
     {
         SceneManager.LoadScene("1-9");
-        DataManager.Instance.stageNum = 8;
     }
 }
