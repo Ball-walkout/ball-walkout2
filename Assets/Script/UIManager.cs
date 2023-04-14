@@ -36,7 +36,8 @@ public class UIManager : MonoBehaviour
 
     private void StopScene()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        GameManager.Instance.PauseGame();
     }
 
     public void ClickedMenu()
@@ -54,10 +55,29 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("1-"+scene);
     }
 
+    public Text counter;
     public void ClickedContinue()
     {
-        Time.timeScale = 1f;
+        StartCoroutine(CountNumber());
     }
+
+    private IEnumerator CountNumber()
+    {
+        int sec=3;
+        while(sec > 0)
+        {
+            counter.text = sec.ToString();
+            sec--;
+            yield return new WaitForSeconds(1.0f);
+            if(sec <= 0)
+            {
+                counter.text = "";
+                GameManager.Instance.ReleaseGame();
+                yield break;
+            }
+        }
+    }
+
     [SerializeField] private RectTransform ballUI, enemyUI;
     Vector3 tempB, tempE;
     float preposB;

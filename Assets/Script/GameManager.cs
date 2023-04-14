@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     private void Start() {
         ball = GameObject.FindGameObjectWithTag("Player").GetComponent<TouchMove>();
         pf = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
     }
 
     [SerializeField] private UIManager ui;
@@ -148,4 +149,39 @@ public class GameManager : MonoBehaviour
             star = 1;
     }
     public bool isQTE=false;
+
+    private enemyMove enemy;
+    // 게임 일시 정지
+    public void PauseGame()
+    {
+        // 공 멈추기
+        if (ball == null)
+            ball = GameObject.FindGameObjectWithTag("Player").GetComponent<TouchMove>();
+        preVelocity = ball.rig.velocity;
+        ball.rig.constraints = RigidbodyConstraints.FreezeAll;
+        // 적 멈추기
+        if (enemy == null)
+            enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
+        enemy.canTrace = false;
+        enemy.rig.constraints = RigidbodyConstraints.FreezeAll;
+        pf.speed = 0;
+        timerOn = false;
+    }
+
+    // 게임 회복
+    public void ReleaseGame()
+    {
+        // 공 다시 움직이기
+        if (ball == null)
+            ball = GameObject.FindGameObjectWithTag("Player").GetComponent<TouchMove>();
+        ball.rig.velocity = preVelocity;
+        ball.rig.constraints = RigidbodyConstraints.None;
+        // 적 다시 움직이기
+        if (enemy == null)
+            enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
+        enemy.canTrace = true;
+        enemy.rig.constraints = RigidbodyConstraints.None;
+        pf.speed = 18;
+        timerOn = true;
+    }
 }
