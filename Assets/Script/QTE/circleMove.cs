@@ -28,9 +28,10 @@ public class circleMove : MonoBehaviour
             gameObject.transform.position = temp;
             gameObject.transform.Translate(direction * Time.deltaTime * speed);
         }
-        else if(GameObject.Find("speedbarmove").transform.Find("timingopp").GetComponent<speedbar>().onclick == false){
-            gameObject.transform.position = target.position + distance;
+        else{
+            if(GameObject.Find("speedarr").transform.Find("speedbararr").gameObject.activeSelf == false){
+                gameObject.transform.position = target.position + distance;
+            }
         }
-        //}
     }
 }
