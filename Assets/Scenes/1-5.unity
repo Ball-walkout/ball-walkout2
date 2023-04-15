@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1828,10 +1828,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinTxt: {fileID: 1936050069}
   scoreTxt: {fileID: 1572072866}
-  overCanvas: {fileID: 0}
+  overCanvas: {fileID: 1078228578}
   gameOverBGM: {fileID: 576306782}
   BGM: {fileID: 175251038}
   optionsWindow: {fileID: 217863403}
+  counter: {fileID: 0}
   ballUI: {fileID: 0}
   enemyUI: {fileID: 0}
   min: {fileID: 731150524}
@@ -6953,7 +6954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 720, y: 1520}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1024, y: 768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217863405
@@ -12040,6 +12041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3ff1dc2ed30a6c47afb108d97751e1a, type: 3}
+--- !u!1 &1078228578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 841632209965279870, guid: d3ff1dc2ed30a6c47afb108d97751e1a, type: 3}
+  m_PrefabInstance: {fileID: 1078228577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1087224979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14905,7 +14911,7 @@ Transform:
   m_GameObject: {fileID: 1768254942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.4629, y: -60, z: -1}
-  m_LocalScale: {x: 500, y: 92.47393, z: 300}
+  m_LocalScale: {x: 600, y: 92.47393, z: 500}
   m_Children: []
   m_Father: {fileID: 2032273907}
   m_RootOrder: 2

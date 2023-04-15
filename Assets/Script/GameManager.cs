@@ -104,31 +104,42 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void TurnOnTime()
-    {
-        Time.timeScale=1;
-    }
-
     // 부스터 닿을 시 씬 느려지게
     public Vector3 preVelocity;
     public void SlowMotion()
     {
+        // 배경 흐리게, 공 가속 멈추기
         if(ball == null)
             ball = GameObject.FindGameObjectWithTag("Player").GetComponent<TouchMove>();
         preVelocity = ball.rig.velocity;
-        Time.timeScale = 0.5f;
-        // 배경 흐리게, 공 가속 멈추기, 적 속도 멈추기
-        ball.rig.velocity = Vector3.zero*100;
-        ball.Rallentare();
-        ball.rig.velocity = Vector3.zero;
-        pf.speed = 0;
+        ball.rig.constraints = RigidbodyConstraints.FreezeAll;
+        // 적 멈추기
+        if (enemy == null)
+            enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
+        enemy.canTrace = false;
+        enemy.rig.constraints = RigidbodyConstraints.FreezeAll;
+        enemy.GetComponent<Animator>().SetBool("isStop", true);
+
+
+        ChangePF(0);
 
     }
     // 부스터 클릭 후 끝나고 원상복귀
     public void ReleaseSlow()
     {
-        Time.timeScale = 1f;
-        print("TimeScale Reset");
+        // 공 다시 움직이기
+        if (ball == null)
+            ball = GameObject.FindGameObjectWithTag("Player").GetComponent<TouchMove>();
+        ball.rig.constraints = RigidbodyConstraints.None;
+        // 적 다시 움직이기
+        if (enemy == null)
+            enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
+        enemy.canTrace = true;
+        enemy.rig.constraints = RigidbodyConstraints.None;
+        enemy.GetComponent<Animator>().SetBool("isStop", false);
+
+
+        ChangePF(18);
     }
 
     public void GameFail()
@@ -164,7 +175,8 @@ public class GameManager : MonoBehaviour
             enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
         enemy.canTrace = false;
         enemy.rig.constraints = RigidbodyConstraints.FreezeAll;
-        pf.speed = 0;
+        enemy.GetComponent<Animator>().SetBool("isStop", true);
+        ChangePF(0);
         timerOn = false;
     }
 
@@ -181,7 +193,14 @@ public class GameManager : MonoBehaviour
             enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
         enemy.canTrace = true;
         enemy.rig.constraints = RigidbodyConstraints.None;
-        pf.speed = 18;
+        enemy.GetComponent<Animator>().SetBool("isStop", false);
+        ChangePF(18);
         timerOn = true;
+    }
+
+    private void ChangePF(int sp)
+    {
+        pf.speed = sp;
+        print("ChangePF: "+pf.speed);
     }
 }
