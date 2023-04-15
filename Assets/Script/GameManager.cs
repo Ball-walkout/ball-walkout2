@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
             enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
         enemy.canTrace = false;
         enemy.rig.constraints = RigidbodyConstraints.FreezeAll;
+        enemy.GetComponent<Animator>().SetBool("isStop", true);
 
 
         ChangePF(0);
@@ -135,6 +136,7 @@ public class GameManager : MonoBehaviour
             enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
         enemy.canTrace = true;
         enemy.rig.constraints = RigidbodyConstraints.None;
+        enemy.GetComponent<Animator>().SetBool("isStop", false);
 
 
         ChangePF(18);
@@ -173,6 +175,7 @@ public class GameManager : MonoBehaviour
             enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
         enemy.canTrace = false;
         enemy.rig.constraints = RigidbodyConstraints.FreezeAll;
+        enemy.GetComponent<Animator>().SetBool("isStop", true);
         ChangePF(0);
         timerOn = false;
     }
@@ -190,6 +193,7 @@ public class GameManager : MonoBehaviour
             enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<enemyMove>();
         enemy.canTrace = true;
         enemy.rig.constraints = RigidbodyConstraints.None;
+        enemy.GetComponent<Animator>().SetBool("isStop", false);
         ChangePF(18);
         timerOn = true;
     }
