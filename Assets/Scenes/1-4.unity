@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1789,6 +1789,7 @@ MonoBehaviour:
   gameOverBGM: {fileID: 576306782}
   BGM: {fileID: 175251038}
   optionsWindow: {fileID: 1016273388}
+  counter: {fileID: 0}
   ballUI: {fileID: 0}
   enemyUI: {fileID: 0}
   min: {fileID: 731150524}
@@ -11649,7 +11650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 720, y: 1520}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1024, y: 768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1016273390
@@ -13446,18 +13447,18 @@ Transform:
   m_Children:
   - {fileID: 883429688}
   - {fileID: 1890479815}
-  - {fileID: 1512304366}
   - {fileID: 1429321426}
-  - {fileID: 89825942}
+  - {fileID: 1512304366}
   - {fileID: 1471331613}
+  - {fileID: 89825942}
+  - {fileID: 608916957}
   - {fileID: 1098231347}
   - {fileID: 1496798318}
+  - {fileID: 1649003859}
   - {fileID: 1638397288}
   - {fileID: 808502345}
   - {fileID: 2144371828}
   - {fileID: 218173419}
-  - {fileID: 1649003859}
-  - {fileID: 608916957}
   - {fileID: 1783045241}
   - {fileID: 477153910}
   - {fileID: 495769111}
