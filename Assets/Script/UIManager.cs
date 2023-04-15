@@ -48,11 +48,11 @@ public class UIManager : MonoBehaviour
 
     public void ClickedRestart()
     {
-        GameManager.Instance.TurnOnTime();
-        GameManager.Instance.time=0;
+        string scene = (DataManager.Instance.stageNum + 1).ToString();
+        print("1 - " + scene);
+        SceneManager.LoadScene("1-" + scene);
+        GameManager.Instance.time = 0;
         GameManager.Instance.timerOn = true;
-        string scene = (DataManager.Instance.stageNum+1).ToString();
-        SceneManager.LoadScene("1-"+scene);
     }
 
     public Text counter;
