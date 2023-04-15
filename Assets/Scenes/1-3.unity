@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2188,6 +2188,7 @@ MonoBehaviour:
   gameOverBGM: {fileID: 576306782}
   BGM: {fileID: 175251038}
   optionsWindow: {fileID: 1946211794}
+  counter: {fileID: 0}
   ballUI: {fileID: 0}
   enemyUI: {fileID: 0}
   min: {fileID: 731150524}
@@ -12650,17 +12651,17 @@ Transform:
   - {fileID: 281696845}
   - {fileID: 2097860939}
   - {fileID: 1773775371}
-  - {fileID: 1846188683}
   - {fileID: 1565745929}
   - {fileID: 449754564}
   - {fileID: 42842336}
+  - {fileID: 1846188683}
   - {fileID: 2002480186}
   - {fileID: 830926937}
   - {fileID: 1085203882}
   - {fileID: 287204770}
   - {fileID: 46286807}
-  - {fileID: 1748391331}
   - {fileID: 1938117833}
+  - {fileID: 1748391331}
   - {fileID: 1000224860}
   - {fileID: 502479614}
   m_Father: {fileID: 0}
@@ -14154,24 +14155,24 @@ Transform:
   - {fileID: 1452283247}
   - {fileID: 1624586983}
   - {fileID: 959330916}
-  - {fileID: 569947581}
   - {fileID: 970884995}
   - {fileID: 507674712}
+  - {fileID: 569947581}
   - {fileID: 364826339}
-  - {fileID: 1697131386}
   - {fileID: 2073401702}
+  - {fileID: 1697131386}
   - {fileID: 1188235861}
   - {fileID: 1957213725}
   - {fileID: 716820041}
   - {fileID: 1284849875}
   - {fileID: 1943154305}
-  - {fileID: 1029267649}
-  - {fileID: 1187106614}
   - {fileID: 797249700}
+  - {fileID: 1029267649}
   - {fileID: 129814377}
-  - {fileID: 1124035796}
+  - {fileID: 1187106614}
   - {fileID: 1235838422}
   - {fileID: 1252925384}
+  - {fileID: 1124035796}
   - {fileID: 1692123866}
   - {fileID: 128671641}
   - {fileID: 494731480}
@@ -19237,7 +19238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 720, y: 1520}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1024, y: 768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1946211796

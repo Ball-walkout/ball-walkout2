@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using PathCreation.Examples;
 using UnityEngine;
+using PathCreation.Examples;
 
 public class speedtrigger : MonoBehaviour
 {
@@ -62,7 +62,6 @@ public class speedtrigger : MonoBehaviour
                 StartCoroutine(Booster(tempParticle));
             }
             circle.onclick = false;
-            GameManager.Instance.TurnOnTime();
         }
     }
 
@@ -75,22 +74,16 @@ public class speedtrigger : MonoBehaviour
     IEnumerator Booster(Transform effect)
     {
         GameManager.Instance.isQTE = true;
-        // 공이 위로 뜰 때는 기다리기
-       /* while(TM.rig.velocity.y > 0)
-        {
-            yield return new WaitForSeconds(1f);
-        }*/
-
-        // 중력 끄고 3초동안 부스터 효과 (속도는 눈금에 따라)
+        // 3초동안 부스터 효과 (속도는 눈금에 따라)
         int stop=0;
-        //TM.rig.useGravity = false;
+
         // **부스터 파티클 및 사운드**
         effect.gameObject.SetActive(true);
-    //    boostBGM.Play();
-        
+        //    boostBGM.Play();
+
         // 직진 가속
+        PF.speed = 80f;
         TM.rig.AddForce(TM.direction * tempSpeed * 200);
-        PF.speed = 30;
         // 회전
         while(stop < 2)
         {
@@ -98,15 +91,12 @@ public class speedtrigger : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         // 중력과 공 원래 속도로 되돌리기
-        //TM.rig.useGravity = true;
-        //TM.rig.velocity = GameManager.Instance.preVelocity;
         TM.Accelerate();
         TM.EnTouch();
         //circle.onclick = false;
         effect.gameObject.SetActive(false);
         GameManager.Instance.isQTE = false;
-        
-        PF.speed = 18;
+        PF.speed = 18f;
     }
 
     // Start is called before the first frame update
