@@ -12,7 +12,26 @@ public class ObstacleTrigger : MonoBehaviour
     }
 
     private void Update() {
-       /* if(GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>().onclick == true){
+        if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == true || 
+        GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == true){
+            /*if(gameObject.CompareTag("slap")){
+                gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            }
+            else */if(gameObject.CompareTag("Obstacle") || gameObject.CompareTag("purple")){
+              //  Debug.Log(gameObject.name);
+                gameObject.GetComponent<MeshCollider>().isTrigger = true;
+            }
+        }
+        else{
+           /* if(gameObject.CompareTag("slap")){
+                gameObject.GetComponent<BoxCollider>().isTrigger = false;
+            }
+            else*/ if(gameObject.CompareTag("Obstacle") || gameObject.CompareTag("purple")){
+//                Debug.Log(gameObject.name);
+                gameObject.GetComponent<MeshCollider>().isTrigger = false;
+            }
+        }
+       /* if(GameObject.Find("speedbarmove").transform.Find("").GetComponent<speedbar>().onclick == true){
             if(gameObject.CompareTag("slap")){
                 gameObject.GetComponent<BoxCollider>().isTrigger = true;
             }
@@ -33,7 +52,7 @@ public class ObstacleTrigger : MonoBehaviour
             if(gameObject.name == "Tire"){
                 gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
                 gameObject.transform.parent.GetChild(2).gameObject.SetActive(false);
-                gameObject.transform.parent.GetChild(3).gameObject.SetActive(false);         
+                gameObject.transform.parent.GetChild(3).gameObject.SetActive(false); 
             }
             GameObject.Find("Canvas").transform.Find("Combo").gameObject.SetActive(true);
             combo.Combo_v++;
@@ -42,7 +61,7 @@ public class ObstacleTrigger : MonoBehaviour
         }
     }
    /* private void OnTriggerStay(Collider other) {
-        if(other.gameObject.name == "ColliderCube" && GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>().onclick == true){// .gameObject.CompareTag("Star")){
+        if(other.gameObject.name == "ColliderCube" && GameObject.Find("speedbarmove").transform.Find("").GetComponent<speedbar>().onclick == true){// .gameObject.CompareTag("Star")){
             QTEP.SetActive(true);
             Instantiate(QTEP, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
             gameObject.SetActive(false);
