@@ -8,6 +8,10 @@ public class speedbar : MonoBehaviour
     public GameObject speed_bar;
     public GameObject speedbararr;
     private TouchMove ball;
+    private void Start() {
+        speed_bar = GameObject.Find("speedbarmove").transform.Find("timingopp").gameObject;
+        speedbararr = GameObject.Find("speedarr").transform.Find("speedbararr").gameObject;
+    }
     void OnEnable()
     {
         ball = GameObject.Find("ball").GetComponent<TouchMove>();
@@ -26,6 +30,7 @@ public class speedbar : MonoBehaviour
             onclick = true;
             StopCoroutine(speedbarC());
             speed_bar.SetActive(false);
+            //speedbararr.SetActive(false);
             speedbararr.GetComponent<MeshRenderer>().enabled = false;
         }
     }
@@ -34,6 +39,7 @@ public class speedbar : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         onclick = true;
         speed_bar.SetActive(false);
+        //speedbararr.SetActive(false);
         speedbararr.GetComponent<MeshRenderer>().enabled = false;
         GameManager.Instance.ReleaseSlow();
     }

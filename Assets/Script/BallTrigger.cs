@@ -25,10 +25,10 @@ public class BallTrigger : MonoBehaviour
             if(other.gameObject.CompareTag("slap")){
                 other.gameObject.GetComponent<BoxCollider>().isTrigger = true;
             }
-            else if(other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("purple")){
+            /*else if(other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("purple")){
                 Debug.Log(other.gameObject.name);
                 other.gameObject.GetComponent<MeshCollider>().isTrigger = true;
-            }
+            }*/
         }
     }
 }

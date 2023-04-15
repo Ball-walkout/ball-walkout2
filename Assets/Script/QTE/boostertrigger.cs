@@ -10,7 +10,7 @@ public class boostertrigger : MonoBehaviour
     private TouchMove ball;
     private void Start() {
         ball = GameObject.Find("ball").GetComponent<TouchMove>();
-        speedbar = GameObject.Find("speedbarmove").transform.Find("tbeasy").gameObject;
+        speedbar = GameObject.Find("speedbarmove").transform.Find("timingopp").gameObject;
         speedbararr = GameObject.Find("speedarr").transform.Find("speedbararr").gameObject;
     }
     void OnTriggerEnter(Collider other) {
@@ -20,7 +20,8 @@ public class boostertrigger : MonoBehaviour
             {
                 GameManager.Instance.SlowMotion();
                 speedbar.SetActive(true);
-                speedbararr.GetComponent<MeshRenderer>().enabled = true;
+                speedbararr.SetActive(true);
+               // speedbararr.GetComponent<MeshRenderer>().enabled = true;
                 gameObject.SetActive(false);
             }
         }

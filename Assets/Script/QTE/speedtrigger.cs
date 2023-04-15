@@ -15,7 +15,7 @@ public class speedtrigger : MonoBehaviour
     void Start()
     {
         PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
-        circle = GameObject.Find("speedbarmove").transform.Find("tbeasy").GetComponent<speedbar>();
+        circle = GameObject.Find("speedbarmove").transform.Find("timingopp").GetComponent<speedbar>();
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
         boosterP1 = GameObject.Find("Move").transform.Find("부스터").transform;
         boosterP2 = GameObject.Find("Move").transform.Find("부스터2").transform;
@@ -62,6 +62,8 @@ public class speedtrigger : MonoBehaviour
                 StartCoroutine(Booster(tempParticle));
             }
             circle.onclick = false;
+            other.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            other.gameObject.SetActive(false);
             GameManager.Instance.TurnOnTime();
         }
     }
