@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinTxt: {fileID: 1936050069}
   scoreTxt: {fileID: 1572072866}
-  overCanvas: {fileID: 0}
+  overCanvas: {fileID: 353290820}
   gameOverBGM: {fileID: 576306782}
   BGM: {fileID: 175251038}
   optionsWindow: {fileID: 1946211794}
@@ -8495,6 +8495,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3ff1dc2ed30a6c47afb108d97751e1a, type: 3}
+--- !u!1 &353290820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 841632209965279870, guid: d3ff1dc2ed30a6c47afb108d97751e1a, type: 3}
+  m_PrefabInstance: {fileID: 353290819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &364826339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8271923495132246859, guid: 692edc4aa51586544a1ebc9bf8f97d39, type: 3}

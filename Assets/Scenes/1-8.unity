@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinTxt: {fileID: 1936050069}
   scoreTxt: {fileID: 1572072866}
-  overCanvas: {fileID: 0}
+  overCanvas: {fileID: 1765436320}
   gameOverBGM: {fileID: 576306782}
   BGM: {fileID: 175251038}
   optionsWindow: {fileID: 1730459205}
@@ -16699,6 +16699,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3ff1dc2ed30a6c47afb108d97751e1a, type: 3}
+--- !u!1 &1765436320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 841632209965279870, guid: d3ff1dc2ed30a6c47afb108d97751e1a, type: 3}
+  m_PrefabInstance: {fileID: 1765436319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1768254942
 GameObject:
   m_ObjectHideFlags: 0
@@ -18453,9 +18458,9 @@ Transform:
   - {fileID: 1084790226}
   - {fileID: 923832581}
   - {fileID: 1496546602}
-  - {fileID: 779603622}
   - {fileID: 304635798}
   - {fileID: 1401433257}
+  - {fileID: 779603622}
   - {fileID: 35569449}
   m_Father: {fileID: 390735256}
   m_RootOrder: 1
