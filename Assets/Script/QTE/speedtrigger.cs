@@ -66,7 +66,6 @@ public class speedtrigger : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
-
     public AudioSource boostBGM;
     float saveY;
     IEnumerator Text(int i){
@@ -92,6 +91,10 @@ public class speedtrigger : MonoBehaviour
             stop++;
             yield return new WaitForSeconds(1f);
         }
+        if(stop == 1){
+            Debug.Log("?");
+            StartCoroutine(a());
+        }
         // 중력과 공 원래 속도로 되돌리기
         TM.Accelerate();
         TM.EnTouch();
@@ -101,6 +104,15 @@ public class speedtrigger : MonoBehaviour
         PF.speed = 18f;
     }
 
-    // Start is called before the first frame update
+    IEnumerator a(){
+        yield return new WaitForSeconds(0.1f);
+        GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = true;
+        StartCoroutine(b());
+    }
 
+    IEnumerator b(){
+        yield return new WaitForSeconds(0.1f);
+        GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = false;
+        StartCoroutine(a());
+    }
 }
