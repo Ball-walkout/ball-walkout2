@@ -91,8 +91,7 @@ public class speedtrigger : MonoBehaviour
             stop++;
             yield return new WaitForSeconds(1f);
         }
-        if(stop == 1){
-            Debug.Log("?");
+        if(stop == 2){
             StartCoroutine(a());
         }
         // 중력과 공 원래 속도로 되돌리기
