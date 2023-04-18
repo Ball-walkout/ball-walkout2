@@ -66,8 +66,7 @@ public class BallManager : MonoBehaviour
 
         else if(other.gameObject.tag == "Goal")
         {
-            transform.GetComponent<TouchMove>().Rallentare();
-            transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GameManager.Instance.PauseGame();
             goalEffect.SetActive(true);
             goalBGM.Play();
             Invoke("GoalIn", 2f);
@@ -76,7 +75,6 @@ public class BallManager : MonoBehaviour
 
     private void GoalIn()
     {
-        GameManager.Instance.timerOn = false;
         GameManager.Instance.StageClear();
         SceneManager.LoadScene("Clear");
     }

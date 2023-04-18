@@ -48,6 +48,7 @@ public class UIManager : MonoBehaviour
 
     public void ClickedRestart()
     {
+        GameManager.Instance.ReleaseGame();
         string scene = (DataManager.Instance.stageNum + 1).ToString();
         print("1 - " + scene);
         SceneManager.LoadScene("1-" + scene);

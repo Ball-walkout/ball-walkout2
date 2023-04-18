@@ -41,6 +41,7 @@ public class ClearUI : MonoBehaviour
     }
     public void ClickedReplay()
     {
+        GameManager.Instance.ReleaseGame();
         string scene = (DataManager.Instance.stageNum + 1).ToString();
         print("1 - " + scene);
         SceneManager.LoadScene("1-" + scene);
@@ -50,6 +51,7 @@ public class ClearUI : MonoBehaviour
 
     public void ClickedNext()
     {
+        GameManager.Instance.ReleaseGame();
         string scene = (DataManager.Instance.stageNum).ToString();
         print("1 - " + scene);
         SceneManager.LoadScene("1-" + scene);
