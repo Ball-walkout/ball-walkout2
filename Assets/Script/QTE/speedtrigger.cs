@@ -89,10 +89,10 @@ public class speedtrigger : MonoBehaviour
         while(stop < 2)
         {
             stop++;
+            if(stop == 2){
+                StartCoroutine(a(effect));
+            }
             yield return new WaitForSeconds(1f);
-        }
-        if(stop == 2){
-            StartCoroutine(a());
         }
         // 중력과 공 원래 속도로 되돌리기
         TM.Accelerate();
@@ -103,15 +103,21 @@ public class speedtrigger : MonoBehaviour
         PF.speed = 18f;
     }
 
-    IEnumerator a(){
+    IEnumerator a(Transform effect){
+        if(GameManager.Instance.isQTE == false){
+            yield break;
+        }
         yield return new WaitForSeconds(0.1f);
-        GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = true;
-        StartCoroutine(b());
+        effect.gameObject.SetActive(true);
+        StartCoroutine(b(effect));
     }
 
-    IEnumerator b(){
+    IEnumerator b(Transform effect){
+        if(GameManager.Instance.isQTE == false){
+            yield break;
+        }
         yield return new WaitForSeconds(0.1f);
-        GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = false;
-        StartCoroutine(a());
+        effect.gameObject.SetActive(false);
+        StartCoroutine(a(effect));
     }
 }

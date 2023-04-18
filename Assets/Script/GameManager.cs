@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
     public int GetCoin()
     {
+        coin = GameObject.Find("Canvas").transform.Find("Combo").GetComponent<Combo>().Combo_v;
+        Debug.Log(coin);
         return coin;
     }
 
