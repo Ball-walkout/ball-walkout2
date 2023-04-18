@@ -58,4 +58,29 @@ public class StartUI : MonoBehaviour
     {
         LoadCoin();
     }
+
+    public void ClickedTutorial()
+    {
+        StartCoroutine(GIF());
+    }
+    public void ClickedClose()
+    {
+        canGIF = false;
+    }
+
+    [SerializeField] private Image tutor;
+    [SerializeField] private Sprite [] tutorSprites;
+    private bool canGIF = true;
+    private IEnumerator GIF()
+    {
+        float fps = 0;
+        while(canGIF)
+        {
+            tutor.sprite = tutorSprites[(int)(fps * 5)];
+            fps += 0.2f;
+            yield return new WaitForSeconds(0.2f);
+            if(fps >= 2f)
+                fps = 0;
+        }
+    }
 }

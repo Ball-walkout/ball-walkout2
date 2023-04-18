@@ -84,7 +84,7 @@ public class speedtrigger : MonoBehaviour
 
         // 직진 가속
         PF.speed = 80f;
-        TM.rig.AddForce(TM.direction * tempSpeed * 200);
+        TM.rig.AddForce(TM.direction * tempSpeed * 160);
         // 회전
         while(stop < 2)
         {
