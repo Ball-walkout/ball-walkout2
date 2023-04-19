@@ -19,10 +19,10 @@ public class speedtrigger : MonoBehaviour
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
         boosterP1 = GameObject.Find("Move").transform.Find("부스터").transform;
         boosterP2 = GameObject.Find("Move").transform.Find("부스터2").transform;
-        speedtext[0] = GameObject.Find("Canvas").transform.Find("Perfect").gameObject;
-        speedtext[1] = GameObject.Find("Canvas").transform.Find("Cool").gameObject;
-        speedtext[2] = GameObject.Find("Canvas").transform.Find("Bad").gameObject;
-        speedtext[3] = GameObject.Find("Canvas").transform.Find("Miss").gameObject;
+        speedtext[0] = GameObject.Find("InGameUI").transform.Find("Perfect").gameObject;
+        speedtext[1] = GameObject.Find("InGameUI").transform.Find("Cool").gameObject;
+        speedtext[2] = GameObject.Find("InGameUI").transform.Find("Bad").gameObject;
+        speedtext[3] = GameObject.Find("InGameUI").transform.Find("Miss").gameObject;
     }
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true && other.name == "speedbararr"){
