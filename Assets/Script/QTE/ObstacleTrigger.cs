@@ -56,6 +56,7 @@ public class ObstacleTrigger : MonoBehaviour
             }
             GameObject.Find("InGameUI").transform.Find("Combo").gameObject.SetActive(true);
             combo.Combo_v++;
+            GameManager.Instance.SetCoin(1);
             Instantiate(QTEP, gameObject.transform.position + new Vector3(0, 5f, 0), Quaternion.Euler(90, 0, 0));
             gameObject.SetActive(false);
         }
