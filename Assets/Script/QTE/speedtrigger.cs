@@ -90,7 +90,7 @@ public class speedtrigger : MonoBehaviour
         {
             stop++;
             if(stop == 2){
-                StartCoroutine(a(effect));
+                StartCoroutine(a());
             }
             yield return new WaitForSeconds(1f);
         }
@@ -102,22 +102,25 @@ public class speedtrigger : MonoBehaviour
         GameManager.Instance.isQTE = false;
         PF.speed = 18f;
     }
-
-    IEnumerator a(Transform effect){
+        IEnumerator a(){
         if(GameManager.Instance.isQTE == false){
-            yield break;
+            GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = true;
+            StopCoroutine(a());
+            StopCoroutine(b());
         }
         yield return new WaitForSeconds(0.1f);
-        effect.gameObject.SetActive(true);
-        StartCoroutine(b(effect));
+        GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = true;
+        StartCoroutine(b());
     }
 
-    IEnumerator b(Transform effect){
+    IEnumerator b(){
         if(GameManager.Instance.isQTE == false){
-            yield break;
+            GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = true;
+            StopCoroutine(a());
+            StopCoroutine(b());
         }
         yield return new WaitForSeconds(0.1f);
-        effect.gameObject.SetActive(false);
-        StartCoroutine(a(effect));
+        GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = false;
+        StartCoroutine(a());
     }
 }
