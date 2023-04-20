@@ -22,14 +22,29 @@ public class Start : MonoBehaviour
         GameObject.Find("Start").SetActive(false);
     }
 
-    public void Setting(){
-        if(GameObject.Find("Canvas").transform.Find("SettingPanel").gameObject.activeSelf == true){
-            GameObject.Find("Canvas").transform.Find("SettingPanel").gameObject.SetActive(false);
+    [SerializeField]private Image soundImg;
+    [SerializeField]private Sprite soundOn, soundOff;
+    [SerializeField] private Text soundText;
+    public void Sound(){
+        if(AudioListener.volume == 1)
+        {
+            AudioListener.volume = 0;
+            soundImg.sprite = soundOff;
+            soundText.text = "SOUND ON";
         }
-        else{
-            GameObject.Find("Canvas").transform.Find("SettingPanel").gameObject.SetActive(true);
+        else
+        {
+            AudioListener.volume = 1;
+            soundImg.sprite = soundOn;
+            soundText.text = "SOUND OFF";
         }
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    
     public void shop(){
         if(GameObject.Find("Canvas").transform.Find("ShopMenu").gameObject.activeSelf == true){
             GameObject.Find("Canvas").transform.Find("ShopMenu").gameObject.SetActive(false);
