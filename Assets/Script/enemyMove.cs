@@ -15,13 +15,16 @@ public class enemyMove : MonoBehaviour
 
     void Start() {
       rig = GetComponent<Rigidbody>();
-      dampSpeed = 2;
+      dampSpeed = 3;
       PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
       StartCoroutine(speed());
       distance = new Vector3(0, 0, 5.0f);
     }
     public bool canTrace = true;
     void Update () {
+      if(Vector3.Distance(gameObject.transform.position, target.position) >= 190){
+        gameObject.transform.position = target.position + new Vector3(0, 0, 30f);
+      }
       if(canTrace)
       {
           transform.LookAt(target);
@@ -37,7 +40,16 @@ public class enemyMove : MonoBehaviour
       while(dampSpeed < 15)
       {
           yield return new WaitForSeconds(3.0f);
-          dampSpeed += 1;
+          dampSpeed += 3;
+      }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+      if(other.collider.gameObject.tag == "Obstalce" || other.collider.gameObject.tag == "purple"){
+        other.collider.gameObject.GetComponent<MeshCollider>().isTrigger = true;
+      }
+      else if(other.collider.gameObject.tag == "slap"){
+        other.collider.gameObject.GetComponent<BoxCollider>().isTrigger = true;
       }
     }
 }

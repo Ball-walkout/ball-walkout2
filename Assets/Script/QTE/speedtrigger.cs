@@ -83,7 +83,7 @@ public class speedtrigger : MonoBehaviour
         //    boostBGM.Play();
 
         // 직진 가속
-        PF.speed = 80f;
+        PF.speed = 30f;
         TM.rig.AddForce(TM.direction * tempSpeed * 160);
         // 회전
         while(stop < 2)
