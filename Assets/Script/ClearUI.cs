@@ -61,7 +61,7 @@ public class ClearUI : MonoBehaviour
         {
             stars[i].color = Color.yellow;
             fillOneStarBGM.Play();
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
