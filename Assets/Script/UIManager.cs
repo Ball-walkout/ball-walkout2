@@ -6,16 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private Text coinTxt, scoreTxt;
+    [SerializeField] private Text scoreTxt;
     public void UpdateScore()
     {
         scoreTxt.text = GameManager.Instance.GetScore().ToString();
     }
 
-    public void UpdateCoin()
-    {
-        coinTxt.text = GameManager.Instance.GetCoin().ToString();
-    }
+    
 
     [SerializeField] private GameObject overCanvas;
     public AudioSource gameOverBGM, BGM;

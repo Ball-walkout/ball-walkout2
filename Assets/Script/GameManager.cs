@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     public void SetCoin(int _coin)
     {
         coin += _coin;
-        ui.UpdateCoin();
+        
     }
 
     public void InitialCoin()
