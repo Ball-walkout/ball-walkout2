@@ -44,7 +44,7 @@ public class DataManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Load();
+        First();
     }
 
     // UserData Json 파일 첫 생성
@@ -55,6 +55,7 @@ public class DataManager : MonoBehaviour
         userData.levelCleared = new int[30] {0,0,0,0,0,0,0,0,0,0,
                                             0,0,0,0,0,0,0,0,0,0,
                                             0,0,0,0,0,0,0,0,0,0};
+        userData.ball_skin = 0;
         
         string json = JsonUtility.ToJson(userData);
 
@@ -69,7 +70,7 @@ public class DataManager : MonoBehaviour
 
     string fileName;
     string path;
-    // 저장된 UserData 로드
+    // 저장된 UserData 로드 (Start씬)
     public UserData myUser=null;
     void Load()
     {
@@ -85,6 +86,7 @@ public class DataManager : MonoBehaviour
         myUser = JsonUtility.FromJson<UserData>(json);
     }
 
+    // 스테이지 클리어 후 데이터 수정
     public void Resave(int stageNum, int star, int coin)
     {
         myUser.levelCleared[stageNum] = star;
@@ -100,4 +102,17 @@ public class DataManager : MonoBehaviour
     }
     
     public int stageNum = -1;
+
+    // 공 스킨 변경 후 데이터 수정
+    public void UpdateBall(int select)
+    {
+        myUser.ball_skin = select;
+
+        System.IO.File.Delete(path);
+        string json = JsonUtility.ToJson(myUser);
+        FileStream fileStream = new FileStream(path, FileMode.Create);
+        byte[] data = Encoding.UTF8.GetBytes(json);
+        fileStream.Write(data, 0, data.Length);
+        fileStream.Close();
+    }
 }
