@@ -461,7 +461,6 @@ namespace PathCreationEditor {
                 if (data.showPathBounds) {
                     Handles.color = globalDisplaySettings.bounds;
                     Handles.DrawWireCube (bounds.center, bounds.size);
-                    Debug.Log(bounds.size.z);
                 }
 
                 // Draw normals

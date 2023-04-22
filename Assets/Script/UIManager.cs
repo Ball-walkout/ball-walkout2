@@ -85,8 +85,8 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.timerOn = true;
         preposB = GameObject.Find("ball").transform.position.z;
         preposE = GameObject.Find("Enemy").transform.position.z;
-        ballUI = GameObject.Find("ballImg").GetComponent<RectTransform>();
-        enemyUI = GameObject.Find("enemyImg").GetComponent<RectTransform>();
+       // ballUI = GameObject.Find("ballImg").GetComponent<RectTransform>();
+      //  enemyUI = GameObject.Find("enemyImg").GetComponent<RectTransform>();
     }
 
     [SerializeField] private Text min, sec;
@@ -102,12 +102,12 @@ public class UIManager : MonoBehaviour
     }
     private void UpdatePosition()
     {
-        tempB = ballUI.transform.localPosition;
+/*        tempB = ballUI.transform.localPosition;
         tempB.y += (-GameObject.Find("ball").transform.position.z + preposB) * Time.deltaTime * 0.05f;
         ballUI.transform.localPosition = tempB;
 
         tempE = enemyUI.transform.localPosition;
         tempE.y += (-GameObject.Find("Enemy").transform.position.z + preposE) * Time.deltaTime * 0.05f;
-        enemyUI.transform.localPosition = tempE;
+        enemyUI.transform.localPosition = tempE;*/
     }
 }
