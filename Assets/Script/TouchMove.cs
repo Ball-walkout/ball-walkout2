@@ -14,7 +14,30 @@ public class TouchMove : MonoBehaviour
     public float speed = 4f;
     public Rigidbody rig;
     public bool QTE;
+    [SerializeField]private MeshFilter ballMesh;
+    [SerializeField] private Mesh[] meshes;
+    [SerializeField] private MeshRenderer ballSkin;
+    [SerializeField] private Material[] textures, textures1;
+
     private void Start() {
+        // 공 스킨 설정
+        if(DataManager.Instance != null)
+        {
+            int skin_index = DataManager.Instance.myUser.ball_skin;
+            ballMesh.sharedMesh = meshes[skin_index];
+            
+            Material[] mat = ballSkin.materials;
+            mat[0] = textures[skin_index];
+            // 슬라임 스킨 매터리얼 예외
+            if(skin_index >= 12)
+                mat[1] = textures1[skin_index-12];
+            // 기본 축구공 스킨 매터리얼 예외
+            else if (skin_index == 0)
+                mat[1] = textures1[3];
+            else
+                mat[1] = null;
+            ballSkin.materials = mat;
+        }
         // 초기 물리 방향 설정
         rig = GetComponent<Rigidbody>();
         QTE = true;

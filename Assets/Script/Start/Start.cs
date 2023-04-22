@@ -53,6 +53,7 @@ public class Start : MonoBehaviour
             GameObject.Find("Canvas").transform.Find("ShopMenu").gameObject.SetActive(true);
         }
     }
+    
     public void Back(){
         EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
     }

@@ -56,6 +56,8 @@ public class DataManager : MonoBehaviour
                                             0,0,0,0,0,0,0,0,0,0,
                                             0,0,0,0,0,0,0,0,0,0};
         userData.ball_skin = 0;
+        userData.skin_purchased = new bool[14] {true, false, false, false, false, false, false, false, false, false,
+                                                false, false, false, false};
         
         string json = JsonUtility.ToJson(userData);
 
@@ -103,9 +105,11 @@ public class DataManager : MonoBehaviour
     
     public int stageNum = -1;
 
+    
     // 공 스킨 변경 후 데이터 수정
     public void UpdateBall(int select)
     {
+        GameObject.Find("Canvas").GetComponent<StartUI>().SelectSkin(select);
         myUser.ball_skin = select;
 
         System.IO.File.Delete(path);

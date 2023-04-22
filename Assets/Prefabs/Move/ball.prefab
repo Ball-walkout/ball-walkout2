@@ -100,6 +100,45 @@ MonoBehaviour:
   speed: 4
   rig: {fileID: 0}
   QTE: 0
+  ballMesh: {fileID: 7860398834025030463}
+  meshes:
+  - {fileID: 289301614986012343, guid: 262e6f7e703d3a345a3f9d850c829a07, type: 3}
+  - {fileID: 6610336244423188277, guid: 89b6fea1573f0a643a3de28f472d39c3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ballSkin: {fileID: 7860398834025030462}
+  textures:
+  - {fileID: -3846018093981099296, guid: 262e6f7e703d3a345a3f9d850c829a07, type: 3}
+  - {fileID: 2100000, guid: 591574320a9fedf469b84eca75c03dbe, type: 2}
+  - {fileID: 2100000, guid: d0528d1e4db685645aab785abb903b19, type: 2}
+  - {fileID: -4137429265834375051, guid: 52ebe1dda50bad8498b7c88282683817, type: 3}
+  - {fileID: 2100000, guid: 6014e4d68c5ae7847ac841dee5408fea, type: 2}
+  - {fileID: 2100000, guid: 1d1efd74961b744cca932e0880b5eb4d, type: 3}
+  - {fileID: 4300000, guid: 277a4092b6ae84cc6970d7a21ac55f7f, type: 3}
+  - {fileID: 4300000, guid: 277a4092b6ae84cc6970d7a21ac55f7f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  textures1:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: -6478536213147159724, guid: 262e6f7e703d3a345a3f9d850c829a07, type: 3}
+  speedText: {fileID: 0}
+  pfSpeed: {fileID: 0}
+  pf: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   canForward: 1
   left: {x: 0, y: 0, z: 0}

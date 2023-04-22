@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StartUI : MonoBehaviour
 {
+    // LOADING
     [SerializeField] GameObject loading;
     [SerializeField] Text percentTxt;
     [SerializeField] Slider slider;
@@ -48,6 +49,7 @@ public class StartUI : MonoBehaviour
         percentTxt.text = txt;
     }
 
+    // Coin
     [SerializeField] Text cointxt;
     private void LoadCoin()
     {
@@ -59,6 +61,9 @@ public class StartUI : MonoBehaviour
         LoadCoin();
     }
 
+
+    // Tutorial Window On/Off
+
     public void ClickedTutorial()
     {
         StartCoroutine(GIF());
@@ -68,6 +73,7 @@ public class StartUI : MonoBehaviour
         canGIF = false;
     }
 
+    // Tutorial GIF Image animation
     [SerializeField] private Image tutor;
     [SerializeField] private Sprite [] tutorSprites;
     private bool canGIF = true;
@@ -81,6 +87,36 @@ public class StartUI : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             if(fps >= 2f)
                 fps = 0;
+        }
+    }
+
+    private int[] skinPrice = {100, 100, 100, 100, 100,
+                            200, 200, 200, 200, 200, 200, 200,
+                            300, 300};
+    [SerializeField]private GameObject[] purchaseBtns, selectBtns, selectedBtns;
+    public void Purchase(int select)
+    {
+        if (DataManager.Instance.myUser.coins >= skinPrice[select])
+        {
+            // Update coin
+            DataManager.Instance.myUser.coins -= skinPrice[select];
+            LoadCoin();
+            // update button
+            purchaseBtns[select].SetActive(false);
+            selectBtns[select].SetActive(true);
+        }
+    }
+    public void SelectSkin(int select)
+    {
+        if(selectBtns[select].activeSelf==true && selectedBtns[select].activeSelf==false)
+        {
+            // 기존 스킨 버튼 업데이트
+            selectBtns[DataManager.Instance.myUser.ball_skin].SetActive(true);
+            selectedBtns[DataManager.Instance.myUser.ball_skin].SetActive(false);
+            // 선택한 스킨 버튼 업데이트
+            selectBtns[select].SetActive(false);
+            selectedBtns[select].SetActive(true);
+            DataManager.Instance.UpdateBall(select);
         }
     }
 }
