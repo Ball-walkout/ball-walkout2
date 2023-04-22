@@ -13,7 +13,6 @@ namespace PathCreation {
         PathCreatorData editorData;
         [SerializeField, HideInInspector]
         bool initialized;
-
         GlobalDisplaySettings globalEditorDisplaySettings;
 
         // Vertex path created from the current bezier path
