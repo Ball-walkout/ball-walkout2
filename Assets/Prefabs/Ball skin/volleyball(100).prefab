@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1178380891598851407}
   - component: {fileID: 1793363870260101961}
   m_Layer: 0
-  m_Name: volleyball
+  m_Name: volleyball(100)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
