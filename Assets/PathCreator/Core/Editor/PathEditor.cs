@@ -427,7 +427,7 @@ namespace PathCreationEditor {
 
         }
 
-        void DrawBezierPathSceneEditor () {
+        public void DrawBezierPathSceneEditor () {
 
             bool displayControlPoints = data.displayControlPoints && (bezierPath.ControlPointMode != BezierPath.ControlMode.Automatic || !globalDisplaySettings.hideAutoControls);
             Bounds bounds = bezierPath.CalculateBoundsWithTransform (creator.transform);
@@ -461,6 +461,7 @@ namespace PathCreationEditor {
                 if (data.showPathBounds) {
                     Handles.color = globalDisplaySettings.bounds;
                     Handles.DrawWireCube (bounds.center, bounds.size);
+                    Debug.Log(bounds.size.z);
                 }
 
                 // Draw normals

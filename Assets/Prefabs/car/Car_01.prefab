@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5654007345580086330}
   - component: {fileID: 7654403837840963755}
+  - component: {fileID: 2887931793508865980}
   m_Layer: 0
   m_Name: Car_01
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +49,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c0915f7393fe4dabbe775825e483e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &2887931793508865980
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554350794467297204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!64 &352010012147318636
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59,9 +74,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+--- !u!114 &4011198078110056364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578066303597159467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!64 &272576328666569379
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73,9 +101,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+--- !u!114 &4140117369403515668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360478430541448214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!64 &6057431591789009037
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87,9 +128,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+--- !u!114 &4982151697115284257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833119450529105551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!64 &5836075556794265534
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101,9 +155,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+--- !u!114 &682766628251956733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7579002783340179338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!64 &6772922930484649079
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -115,9 +182,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d51eb73b617f9ed4f8f14f9921a7e7ca, type: 3}
+--- !u!114 &6904128002709945499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601182045187121136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1001 &2578066303597257355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,6 +208,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
       propertyPath: m_Name
       value: Wheel_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+      propertyPath: m_TagString
+      value: car
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
       propertyPath: m_RootOrder
@@ -200,6 +284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wheel_01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -270,6 +358,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
       propertyPath: m_Name
       value: Wheel_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+      propertyPath: m_TagString
+      value: car
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
       propertyPath: m_RootOrder
@@ -342,6 +434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wheel_04
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -412,6 +508,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d51eb73b617f9ed4f8f14f9921a7e7ca, type: 3}
       propertyPath: m_Name
       value: Car_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d51eb73b617f9ed4f8f14f9921a7e7ca, type: 3}
+      propertyPath: m_TagString
+      value: car
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d51eb73b617f9ed4f8f14f9921a7e7ca, type: 3}
       propertyPath: m_RootOrder

@@ -16,6 +16,9 @@ TagManager:
   - purple
   - Star
   - slap
+  - TrackingObject
+  - Actors
+  - car
   layers:
   - Default
   - TransparentFX

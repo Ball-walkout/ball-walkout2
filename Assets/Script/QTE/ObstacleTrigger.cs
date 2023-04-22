@@ -21,6 +21,11 @@ public class ObstacleTrigger : MonoBehaviour
               //  Debug.Log(gameObject.name);
                 gameObject.GetComponent<MeshCollider>().isTrigger = true;
             }
+            if(gameObject.CompareTag("car")){
+              //  for(int i = 0; i < 5; i++){
+                    gameObject.GetComponent<MeshCollider>().isTrigger = true;
+              //  }
+            }
         }
         else{
            /* if(gameObject.CompareTag("slap")){
@@ -29,6 +34,11 @@ public class ObstacleTrigger : MonoBehaviour
             else*/ if(gameObject.CompareTag("Obstacle") || gameObject.CompareTag("purple")){
 //                Debug.Log(gameObject.name);
                 gameObject.GetComponent<MeshCollider>().isTrigger = false;
+            }
+            if(gameObject.CompareTag("car")){
+               // for(int i = 0; i < 5; i++){
+                    gameObject.GetComponent<MeshCollider>().isTrigger = false;
+              //  }
             }
         }
        /* if(GameObject.Find("speedbarmove").transform.Find("").GetComponent<speedbar>().onclick == true){
