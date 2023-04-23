@@ -5,6 +5,9 @@ using UnityEngine;
 public class BallTrigger : MonoBehaviour
 {
     public bool cstop;
+    private void Start() {
+        cstop = true;
+    }
     private void OnTriggerStay(Collider other) {
         if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == true || 
         GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == true){

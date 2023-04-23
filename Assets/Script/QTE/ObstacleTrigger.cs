@@ -36,25 +36,20 @@ public class ObstacleTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.name == "ball"){
-            if(gameObject.name == "Tire"){
-                gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
-                gameObject.transform.parent.GetChild(2).gameObject.SetActive(false);
-                gameObject.transform.parent.GetChild(3).gameObject.SetActive(false); 
-            }
-            if(gameObject.CompareTag("car")){
-                gameObject.transform.parent.GetChild(0).gameObject.SetActive(false);
-                gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
-                gameObject.transform.parent.GetChild(2).gameObject.SetActive(false);
-                gameObject.transform.parent.GetChild(3).gameObject.SetActive(false);
-                gameObject.transform.parent.GetChild(4).gameObject.SetActive(false);
-            }
-            if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == false &&
-             GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == false){
-                if(ballTrigger.cstop == false){
-                    gameObject.SetActive(false);
+            if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == true ||
+             GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == true){
+                if(gameObject.name == "Tire"){
+                    gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
+                    gameObject.transform.parent.GetChild(2).gameObject.SetActive(false);
+                    gameObject.transform.parent.GetChild(3).gameObject.SetActive(false); 
                 }
-            }
-            else{
+                if(gameObject.CompareTag("car")){
+                    gameObject.transform.parent.GetChild(0).gameObject.SetActive(false);
+                    gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
+                    gameObject.transform.parent.GetChild(2).gameObject.SetActive(false);
+                    gameObject.transform.parent.GetChild(3).gameObject.SetActive(false);
+                    gameObject.transform.parent.GetChild(4).gameObject.SetActive(false);
+                }
                 GameObject.Find("InGameUI").transform.Find("Combo").gameObject.SetActive(true);
                 combo.Combo_v++;
                 GameManager.Instance.SetCoin(1);
