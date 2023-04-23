@@ -24,11 +24,11 @@ public class Progressbar : MonoBehaviour
         posE = GameObject.Find("Enemy").transform.position.z;
 
         le = GameObject.Find("Goal").transform.position.z - GameObject.Find("ball").transform.position.z;
-        road.sizeDelta = new Vector2(70, -le);
+        road.sizeDelta = new Vector2(60, -le);
         ball.GetComponent<RectTransform>().localPosition = new Vector3(100f, le/2, -26.5f);
         enemy.GetComponent<RectTransform>().localPosition = new Vector3(100f, le/2, -26.5f);
         goal.GetComponent<RectTransform>().localPosition = new Vector3(125f, -le/2 + 80, -26.5f);
-        circle.GetComponent<RectTransform>().localPosition = new Vector3(105f, -le/2 + 80, -26.5f);
+        circle.GetComponent<RectTransform>().localPosition = new Vector3(105f, -le/2 + 30, -26.5f);
     }
 
     // Update is called once per frame
