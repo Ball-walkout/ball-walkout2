@@ -11,7 +11,10 @@ namespace PathCreation.Examples
         public float speed = 5;
         float distanceTravelled;
 
+        BallTrigger ballTrigger;
+
         void Start() {
+            ballTrigger = GameObject.Find("TriggerCube").GetComponent<BallTrigger>();
             if (pathCreator != null)
             {
                 // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
@@ -21,12 +24,18 @@ namespace PathCreation.Examples
 
         void Update()
         {
-            if (pathCreator != null)
-            {
-                distanceTravelled += speed * Time.deltaTime;
-                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+           /* if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == true || 
+            GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == true){
+                gameObject.transform.position = GameObject.Find("ball").transform.position + new Vector3(0, 0, -30f);
             }
+            else{*/
+                if (pathCreator != null)
+                {
+                    distanceTravelled += speed * Time.deltaTime;
+                    transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+                    transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+                }
+    //        }
         }
 
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path
