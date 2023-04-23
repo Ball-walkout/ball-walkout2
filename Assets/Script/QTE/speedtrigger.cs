@@ -8,6 +8,7 @@ public class speedtrigger : MonoBehaviour
     speedbar circle;
     TouchMove TM;
     PathFollower PF;
+    DeathParticle deathParticle;
     float tempSpeed;
     public Transform boosterP1, boosterP2;
     private Transform tempParticle;
@@ -17,6 +18,7 @@ public class speedtrigger : MonoBehaviour
         PF = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
         circle = GameObject.Find("speedbarmove").transform.Find("timingopp").GetComponent<speedbar>();
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
+        deathParticle = GameObject.Find("ball").GetComponent<DeathParticle>();
         boosterP1 = GameObject.Find("Move").transform.Find("부스터").transform;
         boosterP2 = GameObject.Find("Move").transform.Find("부스터2").transform;
         speedtext[0] = GameObject.Find("InGameUI").transform.Find("PERFECT").gameObject;
@@ -26,6 +28,8 @@ public class speedtrigger : MonoBehaviour
     }
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true && other.name == "speedbararr"){
+            deathParticle.inv = true;
+            deathParticle.StartCoroutine(deathParticle.QTEinv());
             GameManager.Instance.ReleaseSlow();
             if(gameObject.name == "Fast1"){
                 tempSpeed = 3f;
