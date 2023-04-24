@@ -44,7 +44,7 @@ public class DataManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        First();
+        Load();
     }
 
     // UserData Json 파일 첫 생성
@@ -106,10 +106,23 @@ public class DataManager : MonoBehaviour
     public int stageNum = -1;
 
     
+    // 공 구매 후 데이터 수정
+    public void UpdatePurchase(int select)
+    {
+        myUser.skin_purchased[select] = true;
+
+        System.IO.File.Delete(path);
+        string json = JsonUtility.ToJson(myUser);
+        FileStream fileStream = new FileStream(path, FileMode.Create);
+        byte[] data = Encoding.UTF8.GetBytes(json);
+        fileStream.Write(data, 0, data.Length);
+        fileStream.Close();
+    }
+    
     // 공 스킨 변경 후 데이터 수정
     public void UpdateBall(int select)
     {
-        GameObject.Find("Canvas").GetComponent<StartUI>().SelectSkin(select);
+        
         myUser.ball_skin = select;
 
         System.IO.File.Delete(path);

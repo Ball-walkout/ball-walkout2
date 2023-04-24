@@ -18,6 +18,8 @@ public class TouchMove : MonoBehaviour
     [SerializeField] private Mesh[] meshes;
     [SerializeField] private MeshRenderer ballSkin;
     [SerializeField] private Material[] textures, textures1;
+    private Vector3[] matScale = {new Vector3(100, 100, 100), new Vector3(11, 11, 11), new Vector3(45, 45, 45), new Vector3(25, 25, 25),
+                                new Vector3(11, 11, 11) };
 
     private void Start() {
         // 공 스킨 설정
@@ -37,6 +39,7 @@ public class TouchMove : MonoBehaviour
             else
                 mat[1] = null;
             ballSkin.materials = mat;
+            transform.Find("Icosphere").localScale = matScale[skin_index];
         }
         // 초기 물리 방향 설정
         rig = GetComponent<Rigidbody>();

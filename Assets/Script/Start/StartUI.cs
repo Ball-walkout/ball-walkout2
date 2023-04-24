@@ -59,6 +59,7 @@ public class StartUI : MonoBehaviour
     private void Start()
     {
         LoadCoin();
+        LoadPurchase();
     }
 
 
@@ -100,10 +101,30 @@ public class StartUI : MonoBehaviour
         {
             // Update coin
             DataManager.Instance.myUser.coins -= skinPrice[select];
+            DataManager.Instance.UpdatePurchase(select);
             LoadCoin();
             // update button
             purchaseBtns[select].SetActive(false);
             selectBtns[select].SetActive(true);
+        }
+    }
+
+    private void LoadPurchase()
+    {
+        for (int i = 0; i<14; i++)
+        {
+            if(DataManager.Instance.myUser.skin_purchased[i]==true)
+            {
+                // update button
+                purchaseBtns[i].SetActive(false);
+                selectBtns[i].SetActive(true);
+                if(i == DataManager.Instance.myUser.ball_skin)
+                {
+                    // 선택한 스킨 버튼 업데이트
+                    selectBtns[i].SetActive(false);
+                    selectedBtns[i].SetActive(true);
+                }
+            }
         }
     }
     public void SelectSkin(int select)

@@ -37,10 +37,10 @@ public class ClearUI : MonoBehaviour
     }
     public void ClickedReplay()
     {
-        GameManager.Instance.ReleaseGame();
         string scene = (DataManager.Instance.stageNum + 1).ToString();
         print("1 - " + scene);
         SceneManager.LoadScene("1-" + scene);
+        GameManager.Instance.ReleaseGame();
         GameManager.Instance.time = 0;
         GameManager.Instance.timerOn = true;
     }

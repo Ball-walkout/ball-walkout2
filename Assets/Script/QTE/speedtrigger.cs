@@ -90,7 +90,7 @@ public class speedtrigger : MonoBehaviour
         //    boostBGM.Play();
 
         // 직진 가속
-        PF.speed = 30f;
+        PF.speed = 70f;
         TM.rig.AddForce(TM.direction * tempSpeed * 160);
         // 회전
         while(stop < 2)
@@ -109,6 +109,8 @@ public class speedtrigger : MonoBehaviour
         GameManager.Instance.isQTE = false;
         //StartCoroutine(origin());
         PF.speed = 18f;
+        print("Booster Completed");
+        TM.rig.velocity = new Vector3(0,0,0);
     }
     IEnumerator a(){
         if(GameManager.Instance.isQTE == false){
