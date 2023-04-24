@@ -35,7 +35,7 @@ public class TouchMove : MonoBehaviour
                 mat[1] = textures1[skin_index-12];
             // 기본 축구공 스킨 매터리얼 예외
             else if (skin_index == 0)
-                mat[1] = textures1[3];
+                mat[1] = textures1[2];
             else
                 mat[1] = null;
             ballSkin.materials = mat;
