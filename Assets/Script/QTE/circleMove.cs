@@ -22,10 +22,10 @@ public class circleMove : MonoBehaviour
         //if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == false && 
         //GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == false){
         if(GameObject.Find("speedbarmove").transform.Find("timingopp").gameObject.activeSelf == true){
-            Vector3 temp = gameObject.transform.position;
-            temp.x = target.position.x + distance.x;
-            temp.y = target.position.y + distance.y;
-            gameObject.transform.position = temp;
+          //  Vector3 temp = gameObject.transform.position;
+        //    temp.x = target.position.x + distance.x;
+          //  temp.y = target.position.y + distance.y;
+          //  gameObject.transform.position = temp;
             gameObject.transform.Translate(direction * Time.deltaTime * speed);
         }
         else{
