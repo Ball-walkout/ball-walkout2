@@ -22,6 +22,8 @@ namespace PathCreation.Examples
             }
         }
 
+        Vector3 lastPosition;
+        public float realSpeed;
         void Update()
         {
            /* if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == true || 
@@ -35,7 +37,10 @@ namespace PathCreation.Examples
                     transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
                 }
-    //        }
+            realSpeed = (((transform.position - lastPosition).magnitude) / Time.deltaTime);
+            lastPosition = transform.position;
+            print("PF speed: " + (int)realSpeed);
+            //        }
         }
 
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path

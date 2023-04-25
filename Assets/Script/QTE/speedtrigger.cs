@@ -99,6 +99,11 @@ public class speedtrigger : MonoBehaviour
             if(stop == 2){
                 StartCoroutine(a());
             }
+            if (PF.realSpeed < TM.ballSpeed)
+            {
+                print("Warning : PF speed is lower than this ball");
+                PF.speed = TM.ballSpeed + 1;
+            }
             yield return new WaitForSeconds(1f);
         }
         // 중력과 공 원래 속도로 되돌리기

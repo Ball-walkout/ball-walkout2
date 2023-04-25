@@ -60,8 +60,21 @@ public class StartUI : MonoBehaviour
     {
         LoadCoin();
         LoadPurchase();
+        LoadStars();
     }
 
+    [SerializeField] GameObject[] stageStars;
+    // Load Stars of each Stage
+    private void LoadStars()
+    {
+        for (int i = 0; i<9; i++)
+        {
+            for(int j=0;j<DataManager.Instance.myUser.levelCleared[i];j++)
+            {
+                stageStars[i].GetComponentsInChildren<Image>()[j].color = Color.yellow;
+            }
+        }
+    }
 
     // Tutorial Window On/Off
 

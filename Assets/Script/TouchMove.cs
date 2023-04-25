@@ -67,6 +67,8 @@ public class TouchMove : MonoBehaviour
     private bool canJump = false;
     public Text speedText, pfSpeed;
     public PathFollower pf;
+    Vector3 lastPosition;
+    public float ballSpeed;
     private void FixedUpdate()
     {
         //speedText.text = rig.velocity.ToString();
@@ -84,6 +86,10 @@ public class TouchMove : MonoBehaviour
             //좌우 움직이기
             Touch();
         }
+
+        ballSpeed = (((transform.position - lastPosition).magnitude) / Time.deltaTime);
+        lastPosition = transform.position;
+        
     }
     
     public Vector3 direction;

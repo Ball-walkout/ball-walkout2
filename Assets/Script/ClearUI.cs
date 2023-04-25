@@ -18,7 +18,17 @@ public class ClearUI : MonoBehaviour
         // 점수 및 코인 합산
         score.text = ((GameManager.Instance.GetScore() + GameManager.Instance.star) * 1000).ToString();
         coin.text = GameManager.Instance.GetCoin().ToString();
-        DataManager.Instance.Resave(DataManager.Instance.stageNum, GameManager.Instance.star, GameManager.Instance.GetCoin());
+
+        // 스테이지 클리어 별 개수
+        int finalStar=0, dataStar=0;
+        dataStar = DataManager.Instance.myUser.levelCleared[DataManager.Instance.stageNum];
+        // 스테이지 첫 클리어 시 별 개수 새로 update
+        if(dataStar == 0)
+            finalStar = GameManager.Instance.star;
+        // 이미 스테이지 클리어한 기록이 있을 때, 더 큰 별 개수로 update
+        else
+            finalStar = GameManager.Instance.star > dataStar ? GameManager.Instance.star : dataStar;
+        DataManager.Instance.Resave(DataManager.Instance.stageNum, finalStar, GameManager.Instance.GetCoin());
 
         // 별 3개일 때 효과음
         if(GameManager.Instance.star==3)
