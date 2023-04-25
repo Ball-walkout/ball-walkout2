@@ -10209,7 +10209,7 @@ Transform:
   - {fileID: 760950203}
   - {fileID: 563963446}
   m_Father: {fileID: 1354775346}
-  m_RootOrder: 22
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &946192810
 PrefabInstance:
@@ -12088,6 +12088,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CM vcam1
       objectReference: {fileID: 0}
+    - target: {fileID: 1418926269444692043, guid: 80d1915137579fd45b0a1c92c7856d93, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 247833250}
+    - target: {fileID: 1418926269444692043, guid: 80d1915137579fd45b0a1c92c7856d93, type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 247833250}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80d1915137579fd45b0a1c92c7856d93, type: 3}
 --- !u!1001 &1303936193
@@ -12386,6 +12394,7 @@ Transform:
   - {fileID: 313171042}
   - {fileID: 326882803}
   - {fileID: 1438698812}
+  - {fileID: 941154455}
   - {fileID: 72644600}
   - {fileID: 1884662763}
   - {fileID: 728833805}
@@ -12398,7 +12407,6 @@ Transform:
   - {fileID: 1519421667}
   - {fileID: 1434846444}
   - {fileID: 1383050293}
-  - {fileID: 941154455}
   - {fileID: 107684842}
   - {fileID: 1900858839}
   - {fileID: 814595409}
