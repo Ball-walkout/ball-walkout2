@@ -87,6 +87,7 @@ public class TouchMove : MonoBehaviour
             Touch();
         }
 
+        // [유니티 스크립트 소스] 리지드바디 없이 위치값으로 속도 얻기 - 티스토리 참고
         ballSpeed = (((transform.position - lastPosition).magnitude) / Time.deltaTime);
         lastPosition = transform.position;
         
