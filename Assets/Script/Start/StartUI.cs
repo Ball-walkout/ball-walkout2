@@ -71,7 +71,7 @@ public class StartUI : MonoBehaviour
         {
             for(int j=0;j<DataManager.Instance.myUser.levelCleared[i];j++)
             {
-                stageStars[i].GetComponentsInChildren<Image>()[j].color = Color.yellow;
+                stageStars[i].GetComponentsInChildren<Image>()[j].gameObject.SetActive(true);
             }
         }
     }
