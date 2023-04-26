@@ -9,7 +9,6 @@ public class speedtrigger : MonoBehaviour
     TouchMove TM;
     PathFollower PF;
     DeathParticle deathParticle;
-    BallTrigger ballTrigger;
     float tempSpeed;
     public Transform boosterP1, boosterP2;
     private Transform tempParticle;
@@ -20,7 +19,6 @@ public class speedtrigger : MonoBehaviour
         circle = GameObject.Find("speedbarmove").transform.Find("timingopp").GetComponent<speedbar>();
         TM = GameObject.Find("ball").GetComponent<TouchMove>();
         deathParticle = GameObject.Find("ball").GetComponent<DeathParticle>();
-        ballTrigger = GameObject.Find("TriggerCube").GetComponent<BallTrigger>();
         boosterP1 = GameObject.Find("Move").transform.Find("부스터").transform;
         boosterP2 = GameObject.Find("Move").transform.Find("부스터2").transform;
         speedtext[0] = GameObject.Find("InGameUI").transform.Find("PERFECT").gameObject;
@@ -30,7 +28,7 @@ public class speedtrigger : MonoBehaviour
     }
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true && other.name == "speedbararr"){
-            ballTrigger.cstop = false;
+            circle.cstop = false;
             deathParticle.inv = true;
             deathParticle.StartCoroutine(deathParticle.QTEinv());
             GameManager.Instance.ReleaseSlow();
@@ -123,7 +121,7 @@ public class speedtrigger : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = true;
-        if(ballTrigger.cstop == false)
+        if(circle.cstop == false)
             StartCoroutine(b());
         else{
             StopCoroutine(a());
@@ -137,7 +135,7 @@ public class speedtrigger : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = false;
-        if(ballTrigger.cstop == false)
+        if(circle.cstop == false)
             StartCoroutine(a());
         else{
             StopCoroutine(a());
@@ -147,7 +145,7 @@ public class speedtrigger : MonoBehaviour
 
     IEnumerator origin(){
         yield return new WaitForSeconds(1.0f);
-        ballTrigger.cstop = true;
+        circle.cstop = true;
         GameObject.Find("ball").transform.Find("Icosphere").gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 }

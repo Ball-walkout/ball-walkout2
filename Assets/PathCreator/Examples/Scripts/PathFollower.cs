@@ -10,11 +10,7 @@ namespace PathCreation.Examples
         public EndOfPathInstruction endOfPathInstruction;
         public float speed = 5;
         public float distanceTravelled;
-
-        BallTrigger ballTrigger;
-
         void Start() {
-            ballTrigger = GameObject.Find("TriggerCube").GetComponent<BallTrigger>();
             if (pathCreator != null)
             {
                 // Subscribed to the pathUpdated event so that we're notified if the path changes during the game

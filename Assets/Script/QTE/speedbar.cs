@@ -8,9 +8,11 @@ public class speedbar : MonoBehaviour
     public GameObject speed_bar;
     public GameObject speedbararr;
     private TouchMove ball;
+    public bool cstop = true;
     private void Start() {
         speed_bar = GameObject.Find("speedbarmove").transform.Find("timingopp").gameObject;
         speedbararr = GameObject.Find("speedarr").transform.Find("speedbararr").gameObject;
+        cstop = true;
     }
     void OnEnable()
     {

@@ -64,7 +64,6 @@ public class TouchMove : MonoBehaviour
     }*/
 
     private Vector2 startTouchPos, endTouchPos;
-    private bool canJump = false;
     public Text speedText, pfSpeed;
     public PathFollower pf;
     Vector3 lastPosition;
