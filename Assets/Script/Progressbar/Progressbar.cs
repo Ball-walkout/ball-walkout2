@@ -28,7 +28,7 @@ public class Progressbar : MonoBehaviour
         ball.GetComponent<RectTransform>().localPosition = new Vector3(100f, le/2, -26.5f);
         enemy.GetComponent<RectTransform>().localPosition = new Vector3(100f, le/2, -26.5f);
         goal.GetComponent<RectTransform>().localPosition = new Vector3(125f, -le/2 + 80, -26.5f);
-        circle.GetComponent<RectTransform>().localPosition = new Vector3(105f, -le/2 + 30, -26.5f);
+        circle.GetComponent<RectTransform>().localPosition = new Vector3(113f, -le/2 + 80, -26.5f);
     }
 
     // Update is called once per frame

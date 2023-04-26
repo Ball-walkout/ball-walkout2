@@ -10652,6 +10652,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3756322135014289642, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275921457000333858, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596240418325354793, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8770795551351547865, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -10751,6 +10763,10 @@ PrefabInstance:
     - target: {fileID: 8770795551351547867, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
       propertyPath: m_Name
       value: InGameUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219021611905582826, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
