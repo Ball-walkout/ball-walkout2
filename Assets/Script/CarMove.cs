@@ -19,9 +19,11 @@ public class CarMove : MonoBehaviour
     void Update()
     {
         if(Vector3.Distance(gameObject.transform.position, ballpos.position) <= 32 && move == false){
-            gameObject.transform.Translate(new Vector3(0, 0, 1f).normalized * Time.deltaTime * 10.0f);
-            if(Vector3.Distance(gameObject.transform.position, pos) == 10){
-                move = true;
+            if(GameObject.Find("speedbarmove").transform.Find("timingopp").gameObject.activeSelf == false){
+                gameObject.transform.Translate(new Vector3(0, 0, 1f).normalized * Time.deltaTime * 10.0f);
+                if(Vector3.Distance(gameObject.transform.position, pos) == 10){
+                    move = true;
+                }                
             }
         }
     }

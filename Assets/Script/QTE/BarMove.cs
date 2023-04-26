@@ -18,10 +18,11 @@ public class BarMove : MonoBehaviour
    }
    void Update()
    {
-     //gameObject.transform.position = pathFollower.pathCreator.path.GetPointAtDistance(pathFollower.distanceTravelled, pathFollower.endOfPathInstruction);
+    // gameObject.transform.position = pathFollower.pathCreator.path.GetPointAtDistance(pathFollower.distanceTravelled, pathFollower.endOfPathInstruction);
      gameObject.transform.rotation = pathFollower.pathCreator.path.GetRotationAtDistance(pathFollower.distanceTravelled, pathFollower.endOfPathInstruction);
-     /*temp_pos = gameObject.transform.position;
-     temp_pos.x = target.position.x + distance.x;
+    /* temp_pos = gameObject.transform.position;
+     temp_pos.x = target.position.x;
+   // temp_pos.x = target.position.x + distance.x;
      temp_pos.y = target.position.y + distance.y;
      temp_pos.z = target.position.z + distance.z;
      gameObject.transform.position = temp_pos;*/

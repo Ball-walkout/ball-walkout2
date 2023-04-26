@@ -63,7 +63,6 @@ public class ObstacleTrigger : MonoBehaviour
                     for(int i = 0; i < 5; i++){
                         if(i != a){
                             gameObject.transform.parent.GetChild(i).gameObject.SetActive(false);
-                            return;
                         }
                     }
                 }
