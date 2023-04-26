@@ -9158,7 +9158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: {x: -3, y: 4.4, z: -31.1}
-  temp: {x: 0, y: 0, z: 0}
+  distance_rot: {x: 0, y: 90, z: 90}
 --- !u!4 &777755773
 Transform:
   m_ObjectHideFlags: 0
@@ -9364,8 +9364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09421052c77a1a24cb2f6b596064d6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: {x: -1.9, y: 5, z: -21.4}
-  direction: {x: 0, y: 0, z: 0}
+  distance: {x: 0, y: 1, z: 0}
+  direction: {x: 0, y: 1, z: 0}
+  distance_rot: {x: 0, y: 90, z: 90}
 --- !u!4 &839320100
 Transform:
   m_ObjectHideFlags: 0
@@ -9944,7 +9945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b9ffdb10802d79d4a8be2f534ccfc7e3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9ffdb10802d79d4a8be2f534ccfc7e3, type: 3}
@@ -9965,7 +9966,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969612631}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f52beae6ce457a94ab5bf037a10d45cf, type: 3}
   m_Name: 
@@ -12482,7 +12483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: {x: 0, y: 0, z: -1}
-  temp: {x: 0, y: 0, z: 0}
+  distance_rot: {x: 0, y: 0, z: 0}
 --- !u!114 &1602165060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13459,7 +13460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818592611}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -50, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 839320100}
@@ -14691,6 +14692,7 @@ MonoBehaviour:
   pathCreator: {fileID: 1421191112}
   endOfPathInstruction: 2
   speed: 18
+  distanceTravelled: 0
   realSpeed: 0
 --- !u!198 &198015459817128096
 ParticleSystem:

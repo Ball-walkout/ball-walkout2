@@ -1,38 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
-using PathCreation;
+using PathCreation.Examples;
 using UnityEngine;
 
 public class BarMove : MonoBehaviour
 {
    
-   Transform target1;
-   Transform target2;
+   Transform target;
    public Vector3 distance;
-   Vector3 temp1;
-   public Vector3 temp;
+   public Vector3 distance_rot;
+   Vector3 temp_rot;
+   Vector3 temp_pos;
+   PathFollower pathFollower;
    private void Start() {
-      target1 = GameObject.Find("RoadFollower").transform;
-      target2 = GameObject.Find("ball").transform;
+      target = GameObject.Find("ball").transform;
+      pathFollower = GameObject.Find("RoadFollower").GetComponent<PathFollower>();
    }
    void Update()
    {
-      temp = gameObject.transform.position;
-      temp.x = target1.position.x + distance.x;
-      temp.y = target1.position.y + distance.y;
-      temp.z = target2.position.z + distance.z;
-      gameObject.transform.position = temp;
-     // gameObject.transform.position = target.position + distance; // * GameObject.Find("timingarr").GetComponent<arrMove>().speed;
-   //  gameObject.transform.rotation = PathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
-      Vector3 RFt = new Vector3(gameObject.transform.position.x, GameObject.Find("RoadFollower").transform.position.y, 
-      gameObject.transform.position.z);
-      transform.LookAt(RFt);
-      temp1.x = gameObject.transform.rotation.x + 180f;
-      temp1.y = gameObject.transform.rotation.y + 95f;
-      gameObject.transform.rotation = Quaternion.Euler(temp1);
-      // x축만 이동 코드
-      /*temp = gameObject.transform.position;
-      temp.x = target.position.x + distance.x;
-      gameObject.transform.position = temp;*/
+     //gameObject.transform.position = pathFollower.pathCreator.path.GetPointAtDistance(pathFollower.distanceTravelled, pathFollower.endOfPathInstruction);
+     gameObject.transform.rotation = pathFollower.pathCreator.path.GetRotationAtDistance(pathFollower.distanceTravelled, pathFollower.endOfPathInstruction);
+     /*temp_pos = gameObject.transform.position;
+     temp_pos.x = target.position.x + distance.x;
+     temp_pos.y = target.position.y + distance.y;
+     temp_pos.z = target.position.z + distance.z;
+     gameObject.transform.position = temp_pos;*/
+     Quaternion a = gameObject.transform.localRotation;
+     temp_rot = a.eulerAngles;
+     temp_rot.y -= distance_rot.y;
+     temp_rot.z += distance_rot.z;
+     gameObject.transform.rotation = Quaternion.Euler(temp_rot);
+     gameObject.transform.position = target.position + distance;
    }
 }

@@ -9,7 +9,7 @@ namespace PathCreation.Examples
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
         public float speed = 5;
-        float distanceTravelled;
+        public float distanceTravelled;
 
         BallTrigger ballTrigger;
 
@@ -39,7 +39,7 @@ namespace PathCreation.Examples
                 }
             realSpeed = (((transform.position - lastPosition).magnitude) / Time.deltaTime);
             lastPosition = transform.position;
-            print("PF speed: " + (int)realSpeed);
+//            print("PF speed: " + (int)realSpeed);
             //        }
         }
 
