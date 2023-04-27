@@ -90,7 +90,7 @@ public class StartUI : MonoBehaviour
             // 플레이한 적이 없을 때
             if(DataManager.Instance.myUser.levelCleared[i] == 0)
             {
-                unStars[i].SetActive(false);
+                //unStars[i].SetActive(false);
                 continue;
             }
             // 별이 1개 이상 (플레이 전적 무조건 있을 때) 별 1개씩 켜기
