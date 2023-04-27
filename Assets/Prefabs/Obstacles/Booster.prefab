@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1326841096224527651}
   - component: {fileID: 4492067895998187233}
   - component: {fileID: 5966033227664572331}
-  - component: {fileID: 8318507385134324069}
   - component: {fileID: 2605787175052685104}
   m_Layer: 0
   m_Name: Booster
@@ -98,20 +97,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5555269, y: 3.8537529, z: 0.6978504}
   m_Center: {x: 0, y: 0.007861257, z: 0}
---- !u!114 &8318507385134324069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753111004023589373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9ca611e205531f46a8c6762714f2808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedbar: {fileID: 0}
-  speedbararr: {fileID: 0}
 --- !u!95 &2605787175052685104
 Animator:
   serializedVersion: 3
@@ -141,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7551472183273164076}
   - component: {fileID: -1610178441103006848}
-  - component: {fileID: -9028876112321926566}
+  - component: {fileID: 1151084447419526312}
   m_Layer: 0
   m_Name: Booster
   m_TagString: Booster
@@ -177,7 +162,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5555269, y: 3.8537529, z: 0.6978504}
   m_Center: {x: 0, y: 0.007861257, z: 0}
---- !u!114 &-9028876112321926566
+--- !u!114 &1151084447419526312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -58,8 +58,6 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.time = 0;
         GameManager.Instance.timerOn = true;
     }
-
-    public Text counter;
     public void ClickedContinue()
     {
         StartCoroutine(CountNumber());
@@ -84,9 +82,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
-    [SerializeField] private RectTransform ballUI, enemyUI;
-    Vector3 tempB, tempE;
 
     [SerializeField] private Text min, sec;
     // Update is called once per frame

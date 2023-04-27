@@ -14,6 +14,7 @@ public class boostertrigger : MonoBehaviour
         speedbararr = GameObject.Find("speedarr").transform.Find("speedbararr").gameObject;
     }
     void OnTriggerEnter(Collider other) {
+        Debug.Log(gameObject.name);
         if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == false && 
         GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == false){
             if(other.gameObject.name == "ball")

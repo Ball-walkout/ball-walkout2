@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.9965269, g: 0.87119806, b: 0.72549725, a: 1}
+  m_IndirectSpecularColor: {r: 0.99642366, g: 0.8711446, b: 0.7254693, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15058,6 +15058,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8770795551351547866, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
+      propertyPath: BGM
+      value: 
+      objectReference: {fileID: 175251038}
+    - target: {fileID: 8770795551351547866, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
+      propertyPath: overCanvas
+      value: 
+      objectReference: {fileID: 1078228578}
+    - target: {fileID: 8770795551351547866, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
+      propertyPath: gameOverBGM
+      value: 
+      objectReference: {fileID: 576306782}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f114b7ef2c7038d4c90f75ff236d4a50, type: 3}
 --- !u!1 &1999127904 stripped
@@ -15282,8 +15294,8 @@ Transform:
   - {fileID: 1301691929}
   - {fileID: 2147091567}
   - {fileID: 2114373080}
-  - {fileID: 25936403}
   - {fileID: 1191359239}
+  - {fileID: 25936403}
   m_Father: {fileID: 390735256}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
