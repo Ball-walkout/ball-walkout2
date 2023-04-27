@@ -57,10 +57,11 @@ public class ClearUI : MonoBehaviour
 
     public void ClickedNext()
     {
-        GameManager.Instance.ReleaseGame();
+        
         string scene = (DataManager.Instance.stageNum).ToString();
         print("1 - " + scene);
         SceneManager.LoadScene("1-" + scene);
+        GameManager.Instance.ReleaseGame();
         GameManager.Instance.time = 0;
         GameManager.Instance.timerOn = true;
     }
