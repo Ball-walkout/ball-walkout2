@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8462209270011050598}
   - component: {fileID: 7816388160874555271}
   - component: {fileID: 3555291687336503889}
+  - component: {fileID: 7568560709973528489}
   m_Layer: 0
   m_Name: Wheel_02
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,9 +95,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+--- !u!114 &7568560709973528489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214997596548766892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &1245845235377169987
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,9 +123,10 @@ GameObject:
   - component: {fileID: 6543115208785923613}
   - component: {fileID: 8454128903384266745}
   - component: {fileID: 2222376318945725241}
+  - component: {fileID: 6965191065034801637}
   m_Layer: 0
   m_Name: Wheel_04
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,9 +206,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+--- !u!114 &6965191065034801637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245845235377169987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &1462528108261223099
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,9 +234,10 @@ GameObject:
   - component: {fileID: 1011124251848517834}
   - component: {fileID: 8493187890447344200}
   - component: {fileID: 5358003350416801717}
+  - component: {fileID: 8420885650748214621}
   m_Layer: 0
   m_Name: Car_11
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,9 +317,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 78d6d3aae4c62e24a8ea2f4b669cecd5, type: 3}
+--- !u!114 &8420885650748214621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462528108261223099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &4585538101711515524
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,9 +345,10 @@ GameObject:
   - component: {fileID: 9089704974750820136}
   - component: {fileID: 5196471747120166079}
   - component: {fileID: 8883986770640191780}
+  - component: {fileID: 8478661202854845033}
   m_Layer: 0
   m_Name: Wheel_01
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -385,9 +428,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+--- !u!114 &8478661202854845033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4585538101711515524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}
 --- !u!1 &4903836822197095945
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +456,7 @@ GameObject:
   - component: {fileID: 8408993715376711107}
   m_Layer: 0
   m_Name: Car_11
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -448,9 +504,10 @@ GameObject:
   - component: {fileID: 7216209202017690689}
   - component: {fileID: 5266866027258106211}
   - component: {fileID: 6240980942316558723}
+  - component: {fileID: 429305755194179146}
   m_Layer: 0
   m_Name: Wheel_03
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -530,6 +587,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9544c5627525f7f48944b9376e3f49d0, type: 3}
+--- !u!114 &429305755194179146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380115681857629485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba82a11778b812649a90f1324aaa2bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QTEP: {fileID: 9179724735129064809, guid: 177e892bbc90cc746a51703e3ddde439, type: 3}

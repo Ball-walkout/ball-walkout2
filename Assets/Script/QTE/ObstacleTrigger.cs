@@ -59,11 +59,14 @@ public class ObstacleTrigger : MonoBehaviour
                     gameObject.transform.parent.GetChild(3).gameObject.SetActive(false);
                 }
                 else if(gameObject.CompareTag("car")){
-                    int a = gameObject.transform.parent.GetSiblingIndex();
-                    for(int i = 0; i < 5; i++){
-                        if(i != a){
-                            gameObject.transform.parent.GetChild(i).gameObject.SetActive(false);
-                        }
+                    if(gameObject.name == "Wheel_01" || gameObject.name == "Wheel_02" 
+                    || gameObject.name == "Wheel_03" || gameObject.name == "Wheel_04")
+                        return;
+                    else{
+                        gameObject.transform.parent.GetChild(0).gameObject.SetActive(false);
+                        gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
+                        gameObject.transform.parent.GetChild(2).gameObject.SetActive(false);
+                        gameObject.transform.parent.GetChild(3).gameObject.SetActive(false);
                     }
                 }
                 GameObject.Find("InGameUI").transform.Find("Combo").gameObject.SetActive(true);
