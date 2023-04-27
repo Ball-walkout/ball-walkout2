@@ -64,14 +64,26 @@ public class StartUI : MonoBehaviour
     }
 
     [SerializeField] GameObject[] stageStars;
+    [SerializeField] GameObject[] unStars;
     // Load Stars of each Stage
     private void LoadStars()
     {
-        for (int i = 0; i<9; i++)
+        for (int i = 0; i<20; i++)
         {
+            // 플레이한 적이 없을 때
+            if(DataManager.Instance.myUser.levelCleared[i] == 0)
+            {
+                unStars[i].SetActive(false);
+                continue;
+            }
+            // 별이 1개 이상 (플레이 전적 무조건 있을 때) 별 1개씩 켜기
             for(int j=0;j<DataManager.Instance.myUser.levelCleared[i];j++)
             {
-                stageStars[i].GetComponentsInChildren<Image>()[j].gameObject.SetActive(true);
+                //stageStars[i].transform.Find("star"+j.ToString()).gameObject.SetActive(true);
+                Image starImg = stageStars[i].GetComponentsInChildren<Image>()[j];
+                Color starColor = starImg.color;
+                starColor.a = 1;
+                starImg.color = starColor;
             }
         }
     }
