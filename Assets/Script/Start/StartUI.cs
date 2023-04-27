@@ -61,6 +61,23 @@ public class StartUI : MonoBehaviour
         LoadCoin();
         LoadPurchase();
         LoadStars();
+        StartCoroutine(backGIF());
+    }
+
+    // Background Img GIF animation
+    [SerializeField] private Image background;
+    [SerializeField] private Sprite[] backSprites;
+    private IEnumerator backGIF()
+    {
+        float fps = 0;
+        while (true)
+        {
+            background.sprite = backSprites[(int)(fps * 20)];
+            fps += 0.05f;
+            yield return new WaitForSeconds(0.05f);
+            if (fps >= 4f)
+                fps = 0;
+        }
     }
 
     [SerializeField] GameObject[] stageStars;
