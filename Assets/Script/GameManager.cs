@@ -153,9 +153,9 @@ public class GameManager : MonoBehaviour
     public int star=0;
     public void StageClear()
     {
-        if(min * 60 + sec <= 40)
+        if(min * 60 + sec <= 30)
             star = 3;
-        else if(min * 60 + sec <= 50)
+        else if(min * 60 + sec <= 45)
             star = 2;
         else
             star = 1;
