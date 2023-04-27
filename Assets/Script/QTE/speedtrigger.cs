@@ -28,17 +28,20 @@ public class speedtrigger : MonoBehaviour
     }
     void OnTriggerStay(Collider other) {
         if(circle.onclick == true && other.name == "speedbararr"){
-            circle.cstop = false;
-            deathParticle.inv = true;
-            deathParticle.StartCoroutine(deathParticle.QTEinv());
             GameManager.Instance.ReleaseSlow();
             if(gameObject.name == "Fast1"){
+                circle.cstop = false;
+                deathParticle.inv = true;
+                deathParticle.StartCoroutine(deathParticle.QTEinv());
                 tempSpeed = 3f;
                 tempParticle = boosterP1;
                 speedtext[0].SetActive(true);
                 StartCoroutine(Text(0));
             }
             else if(gameObject.name == "Fast2"){        
+                circle.cstop = false;
+                deathParticle.inv = true;
+                deathParticle.StartCoroutine(deathParticle.QTEinv());
                 tempSpeed = 1f;
                 tempParticle = boosterP2;
                 speedtext[1].SetActive(true);
@@ -57,7 +60,6 @@ public class speedtrigger : MonoBehaviour
                 // 점프 없이 즉각 속도 멈추기. 다시 가속 할 일 없다.
                 PF.speed = 0;
                 TM.rig.velocity = Vector3.zero * PF.speed;
-               // TM.Rallentare();
                 speedtext[3].SetActive(true);
                 StartCoroutine(Text(3));
             }           
