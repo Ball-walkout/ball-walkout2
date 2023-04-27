@@ -9,6 +9,11 @@ public class BallManager : MonoBehaviour
 {
     public GameObject virCam, freeCam, goalEffect;
     public AudioSource coinBGM, obsBGM, boosterBGM, goalBGM;
+    speedbar speedbar;
+
+    private void Start() {
+        speedbar = GameObject.Find("speedbarmove").transform.Find("timingopp").GetComponent<speedbar>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,7 +25,10 @@ public class BallManager : MonoBehaviour
         }
         else if(other.tag == "Obstacle" || other.tag == "slap" || other.tag == "car" || other.tag == "purple")
         {
-            obsBGM.Play();
+            if(speedbar.cstop == true || GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == true || 
+            GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == true){
+                obsBGM.Play();
+            }
         }
         else if(other.tag == "Booster")
         {
@@ -37,7 +45,7 @@ public class BallManager : MonoBehaviour
     bool isStopped = false;
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Obstacle" || other.gameObject.tag == "slap")
+        if(other.gameObject.tag == "Obstacle" || other.gameObject.tag == "slap" || other.gameObject.tag == "car")
         {
             // 공 가속 멈추고, 기준 축도 멈추기
             if(!GameManager.Instance.isQTE)
