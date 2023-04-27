@@ -52,7 +52,7 @@ public class DataManager : MonoBehaviour
     void First()
     {
         UserData userData = new UserData();
-        userData.coins = 100;
+        userData.coins = 3000;
         userData.levelCleared = new int[20] {0,0,0,0,0,0,0,0,0,0,
                                             0,0,0,0,0,0,0,0,0,0};
         userData.ball_skin = 0;
@@ -81,7 +81,7 @@ public class DataManager : MonoBehaviour
 
         if (!File.Exists(path))
             First();
-            
+
         FileStream fileStream = new FileStream(path, FileMode.Open);
         byte[] data = new byte[fileStream.Length];
         fileStream.Read(data, 0, data.Length);

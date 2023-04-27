@@ -137,6 +137,7 @@ public class StartUI : MonoBehaviour
                             200, 200, 200, 200, 200, 200, 200,
                             300, 300};
     [SerializeField]private GameObject[] purchaseBtns, selectBtns, selectedBtns;
+    [SerializeField]private GameObject cannotBuy;
     public void Purchase(int select)
     {
         if (DataManager.Instance.myUser.coins >= skinPrice[select])
@@ -149,6 +150,8 @@ public class StartUI : MonoBehaviour
             purchaseBtns[select].SetActive(false);
             selectBtns[select].SetActive(true);
         }
+        else
+            cannotBuy.SetActive(true);
     }
 
     private void LoadPurchase()

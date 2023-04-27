@@ -2887,6 +2887,7 @@ MonoBehaviour:
   stageNum: {fileID: 1096655473}
   fillOneStarBGM: {fileID: 655537144}
   AllStarBGM: {fileID: 575406263}
+  yellowStar: {fileID: 21300000, guid: ee4bbf50768be4848b52d49bb8197f1c, type: 3}
 --- !u!1 &2034113874
 GameObject:
   m_ObjectHideFlags: 0

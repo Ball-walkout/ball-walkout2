@@ -66,11 +66,12 @@ public class ClearUI : MonoBehaviour
         GameManager.Instance.timerOn = true;
     }
 
+    [SerializeField] private Sprite yellowStar;
     private IEnumerator FillStar()
     {
         for (int i = 0; i < GameManager.Instance.star; i++)
         {
-            stars[i].color = Color.yellow;
+            stars[i].sprite = yellowStar;
             fillOneStarBGM.Play();
             yield return new WaitForSeconds(0.5f);
         }
