@@ -6,13 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject[] Continueimage = new GameObject[3];
+    private void Start() {
+        BGM.Play();
+        GameManager.Instance.timerOn = true;
+        Continueimage[0] = gameObject.transform.GetChild(0).gameObject;
+        Continueimage[1] = gameObject.transform.GetChild(1).gameObject;
+        Continueimage[2] = gameObject.transform.GetChild(2).gameObject;
+    }
     [SerializeField] private Text scoreTxt;
     public void UpdateScore()
     {
         scoreTxt.text = GameManager.Instance.GetScore().ToString();
     }
-
-    
 
     [SerializeField] private GameObject overCanvas;
     public AudioSource gameOverBGM, BGM;
@@ -64,12 +70,15 @@ public class UIManager : MonoBehaviour
         int sec=3;
         while(sec > 0)
         {
-            counter.text = sec.ToString();
+            Continueimage[sec-1].SetActive(true);
+            if(sec != 3){
+                Continueimage[sec].SetActive(false);
+            }
             sec--;
             yield return new WaitForSeconds(1.0f);
             if(sec <= 0)
             {
-                counter.text = "";
+                Continueimage[sec].SetActive(false);
                 GameManager.Instance.ReleaseGame();
                 yield break;
             }
@@ -78,16 +87,6 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private RectTransform ballUI, enemyUI;
     Vector3 tempB, tempE;
-    float preposB;
-    float preposE;
-    private void Start() {
-        BGM.Play();
-        GameManager.Instance.timerOn = true;
-        preposB = GameObject.Find("ball").transform.position.z;
-        preposE = GameObject.Find("Enemy").transform.position.z;
-       // ballUI = GameObject.Find("ballImg").GetComponent<RectTransform>();
-      //  enemyUI = GameObject.Find("enemyImg").GetComponent<RectTransform>();
-    }
 
     [SerializeField] private Text min, sec;
     // Update is called once per frame
@@ -97,17 +96,6 @@ public class UIManager : MonoBehaviour
         {
             min.text = GameManager.Instance.min.ToString();
             sec.text = GameManager.Instance.sec.ToString();
-            UpdatePosition();
         }
-    }
-    private void UpdatePosition()
-    {
-/*        tempB = ballUI.transform.localPosition;
-        tempB.y += (-GameObject.Find("ball").transform.position.z + preposB) * Time.deltaTime * 0.05f;
-        ballUI.transform.localPosition = tempB;
-
-        tempE = enemyUI.transform.localPosition;
-        tempE.y += (-GameObject.Find("Enemy").transform.position.z + preposE) * Time.deltaTime * 0.05f;
-        enemyUI.transform.localPosition = tempE;*/
     }
 }
