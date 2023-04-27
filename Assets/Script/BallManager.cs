@@ -18,17 +18,16 @@ public class BallManager : MonoBehaviour
             GameManager.Instance.SetCoin(1);
             Destroy(other.gameObject, 0.1f);
         }
-        else if(other.tag == "Obstacle")
+        else if(other.tag == "Obstacle" || other.tag == "slap" || other.tag == "car" || other.tag == "purple")
         {
             obsBGM.Play();
-            // 장애물 종류별 스코어 변경 필요 **
-            GameManager.Instance.SetScore(10);
-            //Destroy(other.gameObject, 30f);
         }
         else if(other.tag == "Booster")
         {
-            boosterBGM.Play();
-            // QTE 코루틴 넣기
+            if(GameObject.Find("Move").transform.Find("부스터").gameObject.activeSelf == false && 
+            GameObject.Find("Move").transform.Find("부스터2").gameObject.activeSelf == false){
+                boosterBGM.Play();
+            }
         }
         
     }

@@ -18,8 +18,11 @@ public class TouchMove : MonoBehaviour
     [SerializeField] private Mesh[] meshes;
     [SerializeField] private MeshRenderer ballSkin;
     [SerializeField] private Material[] textures, textures1;
-    private Vector3[] matScale = {new Vector3(100, 100, 100), new Vector3(11, 11, 11), new Vector3(45, 45, 45), new Vector3(25, 25, 25),
-                                new Vector3(11, 11, 11) };
+    private Vector3[] matScale = {new Vector3(100, 100, 100), new Vector3(11, 11, 11), new Vector3(45, 45, 45), 
+                                new Vector3(25, 25, 25), new Vector3(11, 11, 11), new Vector3(2.3f, 2.3f, 2.3f),
+                                new Vector3(2.3f, 2.3f, 2.3f), new Vector3(2.3f, 2.3f, 2.3f), new Vector3(2.3f, 2.3f, 2.3f),
+                                new Vector3(2.3f, 2.3f, 2.3f), new Vector3(2.3f, 2.3f, 2.3f), new Vector3(2.3f, 2.3f, 2.3f),
+                                new Vector3(4, 4, 4), new Vector3(4, 4, 4) };
 
     private void Start() {
         // 공 스킨 설정
@@ -32,7 +35,11 @@ public class TouchMove : MonoBehaviour
             mat[0] = textures[skin_index];
             // 슬라임 스킨 매터리얼 예외
             if(skin_index >= 12)
-                mat[1] = textures1[skin_index-12];
+            {
+                mat[1] = textures1[skin_index - 12];
+                ballSkin.transform.rotation = Quaternion.Euler(0,-90,0);
+            }
+                // rotation x 0 y -90
             // 기본 축구공 스킨 매터리얼 예외
             else if (skin_index == 0)
                 mat[1] = textures1[2];

@@ -52,8 +52,7 @@ public class DataManager : MonoBehaviour
     {
         UserData userData = new UserData();
         userData.coins = 0;
-        userData.levelCleared = new int[30] {0,0,0,0,0,0,0,0,0,0,
-                                            0,0,0,0,0,0,0,0,0,0,
+        userData.levelCleared = new int[20] {0,0,0,0,0,0,0,0,0,0,
                                             0,0,0,0,0,0,0,0,0,0};
         userData.ball_skin = 0;
         userData.skin_purchased = new bool[14] {true, false, false, false, false, false, false, false, false, false,
