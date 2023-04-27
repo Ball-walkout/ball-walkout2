@@ -22,6 +22,7 @@ public class DeathParticle : MonoBehaviour
         if(other.collider.gameObject.CompareTag("purple") && inv == false){
             other.collider.gameObject.GetComponent<MeshRenderer>().enabled = false;
             Instantiate(DeathP, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+            GameObject.Find("ball").GetComponent<BallManager>().obsBGM.Play();
             Invoke("Fail", 1f);
         }
     }

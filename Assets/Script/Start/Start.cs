@@ -8,11 +8,9 @@ using UnityEngine.EventSystems;
 public class Start : MonoBehaviour
 {
     public void Stage(string stageNum){
-        print("LoadScene" + stageNum);
-
         DataManager.Instance.stageNum = int.Parse(stageNum);
         print("StageNum: "+DataManager.Instance.stageNum.ToString());
-        Invoke("LoadScene" + stageNum, 1.9f);
+        Invoke("LoadScene", 1.9f);
     }
 
     public void Level(){
@@ -69,40 +67,8 @@ public class Start : MonoBehaviour
             GameObject.Find("Canvas").transform.Find("Coin").transform.Find("Text").GetComponent<Text>().text = GameManager.Instance.GetCoin().ToString();
     }
 
-    private void LoadScene0()
+    private void LoadScene()
     {
-        SceneManager.LoadScene("1-1");
-    }
-    private void LoadScene1()
-    {
-        SceneManager.LoadScene("1-2");
-    }
-    private void LoadScene2()
-    {
-        SceneManager.LoadScene("1-3");
-    }
-    private void LoadScene3()
-    {
-        SceneManager.LoadScene("1-4");
-    }
-    private void LoadScene4()
-    {
-        SceneManager.LoadScene("1-5");
-    }
-    private void LoadScene5()
-    {
-        SceneManager.LoadScene("1-6");
-    }
-    private void LoadScene6()
-    {
-        SceneManager.LoadScene("1-7");
-    }
-    private void LoadScene7()
-    {
-        SceneManager.LoadScene("1-8");
-    }
-    private void LoadScene8()
-    {
-        SceneManager.LoadScene("1-9");
+        SceneManager.LoadScene("1-"+(DataManager.Instance.stageNum+1).ToString());
     }
 }

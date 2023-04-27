@@ -61,6 +61,23 @@ public class StartUI : MonoBehaviour
         LoadCoin();
         LoadPurchase();
         LoadStars();
+        StartCoroutine(backGIF());
+    }
+
+    // Background Img GIF animation
+    [SerializeField] private Image background;
+    [SerializeField] private Sprite[] backSprites;
+    private IEnumerator backGIF()
+    {
+        float fps = 0;
+        while (true)
+        {
+            background.sprite = backSprites[(int)(fps * 20)];
+            fps += 0.05f;
+            yield return new WaitForSeconds(0.05f);
+            if (fps >= 4f)
+                fps = 0;
+        }
     }
 
     [SerializeField] GameObject[] stageStars;
@@ -120,6 +137,7 @@ public class StartUI : MonoBehaviour
                             200, 200, 200, 200, 200, 200, 200,
                             300, 300};
     [SerializeField]private GameObject[] purchaseBtns, selectBtns, selectedBtns;
+    [SerializeField]private GameObject cannotBuy;
     public void Purchase(int select)
     {
         if (DataManager.Instance.myUser.coins >= skinPrice[select])
@@ -132,6 +150,8 @@ public class StartUI : MonoBehaviour
             purchaseBtns[select].SetActive(false);
             selectBtns[select].SetActive(true);
         }
+        else
+            cannotBuy.SetActive(true);
     }
 
     private void LoadPurchase()

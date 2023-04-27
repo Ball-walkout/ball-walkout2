@@ -57,19 +57,21 @@ public class ClearUI : MonoBehaviour
 
     public void ClickedNext()
     {
-        GameManager.Instance.ReleaseGame();
+        
         string scene = (DataManager.Instance.stageNum).ToString();
         print("1 - " + scene);
         SceneManager.LoadScene("1-" + scene);
+        GameManager.Instance.ReleaseGame();
         GameManager.Instance.time = 0;
         GameManager.Instance.timerOn = true;
     }
 
+    [SerializeField] private Sprite yellowStar;
     private IEnumerator FillStar()
     {
         for (int i = 0; i < GameManager.Instance.star; i++)
         {
-            stars[i].color = Color.yellow;
+            stars[i].sprite = yellowStar;
             fillOneStarBGM.Play();
             yield return new WaitForSeconds(0.5f);
         }

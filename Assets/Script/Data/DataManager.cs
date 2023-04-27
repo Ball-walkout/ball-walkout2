@@ -47,11 +47,12 @@ public class DataManager : MonoBehaviour
         Load();
     }
 
+    private bool first=false;
     // UserData Json 파일 첫 생성
     void First()
     {
         UserData userData = new UserData();
-        userData.coins = 0;
+        userData.coins = 3000;
         userData.levelCleared = new int[20] {0,0,0,0,0,0,0,0,0,0,
                                             0,0,0,0,0,0,0,0,0,0};
         userData.ball_skin = 0;
@@ -61,7 +62,7 @@ public class DataManager : MonoBehaviour
         string json = JsonUtility.ToJson(userData);
 
         fileName = "PlayerData";
-        path = Application.dataPath + "/" + fileName +".Json";
+        path = Application.persistentDataPath + "/" + fileName +".Json";
 
         FileStream fileStream = new FileStream(path, FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(json);
@@ -76,7 +77,10 @@ public class DataManager : MonoBehaviour
     void Load()
     {
         fileName = "PlayerData";
-        path = Application.dataPath + "/" + fileName + ".Json";
+        path = Application.persistentDataPath + "/" + fileName + ".Json";
+
+        if (!File.Exists(path))
+            First();
 
         FileStream fileStream = new FileStream(path, FileMode.Open);
         byte[] data = new byte[fileStream.Length];
