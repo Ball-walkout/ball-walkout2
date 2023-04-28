@@ -75,6 +75,8 @@ public class AdmobRewardAd : MonoBehaviour
             {
                 //보상 획득하기
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
+                DataManager.Instance.Resave(DataManager.Instance.stageNum, DataManager.Instance.myUser.levelCleared[DataManager.Instance.stageNum], GameManager.Instance.tempCoin);
+                GameManager.Instance.tempCoin = 0;
             });
         }
     }

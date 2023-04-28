@@ -10,6 +10,7 @@ public class ObstacleTrigger : MonoBehaviour
     speedbar speedbar;
     private void Start() {
         combo = GameObject.Find("Combo").GetComponent<Combo>();
+        combo.Combo_v = 0;
         speedbar = GameObject.Find("speedbarmove").transform.Find("timingopp").GetComponent<speedbar>();
     }
 
