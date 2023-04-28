@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
+using UnityEngine.SceneManagement;
 
 public class AdmobRewardAd : MonoBehaviour
 {
@@ -77,6 +78,7 @@ public class AdmobRewardAd : MonoBehaviour
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
                 DataManager.Instance.Resave(DataManager.Instance.stageNum, DataManager.Instance.myUser.levelCleared[DataManager.Instance.stageNum], GameManager.Instance.tempCoin);
                 GameManager.Instance.tempCoin = 0;
+                SceneManager.LoadScene("Start");
             });
         }
     }
