@@ -120,6 +120,10 @@ PrefabInstance:
       value: goalineffect
       objectReference: {fileID: 0}
     - target: {fileID: 2331565945475687198, guid: 5e3a4b76372e4214682bb04ae48764e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331565945475687198, guid: 5e3a4b76372e4214682bb04ae48764e5, type: 3}
       propertyPath: m_TagString
       value: goalEffect
       objectReference: {fileID: 0}
