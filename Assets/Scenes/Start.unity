@@ -3763,7 +3763,7 @@ PrefabInstance:
     - target: {fileID: 4928647997702505081, guid: 4af3d4693f7382247924d49618868d50, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fbdae8e518b78274bab86b4f6ee3d367, type: 3}
+      objectReference: {fileID: 21300000, guid: 3a8bfc03651388f4b9754b79f60751ac, type: 3}
     - target: {fileID: 6138421488883906152, guid: 4af3d4693f7382247924d49618868d50, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
