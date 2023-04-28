@@ -52,7 +52,7 @@ public class DataManager : MonoBehaviour
     void First()
     {
         UserData userData = new UserData();
-        userData.coins = 3000;
+        userData.coins = 0;
         userData.levelCleared = new int[20] {0,0,0,0,0,0,0,0,0,0,
                                             0,0,0,0,0,0,0,0,0,0};
         userData.ball_skin = 0;
