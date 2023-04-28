@@ -5,7 +5,7 @@ using UnityEngine;
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
 
-public class ShowAdds : MonoBehaviour
+public class AdmobRewardAd : MonoBehaviour
 {
     private RewardedAd rewardedAd;
 
@@ -19,13 +19,11 @@ public class ShowAdds : MonoBehaviour
     {
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
-            //초기화 완료
+        	//초기화 완료
         });
 
 #if UNITY_ANDROID
         adUnitId = "ca-app-pub-3940256099942544/5224354917";
-#elif UNITY_IOS
-            adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
             adUnitId = "unexpected_platform";
 #endif
@@ -51,8 +49,8 @@ public class ShowAdds : MonoBehaviour
         RewardedAd.Load(adUnitId, adRequest,
             (RewardedAd ad, LoadAdError error) =>
             {
-                // if error is not null, the load request failed.
-                if (error != null || ad == null)
+              // if error is not null, the load request failed.
+              if (error != null || ad == null)
                 {
                     Debug.LogError("Rewarded ad failed to load an ad " +
                                    "with error : " + error);
@@ -63,7 +61,6 @@ public class ShowAdds : MonoBehaviour
                           + ad.GetResponseInfo());
 
                 rewardedAd = ad;
-                ShowAd();
             });
     }
 
@@ -85,7 +82,7 @@ public class ShowAdds : MonoBehaviour
     private void RegisterReloadHandler(RewardedAd ad) //광고 재로드
     {
         // Raised when the ad closed full screen content.
-        ad.OnAdFullScreenContentClosed += (null);
+        ad.OnAdFullScreenContentClosed += (null); 
         {
             Debug.Log("Rewarded Ad full screen content closed.");
 
