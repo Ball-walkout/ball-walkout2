@@ -19,6 +19,7 @@ TagManager:
   - TrackingObject
   - Actors
   - car
+  - goalEffect
   layers:
   - Default
   - TransparentFX
