@@ -308,7 +308,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48596344}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &48596346
 Camera:
   m_ObjectHideFlags: 0
@@ -8659,6 +8659,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
+--- !u!1 &750005309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7691150769829984243, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
+  m_PrefabInstance: {fileID: 750005308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &751468404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12027,36 +12032,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7551472183273164076, guid: 5cf167aa774c3bb4583a6aaa6b80ab2d, type: 3}
   m_PrefabInstance: {fileID: 1077432867}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1701196069
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1701196070}
-  m_Layer: 0
-  m_Name: Admob
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1701196070
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701196069}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1713281682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23458,7 +23433,7 @@ PrefabInstance:
     - target: {fileID: 7860398833556732356, guid: 78cb34922f4c18f4ba9c0da229f037d3, type: 3}
       propertyPath: goalEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 750005309}
     - target: {fileID: 7860398833556732358, guid: 78cb34922f4c18f4ba9c0da229f037d3, type: 3}
       propertyPath: pf
       value: 

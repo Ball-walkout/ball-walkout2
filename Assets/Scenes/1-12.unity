@@ -10681,11 +10681,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218624435}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1232741299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8144052630994726934, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
-  m_PrefabInstance: {fileID: 1590858210}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1234611738
 GameObject:
   m_ObjectHideFlags: 0
@@ -12170,6 +12165,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
+--- !u!1 &1590858211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7691150769829984243, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
+  m_PrefabInstance: {fileID: 1590858210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1682082726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23304,7 +23304,7 @@ PrefabInstance:
     - target: {fileID: 7860398833556732356, guid: 78cb34922f4c18f4ba9c0da229f037d3, type: 3}
       propertyPath: goalEffect
       value: 
-      objectReference: {fileID: 1232741299}
+      objectReference: {fileID: 1590858211}
     - target: {fileID: 7860398833556732358, guid: 78cb34922f4c18f4ba9c0da229f037d3, type: 3}
       propertyPath: jumpBGM
       value: 
