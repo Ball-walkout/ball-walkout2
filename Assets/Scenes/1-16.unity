@@ -8706,6 +8706,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
+--- !u!1 &710725622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7691150769829984243, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
+  m_PrefabInstance: {fileID: 710725621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &713239145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4011930748126448002, guid: c98c2b38564a01347af458e0ca6abbf6, type: 3}
@@ -23111,7 +23116,7 @@ PrefabInstance:
     - target: {fileID: 7860398833556732356, guid: 78cb34922f4c18f4ba9c0da229f037d3, type: 3}
       propertyPath: goalEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 710725622}
     - target: {fileID: 7860398833556732358, guid: 78cb34922f4c18f4ba9c0da229f037d3, type: 3}
       propertyPath: jumpBGM
       value: 

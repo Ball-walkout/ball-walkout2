@@ -13,7 +13,6 @@ public class BallManager : MonoBehaviour
 
     private void Start() {
         speedbar = GameObject.Find("speedbarmove").transform.Find("timingopp").GetComponent<speedbar>();
-        goalEffect = GameObject.FindGameObjectWithTag("goalEffect");
     }
 
     private void OnTriggerEnter(Collider other)

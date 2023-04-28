@@ -6272,7 +6272,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
 --- !u!1 &182681333 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8144052630994726934, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7691150769829984243, guid: 5fda58f96f104444cbde7db921bc8bc0, type: 3}
   m_PrefabInstance: {fileID: 182681332}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &192144732
@@ -12052,13 +12052,13 @@ Transform:
   - {fileID: 929227075}
   - {fileID: 1006288177}
   - {fileID: 192144733}
-  - {fileID: 524033533}
   - {fileID: 618298785}
+  - {fileID: 524033533}
+  - {fileID: 1308740608}
+  - {fileID: 1522676852}
   - {fileID: 1799983702}
   - {fileID: 1197129988}
-  - {fileID: 1522676852}
   - {fileID: 171065250}
-  - {fileID: 1308740608}
   - {fileID: 1700996096}
   m_Father: {fileID: 0}
   m_RootOrder: 4
