@@ -3124,6 +3124,7 @@ GameObject:
   - component: {fileID: 8770795552669847513}
   - component: {fileID: 8770795552669847514}
   - component: {fileID: 8770795552669847515}
+  - component: {fileID: 5252233804031746987}
   m_Layer: 5
   m_Name: Combo
   m_TagString: Untagged
@@ -3205,6 +3206,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Combo_v: 0
+--- !u!114 &5252233804031746987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770795552669847517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: 4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8770795552797193156
 GameObject:
   m_ObjectHideFlags: 0
