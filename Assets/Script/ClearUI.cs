@@ -65,11 +65,13 @@ public class ClearUI : MonoBehaviour
     }
 
     [SerializeField] private Sprite yellowStar;
+    [SerializeField] private GameObject[] starEffect;
     private IEnumerator FillStar()
     {
         for (int i = 0; i < GameManager.Instance.star; i++)
         {
             stars[i].sprite = yellowStar;
+            starEffect[i].SetActive(true);
             fillOneStarBGM.Play();
             yield return new WaitForSeconds(0.5f);
         }
