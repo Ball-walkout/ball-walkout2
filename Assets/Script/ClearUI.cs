@@ -64,7 +64,8 @@ public class ClearUI : MonoBehaviour
     {
         
         string scene = (DataManager.Instance.stageNum + 2).ToString();
-        print("1 - " + scene);
+        DataManager.Instance.stageNum = int.Parse(scene)-1;
+        print("Next : 1 - " + scene);
         SceneManager.LoadScene("1-" + scene);
         GameManager.Instance.time = 0;
         GameManager.Instance.timerOn = true;
