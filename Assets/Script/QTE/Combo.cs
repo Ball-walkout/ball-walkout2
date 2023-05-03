@@ -11,6 +11,7 @@ public class Combo : MonoBehaviour
     void Start()
     {
         comboT = gameObject.GetComponent<Text>();
+        Combo_v = 0;
     }
 
     // Update is called once per frame
