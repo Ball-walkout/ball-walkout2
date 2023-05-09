@@ -24,7 +24,7 @@ public class AdmobRewardAd : MonoBehaviour
         });
 
 #if UNITY_ANDROID
-        adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        adUnitId = "ca-app-pub-6374342428414367/1047009624";
 #else
             adUnitId = "unexpected_platform";
 #endif
