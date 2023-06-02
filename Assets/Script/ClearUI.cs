@@ -28,12 +28,18 @@ public class ClearUI : MonoBehaviour
         // 이미 스테이지 클리어한 기록이 있을 때, 더 큰 별 개수로 update
         else
             finalStar = GameManager.Instance.star > dataStar ? GameManager.Instance.star : dataStar;
+
+        // 광고 버튼 봤을 때만 쓰일 임시 코인
+        GameManager.Instance.tempCoin = GameManager.Instance.GetCoin();
+
+        // 스테이지 당 별,코인 데이터 로컬파일에 저장 및 코인 초기화
         DataManager.Instance.Resave(DataManager.Instance.stageNum, finalStar, GameManager.Instance.GetCoin());
 
         // 별 3개일 때 효과음
         if(GameManager.Instance.star==3)
             Invoke("PlayAllStar", 2f);
     }
+
 
     public void PlayAllStar()
     {
