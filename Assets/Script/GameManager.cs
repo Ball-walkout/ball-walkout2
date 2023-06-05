@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager ui;
     // 피버 코인
     private int coin = 0;
+    public int tempCoin = 0;
 
     public int GetCoin()
     {
