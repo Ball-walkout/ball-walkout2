@@ -6,7 +6,10 @@
   <img src="https://github.com/Ball-walkout/ball-walkout2/assets/60171052/6c285037-096e-4ebe-87e5-3b992fce5cb9">
   <br>
 </p>
+출시 링크<br>
 https://play.google.com/store/apps/details?id=com.STRIKE.STRIKE
+<br>실행 영상<br>
+https://m.youtube.com/watch?v=RaJ_1Oqrkt8&feature=youtu.be
 <br>목차
 
 ## 프로젝트 소개
