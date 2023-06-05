@@ -49,7 +49,8 @@ GIF Images
 
 <br>
 
-## 라이센스
+## 라이센스 및 참고한 템플릿
+https://github.com/n0hack/readme-template#readme
 
 MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
 
