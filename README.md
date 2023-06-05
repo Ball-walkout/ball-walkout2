@@ -9,8 +9,6 @@
 출시 링크<br>
 https://play.google.com/store/apps/details?id=com.STRIKE.STRIKE
 <br>실행 영상<br>
-[![Video Label](http://img.youtube.com/vi/RaJ_1Oqrkt8/0.jpg)](https://m.youtube.com/watch?v=RaJ_1Oqrkt8)
-<br>
 https://m.youtube.com/watch?v=RaJ_1Oqrkt8
 <br>목차
 
