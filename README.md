@@ -7,7 +7,7 @@
   <br>
 </p>
 출시 링크<br>
-https://play.google.com/store/apps/details?id=com.STRIKE.STRIKE
+https://play.google.com/store/apps/details?id=com.STRIKE.STRIKE2
 <br>실행 영상<br>
 https://m.youtube.com/watch?v=RaJ_1Oqrkt8
 <br>목차
