@@ -10,6 +10,8 @@ public class ClearUI : MonoBehaviour
     [SerializeField] private Text score, coin, stageNum;
     public AudioSource fillOneStarBGM, AllStarBGM;
     private void Start() {
+
+        SetResolution();
         stageNum.text = (DataManager.Instance.stageNum+1).ToString();
 
         // 별 한 개씩 채우기 효과
@@ -28,18 +30,12 @@ public class ClearUI : MonoBehaviour
         // 이미 스테이지 클리어한 기록이 있을 때, 더 큰 별 개수로 update
         else
             finalStar = GameManager.Instance.star > dataStar ? GameManager.Instance.star : dataStar;
-
-        // 광고 버튼 봤을 때만 쓰일 임시 코인
-        GameManager.Instance.tempCoin = GameManager.Instance.GetCoin();
-
-        // 스테이지 당 별,코인 데이터 로컬파일에 저장 및 코인 초기화
-        DataManager.Instance.Resave(DataManager.Instance.stageNum, finalStar, GameManager.Instance.GetCoin());
+        DataManager.Instance.AfterClear(DataManager.Instance.stageNum, finalStar, GameManager.Instance.GetCoin());
 
         // 별 3개일 때 효과음
         if(GameManager.Instance.star==3)
             Invoke("PlayAllStar", 2f);
     }
-
 
     public void PlayAllStar()
     {
@@ -84,5 +80,31 @@ public class ClearUI : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
         success.SetActive(true);
+    }
+
+    // 해상도 설정
+    // 참고 링크: https://giseung.tistory.com/19
+    public void SetResolution()
+    {
+        // 원하는 해상도
+        int setWidth = 1080;
+        int setHeight = 1920;
+
+        // 기기 해상도
+        int deviceWidth = Screen.width;
+        int deviceHeight = Screen.height;
+
+        Screen.SetResolution(setWidth, (int)(((float)deviceHeight / deviceWidth) * setWidth), true);
+
+        if ((float)setWidth / setHeight < (float)deviceWidth / deviceHeight) // 기기의 해상도 비가 더 큰 경우
+        {
+            float newWidth = ((float)setWidth / setHeight) / ((float)deviceWidth / deviceHeight); // 새로운 너비
+            Camera.main.rect = new Rect((1f - newWidth) / 2f, 0f, newWidth, 1f); // 새로운 Rect 적용
+        }
+        else // 게임의 해상도 비가 더 큰 경우
+        {
+            float newHeight = ((float)deviceWidth / deviceHeight) / ((float)setWidth / setHeight); // 새로운 높이
+            Camera.main.rect = new Rect(0f, (1f - newHeight) / 2f, 1f, newHeight); // 새로운 Rect 적용
+        }
     }
 }

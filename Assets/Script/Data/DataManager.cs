@@ -52,7 +52,7 @@ public class DataManager : MonoBehaviour
     void First()
     {
         UserData userData = new UserData();
-        userData.coins = 000;
+        userData.coins = 0;
         userData.levelCleared = new int[20] {0,0,0,0,0,0,0,0,0,0,
                                             0,0,0,0,0,0,0,0,0,0};
         userData.ball_skin = 0;
@@ -91,13 +91,8 @@ public class DataManager : MonoBehaviour
         myUser = JsonUtility.FromJson<UserData>(json);
     }
 
-    // 스테이지 클리어 후 데이터 수정
-    public void Resave(int stageNum, int star, int coin)
+    public void Resave()
     {
-        myUser.levelCleared[stageNum] = star;
-        myUser.coins += coin;
-        GameManager.Instance.InitialCoin();
-
         System.IO.File.Delete(path);
         string json = JsonUtility.ToJson(myUser);
         FileStream fileStream = new FileStream(path, FileMode.Create);
@@ -105,21 +100,25 @@ public class DataManager : MonoBehaviour
         fileStream.Write(data, 0, data.Length);
         fileStream.Close();
     }
-    
-    public int stageNum = -1;
 
+    // 스테이지 클리어 후 데이터 수정
+    public void AfterClear(int stageNum, int star, int coin)
+    {
+        myUser.levelCleared[stageNum] = star;
+        myUser.coins += coin;
+        GameManager.Instance.InitialCoin();
+
+        Resave();
+    }
+
+    public int stageNum = -1;
     
     // 공 구매 후 데이터 수정
     public void UpdatePurchase(int select)
     {
         myUser.skin_purchased[select] = true;
 
-        System.IO.File.Delete(path);
-        string json = JsonUtility.ToJson(myUser);
-        FileStream fileStream = new FileStream(path, FileMode.Create);
-        byte[] data = Encoding.UTF8.GetBytes(json);
-        fileStream.Write(data, 0, data.Length);
-        fileStream.Close();
+        Resave();
     }
     
     // 공 스킨 변경 후 데이터 수정
@@ -128,11 +127,6 @@ public class DataManager : MonoBehaviour
         
         myUser.ball_skin = select;
 
-        System.IO.File.Delete(path);
-        string json = JsonUtility.ToJson(myUser);
-        FileStream fileStream = new FileStream(path, FileMode.Create);
-        byte[] data = Encoding.UTF8.GetBytes(json);
-        fileStream.Write(data, 0, data.Length);
-        fileStream.Close();
+        Resave();
     }
 }

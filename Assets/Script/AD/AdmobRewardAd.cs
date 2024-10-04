@@ -24,7 +24,7 @@ public class AdmobRewardAd : MonoBehaviour
         });
 
 #if UNITY_ANDROID
-        adUnitId = "ca-app-pub-6374342428414367/1047009624";
+        adUnitId = "ca-app-pub-9814770458961411/2902237491";
 #else
             adUnitId = "unexpected_platform";
 #endif
@@ -76,7 +76,7 @@ public class AdmobRewardAd : MonoBehaviour
             {
                 //보상 획득하기
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
-                DataManager.Instance.Resave(DataManager.Instance.stageNum, DataManager.Instance.myUser.levelCleared[DataManager.Instance.stageNum], GameManager.Instance.tempCoin);
+                DataManager.Instance.AfterClear(DataManager.Instance.stageNum, DataManager.Instance.myUser.levelCleared[DataManager.Instance.stageNum], GameManager.Instance.tempCoin);
                 GameManager.Instance.tempCoin = 0;
                 SceneManager.LoadScene("Start");
             });
